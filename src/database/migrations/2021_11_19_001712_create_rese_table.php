@@ -44,12 +44,12 @@ class CreateReseTable extends Migration
             $table->timestamps();
 
             $table->foreignId('area_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
 
             $table->foreignId('category_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
         });
 
         Schema::create('reservations', function (Blueprint $table) {
@@ -60,12 +60,12 @@ class CreateReseTable extends Migration
             $table->timestamps();
 
             $table->foreignId('user_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
 
             $table->foreignId('restaurant_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
         });
 
         Schema::create('favorites', function (Blueprint $table) {
@@ -73,12 +73,12 @@ class CreateReseTable extends Migration
             $table->timestamps();
 
             $table->foreignId('user_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
 
             $table->foreignId('restaurant_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+                  ->constrained()
+                  ->onDelete('cascade');
         });
     }
 
