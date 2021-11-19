@@ -41,8 +41,6 @@ class CreateReseTable extends Migration
             $table->string('name', 255);
             $table->text('description')->nullable();
             $table->string('image_url')->nullable();
-            // $table->unsignedBigInteger('area_id');
-            // $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
             $table->foreignId('area_id')
@@ -52,15 +50,6 @@ class CreateReseTable extends Migration
             $table->foreignId('category_id')
                     ->constrained()
                     ->onDelete('cascade');
-
-            // $table->foreign('area_id')
-            //         ->referrances('id')
-            //         ->on('areas')
-            //         ->onDelete('cascade');
-            // $table->foreign('category_id')
-            //         ->referrances('id')
-            //         ->on('categories')
-            //         ->onDelete('cascade');
         });
 
         Schema::create('reservations', function (Blueprint $table) {
@@ -69,8 +58,6 @@ class CreateReseTable extends Migration
             $table->time('time');
             $table->integer('number');
             $table->timestamps();
-            // $table->unsignedBigInteger('user_id');
-            // $table->unsignedBigInteger('restaurant_id');
 
             $table->foreignId('user_id')
                     ->constrained()
@@ -79,22 +66,11 @@ class CreateReseTable extends Migration
             $table->foreignId('restaurant_id')
                     ->constrained()
                     ->onDelete('cascade');
-
-                    // $table->foreign('user_id')
-            //         ->referrances('id')
-            //         ->on('users')
-            //         ->onDelete('cascade');
-            // $table->foreign('restaurant_id')
-            //         ->referrances('id')
-            //         ->on('restaurants')
-            //         ->onDelete('cascade');
         });
 
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            // $table->unsignedBigInteger('user_id');
-            // $table->unsignedBigInteger('restaurant_id');
 
             $table->foreignId('user_id')
                     ->constrained()
