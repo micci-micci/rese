@@ -155,7 +155,7 @@ class AreasTableSeeder extends Seeder
             ],
             [
                 'name' => '沖縄県'
-            ],
+            ]
         ];
 
         foreach ($params as $param) {
