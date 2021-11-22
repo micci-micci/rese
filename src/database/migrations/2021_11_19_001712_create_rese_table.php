@@ -13,9 +13,6 @@ class CreateReseTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('reservations');
-
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
@@ -89,6 +86,11 @@ class CreateReseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rese');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('areas');
+        Schema::dropIfExists('categories');
+        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('favorites');
     }
 }
