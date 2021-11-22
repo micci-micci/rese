@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    color: #333;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+}
+select {
+    border: none;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #808080;
+}
+input {
+    border: none;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #808080;
+    width : 250px;
+}
+
+/* Heder*/
+header {
+    padding: 30px 10% 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    margin: 20px 20px;
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#humberger {
+    position: relative;
+    height: 46px;
+    width: 46px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #1E90FF;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#humberger div {
+    position: absolute;
+    left: 7px;
+    height: 2px;
+    width: 28px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+#humberger div:nth-of-type(1) {
+    width: 14px;
+    bottom: 30px;
+}
+#humberger div:nth-of-type(2) {
+    bottom: 20px;
+}
+#humberger div:nth-of-type(3) {
+    width: 10px;
+    bottom: 10px;
+}
+.menu_title {
+    color: #1E90FF;
+    margin: 0 auto;
+    font-size: 34px;
+}
+/* Header search */
+.search-bar {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 46px;
+    width: 540px;
+}
+.search-bar-area {
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    font-size: 14px;
+    color: #808080;
+}
+.material-icons {
+    position: absolute;
+    top: 18px;
+    left: 60px;
+}
+.search-area {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+	width: 20%;
+}
+.search-category {
+    position: absolute;
+    top: 12px;
+    left: 110px;
+	width: 20%;
+    border: none;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #808080;
+}
+.search-area:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #808080;
+    position: absolute;
+    left: 90px
+}
+.search-category:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #808080;
+    position: absolute;
+    left: 120px
+}
+.search-icon {
+    color: #808080;
+    position: absolute;
+    top: 11px;
+    left: 240px;
+}
+.search-box {
+    position: absolute;
+    top: 11px;
+    left: 270px;
+    width: 100px;
+}
+
