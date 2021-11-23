@@ -30,7 +30,7 @@ input {
     width : 250px;
 }
 
-/* Heder*/
+/* Header*/
 header {
     padding: 30px 10% 10px;
     position: fixed;
@@ -150,4 +150,3 @@ header {
     left: 270px;
     width: 100px;
 }
-
