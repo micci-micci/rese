@@ -114,17 +114,18 @@ main {
 	left: 0px;
 	padding: 9px 8px;
 }
-.login-btn {
-    border: 1px solid #1E90FF;
-    border-radius: 5px;
-    background-color: #1E90FF;
-    color: white;
-    width: 100px;
-}
 .login-input-box-right {
     padding-right: 34px;
     align-items: center;
     height: 50px;
     width: 100%;
     text-align: right;
+}
+.login-btn {
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 14px;
+    width: 80px;
 }
