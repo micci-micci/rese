@@ -14,16 +14,26 @@
         </div>
     </header>
     <main>
-        <form method="post" action="">
+        <form method="post" action="{{ route('login') }}">
+            @csrf
+
             <div class="login">
                 <div class="login-bar">
                     <span class="login-box-text">Login</span>
                 </div>
                 <div class="login-container">
+                    @error('email')
+                    <div class="error">{{ $message }}</div>
+                    @enderror
+
                     <div class="login-input-box">
                         <span class="material-icons login-icon">email</span>
                         <input type="text" name="email" placeholder="Email">
                     </div>
+                    @error('password')
+                    <div class="error">{{ $message }}</div>
+                    @enderror
+
                     <div class="login-input-box">
                         <span class="material-icons login-icon">lock</span>
                         <input type="text" name="password" placeholder="Password">
