@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -18,17 +19,20 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'passowrd');
+        $credentials = $request->only('email', 'password');
+        // dd($request->all());
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            // return redirect()->route('home')
+            //     ->with('login_success', 'ログイン成功しました。');
             return redirect('home')
-                ->with('login_success', 'ログイン成功しました。');
+                ->with('login_sucess', 'ログイン成功しました。');
         }
 
         return back()->withErrors([
-            'login_email' => 'メールアドレスかパスワードが間違っています。',
+            'login_error' => 'The provided credentials do not match our records.',
         ]);
     }
 }

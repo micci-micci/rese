@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    @if (session('login_success'))
+    @if (session('login_sucess'))
         {{ session('login_sucess') }}
     @endif
     <h1>Home</h1>
