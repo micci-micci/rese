@@ -41,6 +41,10 @@
                     <div class="login-input-box-right">
                         <input type="submit" class="login-btn" value="ログイン">
                     </div>
+
+                    @if (session('login_error'))
+                        {{ session('login_error') }}
+                    @endif
                 </div>
             </div>
         </form>
