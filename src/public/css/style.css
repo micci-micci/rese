@@ -212,13 +212,12 @@ main {
     border-radius: 5px;
 }
 .thanks-txt {
-    padding: 100px 0;
+    padding: 100px 0px;
     text-align: center;
     font-size: 24px;
-    margin: 0 auto;
-    display: -webkit-flex;
-    -webkit-align-items: center;
-    -webkit-justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .thanks-input-box {
     margin: auto;
