@@ -27,11 +27,11 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             return redirect()->route('home')
-                ->with('login_success', 'ログイン成功しました。');
+                ->with('success', 'ログイン成功しました。');
         }
 
         return back()->withErrors([
-            'login_error' => 'The provided credentials do not match our records.',
+            'danger' => 'The provided credentials do not match our records.',
         ]);
     }
 
@@ -48,6 +48,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login.show')
-            ->with('logout', 'ログアウトしました。');
+            ->with('danger', 'ログアウトしました。');
     }
 }
