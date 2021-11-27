@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        Contact page
+        Restaurants page
     </x-slot>
 
     <header>
