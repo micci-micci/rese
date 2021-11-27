@@ -18,3 +18,9 @@ $ php artisan make:controller HogeController
 $ php artisan make:seeder HogeTableSeeder
 ```
 
+### シーダファイルとマイグレーションファイルの作り直しコマンド
+
+```
+$ php artisan migrate:fresh --seed
+```
+
