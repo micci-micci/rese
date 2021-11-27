@@ -38,6 +38,41 @@
                 </div>
             </form>
         </div>
-
     </header>
+    <main>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>image_url</th>
+                <th>area_id</th>
+                <th>category_id</th>
+            </tr>
+
+            @foreach ($restaurants as $restaurant)
+            <tr>
+                <td>
+                    <p>{{ $restaurant->id }}</p>
+                </td>
+                <td>
+                    <p>{{ $restaurant->name }}</p>
+                </td>
+                <td>
+                    <p>{{ $restaurant->description }}</p>
+                </td>
+                <td>
+                    <img src="{{ $restaurant->image_url }}">
+                    {{-- <p>{{ $restaurant->image_url }}</p> --}}
+                </td>
+                <td>
+                    <p>{{ $restaurant->area->name }}</p>
+                </td>
+                <td>
+                    <p>{{ $restaurant->category->name }}</p>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </main>
 </x-layout>
