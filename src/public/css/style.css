@@ -230,3 +230,8 @@ main {
 .alert-danger .alert-link {
     color: #4c110f;
 }
+
+
+.space {
+    margin-top: 20px;
+}
