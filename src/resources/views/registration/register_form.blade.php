@@ -16,25 +16,35 @@
     <main>
         <form method="post" action="{{ route('thanks') }}">
             @csrf
-
             <x-alert type="danger" :session="session('danger')" />
+
+            {{-- <div class="error-container">
+                @error('name')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+                @error('email')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+                @error('password')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div> --}}
+
             <div class="register">
                 <div class="register-bar">
                     <span class="register-box-text">Registration</span>
                 </div>
-
                 <div class="register-container">
                     @error('name')
-                    <div class="error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
 
                     <div class="register-input-box">
                         <span class="material-icons register-icon">face</span>
                         <input type="text" name="name" placeholder="Username">
                     </div>
-
                     @error('email')
-                    <div class="error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
 
                     <div class="register-input-box">
@@ -42,7 +52,7 @@
                         <input type="text" name="email" placeholder="Email">
                     </div>
                     @error('password')
-                    <div class="error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
 
                     <div class="register-input-box">
