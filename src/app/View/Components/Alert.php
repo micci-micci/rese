@@ -7,19 +7,36 @@ use Illuminate\View\Component;
 class Alert extends Component
 {
     /**
-     * Create a new component instance.
+     * 警告タイプ
      *
+     * @var string
+     */
+    public $type;
+
+    /**
+     * 警告メッセージセッション
+     *
+     * @var string
+     */
+    public $session;
+
+    /**
+     * コンポーネントインスタンスを作成
+     *
+     * @param  string  $type
+     * @param  string  $message
      * @return void
      */
-    public function __construct()
+    public function __construct($type, $session)
     {
-        //
+        $this->type = $type;
+        $this->session = $session;
     }
 
     /**
-     * Get the view / contents that represent the component.
+     * コンポーネントを表すビュー／コンテンツを取得
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return \Illuminate\View\View|\Closure|string
      */
     public function render()
     {
