@@ -21,13 +21,7 @@
                 <div class="login-bar">
                     <span class="login-box-text">Login</span>
                 </div>
-                @if (session('login_error'))
-                    {{ session('login_error') }}
-                @endif
-
-                @if (session('logout'))
-                    {{ session('logout') }}
-                @endif
+                <x-alert type="danger" :session="session('danger')" />
 
                 <div class="login-container">
                     @error('email')
