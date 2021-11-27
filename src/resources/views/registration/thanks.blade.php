@@ -2,14 +2,27 @@
     <x-slot name="title">
         Thanks page
     </x-slot>
-    <x-alert type="success" :session="session('success')" />
 
-    <h1>Thanks</h1>
-    <div class="space"></div>
-    <form method="GET" action="{{ route('login.show') }}">
-        @csrf
+    <header>
+        <div class="container">
+            <div id="humberger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h1 class="menu_title">Rese</h1>
+        </div>
+    </header>
+    <main>
+        <form method="get" action="{{ route('login.show') }}">
+            @csrf
 
-        <button class="login-btn">ログイン</button>
-    </form>
+            <div class="thanks">
+                <span class="thanks-txt">会員登録ありがとうございます</span>
+                <div class="thanks-input-box">
+                    <button class="thanks-btn">ログイン</button>
+                </div>
+            </div>
+        </form>
+    </main>
 </x-layout>
-
