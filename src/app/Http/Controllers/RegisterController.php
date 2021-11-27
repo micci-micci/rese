@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 
-class RegistrationController extends Controller
+class RegisterController extends Controller
 {
     /**
      * @return View
     */
     public function showRegister()
     {
-        return view('registration.register_form');
+        return view('register.register_form');
     }
 
     public function thanks(RegisterRequest $request)
@@ -25,6 +25,6 @@ class RegistrationController extends Controller
             'password'=> Hash::make($request['password']),
         ]);
 
-        return view('registration.thanks');
+        return view('register.thanks');
     }
 }
