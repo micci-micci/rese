@@ -12,5 +12,11 @@
     <h1>Home</h1>
     <li>name: {{ Auth::user()->name }}</li>
     <li>email: {{ Auth::user()->email }}</li>
+
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+        <button class="logout-btn">ログアウト</button>
+    </form>
 </body>
 </html>

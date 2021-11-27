@@ -21,6 +21,14 @@
                 <div class="login-bar">
                     <span class="login-box-text">Login</span>
                 </div>
+                @if (session('login_error'))
+                    {{ session('login_error') }}
+                @endif
+
+                @if (session('logout'))
+                    {{ session('logout') }}
+                @endif
+
                 <div class="login-container">
                     @error('email')
                     <div class="error">{{ $message }}</div>
@@ -41,10 +49,6 @@
                     <div class="login-input-box-right">
                         <input type="submit" class="login-btn" value="ログイン">
                     </div>
-
-                    @if (session('login_error'))
-                        {{ session('login_error') }}
-                    @endif
                 </div>
             </div>
         </form>

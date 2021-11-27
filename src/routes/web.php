@@ -10,13 +10,15 @@ Route::group(['middleware' => ['guest']], function() {
         ->name('login.show');
     Route::post('login', [AuthController::class, 'login'])
         ->name('login');
-});
+    });
 
 // After login
 Route::group(['middleware' => ['auth']], function() {
     Route::get('home', function() {
         return view('home');
     })->name('home');
+    Route::post('logout', [AuthController::class, 'logout'])
+        ->name('logout');
 });
 
 // Route::get('/', [RestaurantController::class, 'index'])
