@@ -25,7 +25,7 @@
 
                 <div class="login-container">
                     @error('email')
-                    <div class="error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
 
                     <div class="login-input-box">
@@ -33,7 +33,7 @@
                         <input type="text" name="email" placeholder="Email">
                     </div>
                     @error('password')
-                    <div class="error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
 
                     <div class="login-input-box">
