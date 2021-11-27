@@ -2,7 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
+
+// Register
+Route::get('register', [RegistrationController::class, 'showRegister'])
+    -> name('register');
+Route::post('thanks', [RegistrationController::class, 'thanks'])
+    -> name('thanks');
 
 // Before login
 Route::group(['middleware' => ['guest']], function() {
