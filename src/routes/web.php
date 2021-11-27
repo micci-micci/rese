@@ -13,7 +13,7 @@ Route::post('thanks', [RegisterController::class, 'thanks'])
 
 // Before login
 Route::group(['middleware' => ['guest']], function() {
-    Route::get('/', [AuthController::class, 'showLogin'])
+    Route::get('login', [AuthController::class, 'showLogin'])
         ->name('login.show');
     Route::post('login', [AuthController::class, 'login'])
         ->name('login');
@@ -28,5 +28,5 @@ Route::group(['middleware' => ['auth']], function() {
         ->name('logout');
 });
 
-// Route::get('/', [RestaurantController::class, 'index'])
-//     -> name('restraunts.index');
+Route::get('/', [RestaurantController::class, 'index'])
+    -> name('restraunts.index');
