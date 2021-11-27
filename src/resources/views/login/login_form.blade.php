@@ -18,7 +18,6 @@
             @csrf
 
             <x-alert type="danger" :session="session('danger')" />
-
             <div class="login">
                 <div class="login-bar">
                     <span class="login-box-text">Login</span>

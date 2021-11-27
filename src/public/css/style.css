@@ -133,8 +133,37 @@ main {
     border: 1px solid #1E90FF;
     border-radius: 5px;
     background-color: #1E90FF;
+    margin-top: 20px;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     width: 80px;
 }
-
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    /* border-radius: 0.25rem; */
+}
+.alert-success {
+    color: #1d643b;
+    background-color: #d7f3e3;
+    border-color: #c7eed8;
+}
+.alert-success hr {
+    border-top-color: #b3e8ca;
+}
+.alert-success .alert-link {
+    color: #123c24;
+}
+.alert-danger {
+    color: #761b18;
+    background-color: #f9d6d5;
+    border-color: #f7c6c5;
+}
+.alert-danger hr {
+    border-top-color: #f4b0af;
+}
+.alert-danger .alert-link {
+    color: #4c110f;
+}

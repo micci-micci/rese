@@ -1,5 +1,5 @@
 @if ($session)
-    <div class="alert-{{ $type }}">
+    <div class="alert alert-{{ $type }}">
         {{ $session }}
     </div>
 @endif

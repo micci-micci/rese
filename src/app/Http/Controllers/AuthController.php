@@ -31,7 +31,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'danger' => 'The provided credentials do not match our records.',
+            'danger' => 'ログイン失敗しました',
         ]);
     }
 
