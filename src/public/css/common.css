@@ -39,7 +39,7 @@ header {
     align-items: center;
 }
 .container {
-    margin: 20px 20px;
+    margin: 20px 0px;
     width: 15%;
     display: flex;
     justify-content: space-between;
@@ -81,6 +81,7 @@ header {
     color: #1E90FF;
     margin: 0 auto;
     font-size: 34px;
+    line-height: 46px;
 }
 
 /* Alert */
