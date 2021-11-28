@@ -29,4 +29,4 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/', [RestaurantController::class, 'index'])
-    -> name('restraunts.index');
+    -> name('restaurants.index');

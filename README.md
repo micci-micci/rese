@@ -12,6 +12,12 @@ $ composer create-project laravel/laravel .
 $ php artisan make:controller HogeController
 ```
 
+### モデル生成
+
+```
+$ php artisan make:model Hoge
+```
+
 ### シーダーファイル生成
 
 ```
