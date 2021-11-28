@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+input {
+	font-size: 16px;
+    color: #808080;
+    width : 250px;
+    border: none;
+}
+
+/* Header search */
+.search-bar {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 46px;
+    width: 540px;
+}
+.search-bar-area {
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    font-size: 14px;
+    color: #808080;
+}
+.material-icons {
+    color: #808080;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.search-area {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+	width: 20%;
+}
+.search-category {
+    position: absolute;
+    top: 12px;
+    left: 110px;
+	width: 20%;
+    border: none;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #808080;
+}
+.search-area:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #808080;
+    position: absolute;
+    left: 90px
+}
+.search-category:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #808080;
+    position: absolute;
+    left: 120px
+}
+.search-icon {
+    color: #808080;
+    position: absolute;
+    top: 11px;
+    left: 240px;
+}
+.search-box {
+    position: absolute;
+    top: 11px;
+    left: 270px;
+    width: 100px;
+}
+
+
+/* Restaurant lists */
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    width: 24%;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px
+}
+.card-radius {
+    overflow: hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px
+}
+.card-header {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-thumbnail {
+    margin: 0;
+    order: 0;
+}
+.card-body {
+    margin: 10px 20px;
+}
+.card-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    order: 1;
+    font-weight: bold;
+    text-decoration: none;
+}
+.card-tag-wrapper {
+    display: flex;
+    gap: 10px 10px;
+    margin-bottom: 20px;
+}
+.card-tag-text {
+    font-size: 12px;
+}
+.card-detail-btn {
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 14px;
+    width: 100px;
+}
+.card-footer {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.card:not(:nth-child(4n+4)) {
+    margin-right: 1%;
+}
+
+.card:nth-child(n+5) {
+    margin-top: 30px;
+}
