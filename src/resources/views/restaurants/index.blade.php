@@ -58,8 +58,10 @@
                             <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
                         </div>
                         <div class="card-footer">
-                            <input type="submit" class="card-detail-btn" value="詳しく見る">
-                            <span class="material-icons favorite-icon">favorite</span>
+                            <input type="submit" class="card-detail-btn" name="detail" value="詳しく見る">
+                            <button id="" class="">
+                                <i class="material-icons favorite-icon">favorite</i>
+                            </button>
                         </div>
                     </div>
                 </form>
