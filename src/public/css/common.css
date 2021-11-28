@@ -24,14 +24,10 @@ select {
 	font-size: 16px;
     color: #808080;
 }
-input {
-    margin: 0 auto;
-	font-size: 16px;
-    color: #808080;
-    width : 250px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
+main {
+    width: 100%;
+    margin: 50px 0 200px;
+    background: #FFFFFF;
 }
 
 /* Header*/
@@ -85,4 +81,49 @@ header {
     color: #1E90FF;
     margin: 0 auto;
     font-size: 34px;
+}
+
+/* Alert */
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    /* border-radius: 0.25rem; */
+}
+.alert-success {
+    color: #1d643b;
+    background-color: #d7f3e3;
+    border-color: #c7eed8;
+}
+.alert-success hr {
+    border-top-color: #b3e8ca;
+}
+.alert-success .alert-link {
+    color: #123c24;
+}
+.alert-danger {
+    color: #761b18;
+    background-color: #f9d6d5;
+    border-color: #f7c6c5;
+}
+.alert-danger hr {
+    border-top-color: #f4b0af;
+}
+.alert-danger .alert-link {
+    color: #4c110f;
+}
+
+.error-container {
+    margin: 0 auto;
+    width: 400px;
+    height: 50px;
+}
+.error {
+    text-align: left;
+    color: red;
+    font-size: 12px;
+}
+.space {
+    margin-top: 20px;
 }

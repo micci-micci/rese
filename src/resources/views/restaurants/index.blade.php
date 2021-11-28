@@ -1,4 +1,4 @@
-<x-layout>
+<x-restaurant>
     <x-slot name="title">
         Restaurants page
     </x-slot>
@@ -40,39 +40,31 @@
         </div>
     </header>
     <main>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>image_url</th>
-                <th>area_id</th>
-                <th>category_id</th>
-            </tr>
-
+        <div class="wrap">
             @foreach ($restaurants as $restaurant)
-            <tr>
-                <td>
-                    <p>{{ $restaurant->id }}</p>
-                </td>
-                <td>
-                    <p>{{ $restaurant->name }}</p>
-                </td>
-                <td>
-                    <p>{{ $restaurant->description }}</p>
-                </td>
-                <td>
-                    <img src="{{ $restaurant->image_url }}">
-                    {{-- <p>{{ $restaurant->image_url }}</p> --}}
-                </td>
-                <td>
-                    <p>{{ $restaurant->area->name }}</p>
-                </td>
-                <td>
-                    <p>{{ $restaurant->category->name }}</p>
-                </td>
-            </tr>
+            <div class="card card-radius">
+                <form method="get" action="">
+                @csrf
+
+                    <div class="card-header">
+                        <figure class="card-thumbnail">
+                            <img src="{{ $restaurant->image_url }}">
+                        </figure>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">{{ $restaurant->name }}</p>
+                        <div class="card-tag-wrapper">
+                            <p class="card-tag-text">#{{ $restaurant->area->name }}</p>
+                            <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" class="card-detail-btn" value="詳しく見る">
+                            <span class="material-icons favorite-icon">favorite</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
             @endforeach
-        </table>
+        </div>
     </main>
-</x-layout>
+</x-restaurant>
