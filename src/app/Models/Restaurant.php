@@ -25,4 +25,8 @@ class Restaurant extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+    public function favorite()
+    {
+        return $this->hasMany('App\Models\Favorite');
+    }
 }
