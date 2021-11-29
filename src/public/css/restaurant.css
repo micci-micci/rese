@@ -6,12 +6,6 @@ input {
     width : 250px;
     border: none;
 }
-button {
-    border: none;
-    outline: none;
-    background-color: #fff;
-    padding: 0;
-}
 
 /* Header search */
 .search-bar {
@@ -153,4 +147,10 @@ button {
 }
 .card:nth-child(n+5) {
     margin-top: 30px;
+}
+.favorite-icon {
+    color: #808080;
+}
+.favorited-icon {
+    color: red;
 }

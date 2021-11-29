@@ -58,10 +58,17 @@
                             <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
                         </div>
                         <div class="card-footer">
-                            <input type="submit" class="card-detail-btn" name="detail" value="詳しく見る">
-                            <button id="" class="">
+                            <input type="submit" class="card-detail-btn" value="詳しく見る">
+                            @auth
+                                @if (!$favorite->isFavoritedBy(Auth::user()))
+                                    <i class="material-icons favorite-icon favorite-toggle">favorite</i>
+                                @else
+                                    <i class="material-icons favorited-icon">favorite</i>
+                                @endif
+                            @endauth
+                            @guest
                                 <i class="material-icons favorite-icon">favorite</i>
-                            </button>
+                            @endguest
                         </div>
                     </div>
                 </form>
