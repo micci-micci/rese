@@ -59,7 +59,21 @@
                         </div>
                         <div class="card-footer">
                             <input type="submit" class="card-detail-btn" value="詳しく見る">
-                            <span class="material-icons favorite-icon">favorite</span>
+                            @auth
+                                @inject('favorite', 'App\Models\Favorite')
+                                @if ($favorite->isFavoritedBy(Auth::user(), $restaurant->id))
+                                    <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=1>
+                                        <i class="material-icons favorited">favorite</i>
+                                    </span>
+                                @else
+                                <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=0>
+                                    <i class="material-icons favorite">favorite</i>
+                                </span>
+                                @endif
+                            @endauth
+                            @guest
+                                <i class="material-icons favorite-icon">favorite</i>
+                            @endguest
                         </div>
                     </div>
                 </form>

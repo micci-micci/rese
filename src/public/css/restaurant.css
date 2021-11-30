@@ -143,9 +143,14 @@ input {
     justify-content: space-between;
 }
 .card:not(:nth-child(4n+4)) {
-    margin-right: 1%;
+    margin-right: 1.2%;
 }
-
 .card:nth-child(n+5) {
     margin-top: 30px;
+}
+.favorite {
+    color: #808080;
+}
+.favorited {
+    color: red;
 }
