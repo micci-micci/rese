@@ -54,7 +54,7 @@
                         <h1 class="reserve-title">予約</h1>
                         <input type="date" class="reserve-input-space"></input>
                         <input type="time" class="reserve-input-space reserve-input-width"></input>
-                        <input type="number" class="reserve-input-space reserve-input-width"></input>
+                        <input type="number" class="reserve-input-space reserve-input-width" value="1" min="1"></input>
                         {{-- 予約情報をのせる --}}
                         <div class="reserve-info"></div>
                     </div>
