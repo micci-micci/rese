@@ -23,7 +23,7 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function  isFavoritedBy($user): bool {
-        return Favorite::where('user_id', $user->id)->whare('restaurant_id', $this->id)->first() !== null;
+    public function isFavoritedBy($user, $restaurant_id): bool {
+        return Favorite::where('user_id', $user->id)->where('restaurant_id', $restaurant_id)->first() !== null;
     }
 }

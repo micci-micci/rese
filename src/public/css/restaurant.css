@@ -148,9 +148,9 @@ input {
 .card:nth-child(n+5) {
     margin-top: 30px;
 }
-.favorite-icon {
+.favorite {
     color: #808080;
 }
-.favorited-icon {
+.favorited {
     color: red;
 }

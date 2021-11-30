@@ -16,5 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
     .sourceMaps()
     .autoload({
         "jquery": ['$', 'window.jQuery'],
-    });
+    })
+    .js('resources/js/favorite.js', 'public/js');
 

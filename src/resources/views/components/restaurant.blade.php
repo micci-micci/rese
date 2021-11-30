@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://localhost:8080/css/reset.css">
     <link rel="stylesheet" href="http://localhost:8080/css/common.css">
     <link rel="stylesheet" href="http://localhost:8080/css/restaurant.css">
-    <script src="{{ mix('js/favorite.js') }}"></script>
+    <script src="{{ mix("js/favorite.js") }}"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
