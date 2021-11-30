@@ -61,10 +61,10 @@
                             <input type="submit" class="card-detail-btn" value="詳しく見る">
                             @auth
                                 @inject('favorite', 'App\Models\Favorite')
-                                @if (!$favorite->isFavoritedBy(Auth::user(), $restaurant->id))
-                                    <i class="material-icons favorite favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} >favorite</i>
+                                @if ($favorite->isFavoritedBy(Auth::user(), $restaurant->id))
+                                    <i class="material-icons favorited favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=1>favorite</i>
                                 @else
-                                    <i class="material-icons favorited favorite-toggle">favorite</i>
+                                    <i class="material-icons favorite favorite-toggle"  user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=0>favorite</i>
                                 @endif
 
 
