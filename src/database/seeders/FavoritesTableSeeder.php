@@ -16,15 +16,19 @@ class FavoritesTableSeeder extends Seeder
     {
         $params = [
             [
-                'restaurant_id' => 1,
-                'user_id' => 1,
+                'restaurant_id' => 2,
+                'user_id' => 2,
             ],
             [
                 'restaurant_id' => 10,
                 'user_id' => 1,
             ],
             [
-                'restaurant_id' => 12,
+                'restaurant_id' => 3,
+                'user_id' => 1,
+            ],
+            [
+                'restaurant_id' => 6,
                 'user_id' => 1,
             ],
         ];
