@@ -43,4 +43,9 @@ class RestaurantController extends Controller
 
         return response()->json($param);
     }
+
+    public function detail()
+    {
+        return view('restaurants.detail');
+    }
 }
