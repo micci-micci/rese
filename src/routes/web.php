@@ -34,3 +34,8 @@ Route::get('/', [RestaurantController::class, 'index'])
 // Favorite
 Route::post('favorite', [RestaurantController::class, 'favorite'])
     -> name('restaurants.favorite');
+
+// Restaurant datail
+// ToDo レストランID を渡すようにする
+Route::get('detail', [RestaurantController::class, 'detail'])
+    -> name('restaurants.datail');
