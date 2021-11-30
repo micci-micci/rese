@@ -12,9 +12,9 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
-    
+
     public function restaurant()
     {
-        return $this->hasOne('App\Models\Restaurant');
+        return $this->hasOne(Restaurant::class);
     }
 }

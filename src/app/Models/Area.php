@@ -15,6 +15,6 @@ class Area extends Model
 
     public function restaurant()
     {
-        return $this->hasOne('App\Models\Restaurant');
+        return $this->hasOne(Restaurant::class);
     }
 }

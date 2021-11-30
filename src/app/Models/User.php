@@ -24,6 +24,11 @@ class User extends Authenticatable
         'error_count',
     ];
 
+    public function favorite()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
