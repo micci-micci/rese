@@ -30,3 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::get('/', [RestaurantController::class, 'index'])
     -> name('restaurants.index');
+
+// Favorite
+Route::post('favorite', [RestaurantController::class, 'favorite'])
+    -> name('restaurants.favorite');

@@ -62,12 +62,14 @@
                             @auth
                                 @inject('favorite', 'App\Models\Favorite')
                                 @if ($favorite->isFavoritedBy(Auth::user(), $restaurant->id))
-                                    <i class="material-icons favorited favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=1>favorite</i>
+                                    <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=1>
+                                        <i class="material-icons favorited">favorite</i>
+                                    </span>
                                 @else
-                                    <i class="material-icons favorite favorite-toggle"  user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=0>favorite</i>
+                                <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $restaurant->id }} favorite_count=0>
+                                    <i class="material-icons favorite">favorite</i>
+                                </span>
                                 @endif
-
-
                             @endauth
                             @guest
                                 <i class="material-icons favorite-icon">favorite</i>
