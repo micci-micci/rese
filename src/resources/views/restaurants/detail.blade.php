@@ -3,9 +3,6 @@
         Restaurants page
     </x-slot>
 
-    {{-- <header> --}}
-
-    {{-- </header> --}}
     <main>
 
         <div class="parent-container">
