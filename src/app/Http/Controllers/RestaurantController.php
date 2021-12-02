@@ -59,9 +59,11 @@ class RestaurantController extends Controller
         return response()->json($param);
     }
 
-    public function detail()
+    public function detail(Request $request, int $id)
     {
-        return view('restaurants.detail');
+        $restaurant = Restaurant::where('id', $id)->first();
+        return view('restaurants.detail')
+            ->with(['restaurant' => $restaurant]);
     }
 
     public function done()
