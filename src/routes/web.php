@@ -38,11 +38,12 @@ Route::post('favorite', [RestaurantController::class, 'favorite'])
 
 // Restaurant datail
 // ToDo レストランID を渡すようにする
-Route::get('detail', [RestaurantController::class, 'detail'])
+Route::get('detail/{id}', [RestaurantController::class, 'detail'])
     -> name('restaurants.datail');
-// 一旦、メソッドをget にする（画面確認したいため）
+    // 一旦、メソッドをget にする（画面確認したいため）
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
+
 
 // MyPage
 Route::get('mypage', [MypageController::class, 'mypage'])

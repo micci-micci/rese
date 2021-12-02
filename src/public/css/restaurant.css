@@ -7,6 +7,16 @@ input {
     border: none;
 }
 
+/* 装飾 */
+/* a {
+    color: #fff;
+    background: #1E90FF;
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
+} */
+
 /* Header search */
 .search-bar {
     position: relative;
@@ -22,7 +32,7 @@ input {
     left: 10px;
     font-size: 14px;
     color: #808080;
-}
+} */
 .material-icons {
     color: #808080;
     font-family: 'Material Icons';
@@ -130,12 +140,18 @@ input {
     font-size: 12px;
 }
 .card-detail-btn {
-    border: 1px solid #1E90FF;
+    /* border: 1px solid #1E90FF;
     border-radius: 5px;
     background-color: #1E90FF;
     color: white;
     font-size: 14px;
-    width: 100px;
+    width: 100px; */
+    color: #fff;
+    background: #1E90FF;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
 }
 .card-footer {
     margin-bottom: 30px;
@@ -148,15 +164,25 @@ input {
 .card:nth-child(n+5) {
     margin-top: 30px;
 }
-.favorite {
+/* .favorite {
     color: #808080;
 }
 .favorited {
     color: red;
-}
+} */
 .favorite:hover{
     transform: translateY(-3px);
     cursor: pointer;
+}
+.material-icons.favorite {
+    display: block;
+    font-size: 36px;
+    color: #808080;
+}
+.material-icons.favorited {
+    display: block;
+    font-size: 36px;
+    color: red;
 }
 
 /* Detail container*/
