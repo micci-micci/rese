@@ -154,6 +154,10 @@ input {
 .favorited {
     color: red;
 }
+.favorite:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
 
 /* Detail container*/
 .parent-container {
@@ -171,7 +175,7 @@ input {
     margin: 20px 0px;
     width: 30%;
     display: flex;
-    justify-content: space-between;
+
 }
 #ditail-humberger {
     position: relative;
@@ -207,7 +211,7 @@ input {
 }
 .ditail-menu_title {
     color: #1E90FF;
-    margin: 0 auto;
+    margin-left: 20px;
     font-size: 34px;
     line-height: 46px;
 }
@@ -321,4 +325,38 @@ input {
     color: #fff;
     font-size: 26px;
     text-align: center;
+}
+
+/* Done */
+.done {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 300px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.done-txt {
+    padding: 100px 0px;
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.done-input-box {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
+.done-btn {
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 14px;
+    width: 100px;
 }

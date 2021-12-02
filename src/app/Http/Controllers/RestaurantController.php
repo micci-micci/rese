@@ -48,4 +48,9 @@ class RestaurantController extends Controller
     {
         return view('restaurants.detail');
     }
+
+    public function done()
+    {
+        return view('restaurants.done');
+    }
 }
