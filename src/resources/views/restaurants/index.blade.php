@@ -13,13 +13,15 @@
             <h1 class="menu_title">Rese</h1>
         </div>
         <div class="search-bar">
-            <form method="post" action="">
+            <form method="post" action="{{ route('search') }}">
+                @csrf
+
                 <div class="search-area">
                     <select name="area">
                         <option value="" hidden>All area</option>
                         <option value="1">東京都</option>
-                        <option value="2">福岡県</option>
-                        <option value="3">大阪府</option>
+                        <option value="40">福岡県</option>
+                        <option value="27">大阪府</option>
                     </select>
                 </div>
                 <div class="search-category">
