@@ -42,7 +42,6 @@ header {
     margin: 20px 0px;
     width: 15%;
     display: flex;
-    justify-content: space-between;
 }
 
 #humberger {
@@ -79,7 +78,7 @@ header {
 }
 .menu_title {
     color: #1E90FF;
-    margin: 0 auto;
+    margin-left: 20px;
     font-size: 34px;
     line-height: 46px;
 }
