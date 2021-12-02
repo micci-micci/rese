@@ -3,8 +3,7 @@
         Restaurants page
     </x-slot>
 
-    <main>
-
+    <main-detail>
         <div class="parent-container">
 
             <div class="child-container">
@@ -18,29 +17,26 @@
                 </div>
                 <div class="back-container">
                     <span class="back-box">
-                        <i class="material-icons arrow-back-icon">chevron_left</i>
+                        <button type="button" onClick="history.back()" class="material-icons arrow-back-icon">chevron_left</button>
                     </span>
-                    {{-- ToDo: ID 取得して表示させる --}}
-                    <h1 class="back-title">仙人</h1>
+                    <h1 class="back-title">{{ $restaurant->name }}</h1>
                 </div>
-                {{-- レストランID を取得して割り当てる --}}
                 <div class="detail-card">
                     <form method="get" action="">
                     @csrf
 
                         <div class="detail-card-header">
                             <figure class="detail-card-thumbnail">
-                                {{-- 仮イメージ --}}
-                                <img src="https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg">
+                                <img src={{ $restaurant->image_url }}>
                             </figure>
                         </div>
                         <div class="detail-card-body">
                             <p class="detail-card-title"></p>
                             <div class="detail-card-tag-wrapper">
-                                <p class="detail-card-tag-text">#東京都</p>
-                                <p class="detail-card-tag-text">#寿司</p>
+                                <p class="detail-card-tag-text">#{{ $restaurant->area->name }}</p>
+                                <p class="detail-card-tag-text">#{{ $restaurant->category->name }}</p>
                             </div>
-                            <p class="detail-card-txt">料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。</p>
+                            <p class="detail-card-txt">{{ $restaurant->description }}</p>
                         </div>
                     </form>
                 </div>
