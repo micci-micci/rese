@@ -22,7 +22,7 @@ input {
     left: 10px;
     font-size: 14px;
     color: #808080;
-}
+} */
 .material-icons {
     color: #808080;
     font-family: 'Material Icons';
@@ -130,12 +130,12 @@ input {
     font-size: 12px;
 }
 .card-detail-btn {
-    border: 1px solid #1E90FF;
+    color: #fff;
+    background: #1E90FF;
+    padding: 10px 20px;
+    display: inline-block;
     border-radius: 5px;
-    background-color: #1E90FF;
-    color: white;
-    font-size: 14px;
-    width: 100px;
+    text-decoration: none;
 }
 .card-footer {
     margin-bottom: 30px;
@@ -148,18 +148,31 @@ input {
 .card:nth-child(n+5) {
     margin-top: 30px;
 }
-.favorite {
+.material-icons.favorite {
+    display: block;
+    font-size: 36px;
     color: #808080;
 }
-.favorited {
+.material-icons.favorited {
+    display: block;
+    font-size: 36px;
     color: red;
 }
 .favorite:hover{
     transform: translateY(-3px);
     cursor: pointer;
 }
+.favorited:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
 
 /* Detail container*/
+.main-detail {
+    width: 100%;
+    margin: 0 0 200px;
+    background: #FFFFFF;
+}
 .parent-container {
     display: flex;
     justify-content: space-between;
@@ -232,18 +245,24 @@ input {
     position: absolute;
     top: 50%;
     left: 50%;
+    border: none;
     transform: translateY(-50%) translateX(-50%);
     color: #808080;
+    background-color: #fff;
+}
+.arrow-back-icon:hover{
+    cursor: pointer;
 }
 .back-title {
     color: #000;
     margin-left: 20px;
     font-size: 26px;
     line-height: 30px;
+    white-space: nowrap
 }
 .back-container {
     margin: 40px 0px;
-    width: 20%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
 }
@@ -281,19 +300,18 @@ input {
 
 /* Reserve */
 .reserve-box {
-    height: 100%;
+    height: 70%;
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
     background-color: #1E90FF;
-    border: 1px solid #1E90FF;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .reserve-container {
     margin: 30px;
-    /* border: 1px solid #fff; */
-    height: 90%;
+    height: 86%;
+    border: none;
 }
 .reserve-title {
     color: #fff;
@@ -315,7 +333,7 @@ input {
 }
 .reserve-btn {
     background-color: #0F66CD;
-    height: 5%;
+    height: 10%;
     border-radius: 0px 0px 5px 5px;
     display: flex;
     justify-content: center;
