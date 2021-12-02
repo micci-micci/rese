@@ -17,7 +17,6 @@
         <div class="done">
             <span class="done-txt">ご予約ありがとうございます</span>
             <div class="done-input-box">
-                {{-- <button class="done-btn">戻る</button> --}}
                 <button type="button" onClick="history.back()" class="done-btn">戻る</button>
             </div>
         </div>
