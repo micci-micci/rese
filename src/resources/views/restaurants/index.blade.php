@@ -75,7 +75,7 @@
                                 @endif
                             @endauth
                             @guest
-                                <i class="material-icons favorite-icon">favorite</i>
+                                <i class="material-icons favorite">favorite</i>
                             @endguest
                         </div>
                     </div>
