@@ -13,11 +13,26 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
-        $favorites = Favorite::all();
 
         return view('restaurants.index')
-            ->with(['restaurants' => $restaurants])
-            ->with(['favorites' => $favorites]);
+            ->with(['restaurants' => $restaurants]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == '')
+        {
+            $restaurants = Restaurant::where('area_id', $request->area)
+            ->orWhere('category_id', $request->category)
+            ->get();
+        } else {
+            $restaurants = Restaurant::Where('name','like', '%'.$request->search.'%')
+            ->get();
+        }
+
+        return view('restaurants.index')
+            ->with(['restaurants' => $restaurants]);
     }
 
     public function favorite(Request $request)

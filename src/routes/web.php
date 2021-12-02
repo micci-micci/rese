@@ -47,3 +47,7 @@ Route::get('done', [RestaurantController::class, 'done'])
 // MyPage
 Route::get('mypage', [MypageController::class, 'mypage'])
     -> name('mypage');
+
+// Search
+Route::post('/', [RestaurantController::class, 'search'])
+    -> name('search');
