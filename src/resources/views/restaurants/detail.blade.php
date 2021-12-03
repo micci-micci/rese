@@ -45,11 +45,25 @@
                 <div class="reserve-box">
                     <div class="reserve-container">
                         <h1 class="reserve-title">予約</h1>
-                        <input type="date" class="reserve-input-space"></input>
-                        <input type="time" class="reserve-input-space reserve-input-width"></input>
-                        <input type="number" class="reserve-input-space reserve-input-width" value="1" min="1"></input>
+                        <input type="date" class="reserve-input-space date-toggle"></input>
+                        <input type="time" class="reserve-input-space reserve-input-width time-toggle"></input>
+                        <input type="number" class="reserve-input-space reserve-input-width number-toggle" value="1" min="1"></input>
                         {{-- 予約情報をのせる --}}
-                        <div class="reserve-info"></div>
+                        <div class="reserve-info">
+                            <ul class="reserve-info-list">
+                                <li class="reserve-info-item">Shop</li>
+                                <li class="reserve-info-item">Date</li>
+                                <li class="reserve-info-item">Time</li>
+                                <li class="reserve-info-item">Number</li>
+                            </ul>
+                            {{-- 予約情報を取得 --}}
+                            <ul class="reserve-info-list">
+                                <li class="reserve-info-item">{{ $restaurant->name }}</li>
+                                <li class="reserve-info-item" id="date"></li>
+                                <li class="reserve-info-item" id="time"></li>
+                                <li class="reserve-info-item" id="number"></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="reserve-btn">
                         <p class="reserve-btn-txt">予約する</p>

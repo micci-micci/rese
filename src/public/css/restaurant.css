@@ -330,6 +330,34 @@ input {
     height: 30%;
     background-color: #3676C0;
     border-radius: 5px;
+    display: flex;
+    gap: 0px 40px;
+}
+.reserve-info-list {
+    margin-top: 10px;
+    margin-left: 20px;
+    list-style: none outside;
+}
+.reserve-info-item {
+    display: block;
+    margin-top: 16px;
+    color: #fff;
+    font-size: 20px;
+}
+.reserve-info-item1 {
+    margin-top: 16px;
+    color: #fff;
+    font-size: 20px;
+}
+.reserve-info-item2 {
+    margin-top: 16px;
+    color: #fff;
+    font-size: 20px;
+}
+.reserve-info-item3 {
+    margin-top: 16px;
+    color: #fff;
+    font-size: 20px;
 }
 .reserve-btn {
     background-color: #0F66CD;
@@ -344,6 +372,7 @@ input {
     font-size: 26px;
     text-align: center;
 }
+
 
 /* Done */
 .done {
