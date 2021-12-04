@@ -42,33 +42,38 @@
                 </div>
             </div>
             <div class="child-container">
-                <div class="reserve-box">
-                    <div class="reserve-container">
-                        <h1 class="reserve-title">予約</h1>
-                        <input type="date" class="reserve-input-space date-toggle"></input>
-                        <input type="time" class="reserve-input-space reserve-input-width time-toggle"></input>
-                        <input type="number" class="reserve-input-space reserve-input-width number-toggle" value="1" min="1"></input>
-                        {{-- 予約情報をのせる --}}
-                        <div class="reserve-info">
-                            <ul class="reserve-info-list">
-                                <li class="reserve-info-item">Shop</li>
-                                <li class="reserve-info-item">Date</li>
-                                <li class="reserve-info-item">Time</li>
-                                <li class="reserve-info-item">Number</li>
-                            </ul>
-                            {{-- 予約情報を取得 --}}
-                            <ul class="reserve-info-list">
-                                <li class="reserve-info-item">{{ $restaurant->name }}</li>
-                                <li class="reserve-info-item" id="date"></li>
-                                <li class="reserve-info-item" id="time"></li>
-                                <li class="reserve-info-item" id="number"></li>
-                            </ul>
+                {{-- <form method="post" action="{{ route('restaurants.reserve', ['user' => 1]) }}"> --}}
+                <form method="post" action="{{ route('restaurants.reserve', ['restaurant_id'=>$restaurant->id]) }}">
+                    @csrf
+
+                    <div class="reserve-box">
+                        <div class="reserve-container">
+                            <h1 class="reserve-title">予約</h1>
+                            <input type="date" class="reserve-input-space date-toggle" name="date"></input>
+                            <input type="time" class="reserve-input-space reserve-input-width time-toggle" name="time"></input>
+                            <input type="number" class="reserve-input-space reserve-input-width number-toggle" name="number" value="1" min="1"></input>
+                            {{-- 予約情報をのせる --}}
+                            <div class="reserve-info">
+                                <ul class="reserve-info-list">
+                                    <li class="reserve-info-item">Shop</li>
+                                    <li class="reserve-info-item">Date</li>
+                                    <li class="reserve-info-item">Time</li>
+                                    <li class="reserve-info-item">Number</li>
+                                </ul>
+                                {{-- 予約情報を取得 --}}
+                                <ul class="reserve-info-list">
+                                    <li class="reserve-info-item">{{ $restaurant->name }}</li>
+                                    <li class="reserve-info-item" id="date"></li>
+                                    <li class="reserve-info-item" id="time"></li>
+                                    <li class="reserve-info-item" id="number"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="reserve-btn">
+                            <input type="submit" class="reserve-btn-txt" value="予約する">
                         </div>
                     </div>
-                    <div class="reserve-btn">
-                        <p class="reserve-btn-txt">予約する</p>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </main>
