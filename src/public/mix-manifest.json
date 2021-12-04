@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/favorite.js": "/js/favorite.js",
-    "/js/reserve.js": "/js/reserve.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=c509391c97bf29465172",
+    "/js/favorite.js": "/js/favorite.js?id=f4df621b8c690abea0a6",
+    "/js/humberger.js": "/js/humberger.js?id=0a54494a15b042d812a9",
+    "/js/reserve.js": "/js/reserve.js?id=2288947d816404035e86",
+    "/css/app.css": "/css/app.css?id=34f5f0a5ab4c98afe070"
 }

@@ -4,25 +4,15 @@
     </x-slot>
 
     <header>
-        <div class="container">
-            <div id="humberger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <h1 class="menu_title">Rese</h1>
-        </div>
+        <x-humberger>
+        </x-humberger>
     </header>
     <main>
-        <form method="get" action="{{ route('login.show') }}">
-            @csrf
-
-            <div class="thanks">
-                <span class="thanks-txt">会員登録ありがとうございます</span>
-                <div class="thanks-input-box">
-                    <button class="thanks-btn">ログイン</button>
-                </div>
+        <div class="thanks">
+            <span class="thanks-txt">会員登録ありがとうございます</span>
+            <div class="thanks-input-box">
+                <a href="{{ route('login') }}" class="thanks-btn">ログインする</a>
             </div>
-        </form>
+        </div>
     </main>
 </x-layout>

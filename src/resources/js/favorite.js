@@ -7,11 +7,6 @@ $(function ()
         favorite_count = $(this).attr("favorite_count");
         click_btn = $(this);
 
-        console.log(user_id)
-        console.log(restaurant_id)
-        console.log(favorite_count)
-        console.log(click_btn)
-
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -43,6 +38,5 @@ $(function ()
         {
             console.log(JSON.stringify(data))
         })
-    }
-    )
+    })
 });
