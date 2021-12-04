@@ -83,4 +83,16 @@ class RestaurantController extends Controller
     {
         return view('restaurants.done');
     }
+
+    public function destroy(Request $request)
+    {
+        // dd($request);
+        $id = Auth::id();
+        $restaurants = $request->only('restaurant_id');
+        $reservations = Reservation::where('user_id', $id)
+        ->where('restaurant_id', $request->restaurant_id)
+        ->delete();
+
+        return redirect('mypage');
+    }
 }
