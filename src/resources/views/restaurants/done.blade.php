@@ -17,7 +17,7 @@
         <div class="done">
             <span class="done-txt">ご予約ありがとうございます</span>
             <div class="done-input-box">
-                <button type="button" onClick="history.back()" class="done-btn">戻る</button>
+                <a href="{{ route('restaurants.index') }}" class="card-detail-btn">戻る</a>
             </div>
         </div>
     </main>
