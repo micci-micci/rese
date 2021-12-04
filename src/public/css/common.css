@@ -44,38 +44,6 @@ header {
     display: flex;
 }
 
-#humberger {
-    position: relative;
-    height: 46px;
-    width: 46px;
-    display: inline-block;
-    box-sizing: border-box;
-    background-color: #1E90FF;
-    border: 2px solid #1E90FF;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-#humberger div {
-    position: absolute;
-    left: 7px;
-    height: 2px;
-    width: 28px;
-    background-color: #fff;
-    border-radius: 5px;
-    display: inline-block;
-    box-sizing: border-box;
-}
-#humberger div:nth-of-type(1) {
-    width: 14px;
-    bottom: 30px;
-}
-#humberger div:nth-of-type(2) {
-    bottom: 20px;
-}
-#humberger div:nth-of-type(3) {
-    width: 10px;
-    bottom: 10px;
-}
 .menu_title {
     color: #1E90FF;
     margin-left: 20px;
@@ -83,6 +51,95 @@ header {
     line-height: 46px;
 }
 
+
+.menu{
+    position: relative;
+    height: 46px;
+    width: 46px;
+    z-index: 99;
+    background-color: #1E90FF;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.menu-line{
+    position: absolute;
+    left: 7px;
+    height: 2px;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.menu-line-top {
+    width: 35%;
+    bottom: 30px;
+}
+.menu-line-center {
+    bottom: 20px;
+}
+.menu-line-bottom {
+    width: 20%;
+    bottom: 10px;
+}
+.menu-line-top.active{
+    top: 20px;
+    left: 5px;
+    width: 30px;
+    transform: rotate(45deg);
+}
+.menu-line-center.active{
+    transform:scaleX(0);
+}
+.menu-line-bottom.active{
+    top: 20px;
+    left: 5px;
+    width: 30px;
+    transform: rotate(135deg);
+}
+
+.gnav{
+    background: #fff;
+    display: none;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+	left: 0;
+}
+.gnav-wrap{
+    align-items:center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+/* .gnav-menu {
+    width: 30%;
+    height: 20%;
+} */
+ul li {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.gnav-menu-itemm{
+    display: block;
+    margin: 40px 0;
+}
+.gnav-menu-item a{
+	color: #1E90FF;
+    font-size: 26px;
+    /* padding: 40px; */
+	text-decoration: none;
+    transition: .5s;
+}
+.gnav-menu-item a:hover{
+    color: #666;
+}
 /* Alert */
 .alert {
     position: relative;
