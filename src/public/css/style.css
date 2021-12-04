@@ -166,10 +166,11 @@ input {
     transform: translate(-50%, -50%);
 }
 .thanks-btn {
-    border: 1px solid #1E90FF;
+    padding: 10px;
+    color: #fff;
+    background: #1E90FF;
+    padding: 10px 20px;
+    display: inline-block;
     border-radius: 5px;
-    background-color: #1E90FF;
-    color: white;
-    font-size: 14px;
-    width: 100px;
+    text-decoration: none;
 }
