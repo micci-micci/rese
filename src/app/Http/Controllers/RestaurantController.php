@@ -7,6 +7,8 @@ use App\Models\Restaurant;
 use App\Models\Area;
 use App\Models\Category;
 use App\Models\Favorite;
+use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -59,11 +61,23 @@ class RestaurantController extends Controller
         return response()->json($param);
     }
 
-    public function detail(Request $request, int $id)
+    public function detail(Request $request)
     {
-        $restaurant = Restaurant::where('id', $id)->first();
+        $restaurant = Restaurant::where('id', $request->id)->first();
         return view('restaurants.detail')
             ->with(['restaurant' => $restaurant]);
+    }
+
+    public function reserve(Request $request)
+    {
+        // dd($request);
+        $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
+        $id = Auth::id();
+        $reserve['user_id'] = $id;
+
+        // dd($reserve);
+        Reservation::create($reserve);
+        return redirect('/done');
     }
 
     public function done()

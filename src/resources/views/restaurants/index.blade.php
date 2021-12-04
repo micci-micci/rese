@@ -60,7 +60,6 @@
                             <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
                         </div>
                         <div class="card-footer">
-                            {{-- <input type="submit" class="card-detail-btn" value="詳しく見る"> --}}
                             <a href="{{ route('restaurants.datail', [$restaurant->id]) }}" class="card-detail-btn">詳しく見る</a>
                             @auth
                                 @inject('favorite', 'App\Models\Favorite')
