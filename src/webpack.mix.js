@@ -17,5 +17,9 @@ mix.js('resources/js/app.js', 'public/js')
     .autoload({
         "jquery": ['$', 'window.jQuery'],
     })
+    .version()
     .js('resources/js/favorite.js', 'public/js')
-    .js('resources/js/reserve.js', 'public/js');
+    .js('resources/js/reserve.js', 'public/js')
+    .js('resources/js/humberger.js', 'public/js');
+
+
