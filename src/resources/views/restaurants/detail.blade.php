@@ -7,14 +7,8 @@
         <div class="parent-container">
 
             <div class="child-container">
-                <div class="container">
-                    <div id="ditail-humberger">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <h1 class="ditail-menu_title">Rese</h1>
-                </div>
+                <x-humberger>
+                </x-humberger>
                 <div class="back-container">
                     <span class="back-box">
                         <button type="button" onClick="history.back()" class="material-icons arrow-back-icon">chevron_left</button>
