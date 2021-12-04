@@ -32,6 +32,7 @@
 .reserve-box {
     position: relative;
     margin-left: 20px;
+    margin-bottom: 40px;
     padding: 30px;
     height: 38%;
     width: 80%;
