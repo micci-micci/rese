@@ -36,14 +36,15 @@ Route::get('/', [RestaurantController::class, 'index'])
 Route::post('favorite', [RestaurantController::class, 'favorite'])
     -> name('restaurants.favorite');
 
-// Restaurant datail
+// Restaurant
 Route::get('detail/{id}', [RestaurantController::class, 'detail'])
     -> name('restaurants.datail');
 Route::post('reserve', [RestaurantController::class, 'reserve'])
     -> name('restaurants.reserve');
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
-
+Route::post('destroy', [RestaurantController::class, 'destroy'])
+    -> name('restaurants.destroy');
 
 // MyPage
 Route::get('mypage', [MypageController::class, 'mypage'])
