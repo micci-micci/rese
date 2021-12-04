@@ -48,10 +48,18 @@
                     <div class="reserve-box">
                         <div class="reserve-container">
                             <h1 class="reserve-title">予約</h1>
+                            @error('date')
+                                <div class="reserve-error">{{ $message }}</div>
+                            @enderror
                             <input type="date" class="reserve-input-space date-toggle" name="date"></input>
+                            @error('time')
+                                <div class="reserve-error">{{ $message }}</div>
+                            @enderror
                             <input type="time" class="reserve-input-space reserve-input-width time-toggle" name="time"></input>
+                            @error('number')
+                                <div class="reserve-error">{{ $message }}</div>
+                            @enderror
                             <input type="number" class="reserve-input-space reserve-input-width number-toggle" name="number" value="1" min="1"></input>
-                            {{-- 予約情報をのせる --}}
                             <div class="reserve-info">
                                 <ul class="reserve-info-list">
                                     <li class="reserve-info-item">Shop</li>
@@ -59,7 +67,6 @@
                                     <li class="reserve-info-item">Time</li>
                                     <li class="reserve-info-item">Number</li>
                                 </ul>
-                                {{-- 予約情報を取得 --}}
                                 <ul class="reserve-info-list">
                                     <li class="reserve-info-item">{{ $restaurant->name }}</li>
                                     <li class="reserve-info-item" id="date"></li>
