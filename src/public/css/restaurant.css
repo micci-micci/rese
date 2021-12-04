@@ -437,3 +437,11 @@ input {
     font-size: 14px;
     width: 100px;
 }
+
+/* Error message */
+.reserve-error {
+    margin-top: 10px;
+    text-align: left;
+    color: red;
+    font-size: 16px;
+}
