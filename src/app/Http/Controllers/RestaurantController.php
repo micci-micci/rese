@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Favorite;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
 
 class RestaurantController extends Controller
 {
@@ -68,7 +69,7 @@ class RestaurantController extends Controller
             ->with(['restaurant' => $restaurant]);
     }
 
-    public function reserve(Request $request)
+    public function reserve(ReservationRequest $request)
     {
         $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
         $id = Auth::id();
