@@ -22,7 +22,14 @@
                     <p class="reserve-txt">予約1</p>
                     <div class="reserve-icon-container">
                         <span class="material-icons timer">av_timer</span>
-                        <span class="material-icons cancel">highlight_off</span>
+                        {{-- <form method="post" action="{{ route('restaurants.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}"> --}}
+                        <form method="post" action="{{ route('restaurants.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
+                            @csrf
+
+                            <input type="submit" name="" id="destroy">
+                            {{-- <input type="submit" name="test" id="destroy" style="display:none;"> --}}
+                            <label for="destroy" class="material-icons cancel">highlight_off</label>
+                        </form>
                     </div>
                     <div class="reserve-list-container">
                         <ul class="reserve-info-list">
@@ -44,7 +51,6 @@
             </div>
             <div class="child-container">
                 <div class="maypege-title-container">
-                    {{-- ToDo: ユーザ名を取得 --}}
                     <h1 class="mypage-title">{{ $reservation->user->name }}さん</h1>
                 </div>
                 <div class="maypege-subtitle-container">
