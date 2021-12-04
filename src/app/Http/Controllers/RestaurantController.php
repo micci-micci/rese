@@ -70,12 +70,10 @@ class RestaurantController extends Controller
 
     public function reserve(Request $request)
     {
-        // dd($request);
         $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
         $id = Auth::id();
         $reserve['user_id'] = $id;
 
-        // dd($reserve);
         Reservation::create($reserve);
         return redirect('/done');
     }

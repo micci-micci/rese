@@ -42,8 +42,7 @@
                 </div>
             </div>
             <div class="child-container">
-                {{-- <form method="post" action="{{ route('restaurants.reserve', ['user' => 1]) }}"> --}}
-                <form method="post" action="{{ route('restaurants.reserve', ['restaurant_id'=>$restaurant->id]) }}">
+                <form method="post" action="{{ route('restaurants.reserve', ['restaurant_id'=>$restaurant->id]) }}" class="reserve-form">
                     @csrf
 
                     <div class="reserve-box">
