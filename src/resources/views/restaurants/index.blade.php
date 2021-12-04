@@ -2,6 +2,8 @@
     <x-slot name="title">
         Restaurants page
     </x-slot>
+    <x-alert type="success" :session="session('success')" />
+    @csrf
 
     <header>
         <div class="container">
