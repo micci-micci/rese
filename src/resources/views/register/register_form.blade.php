@@ -17,19 +17,6 @@
         <form method="post" action="{{ route('thanks') }}">
             @csrf
             <x-alert type="danger" :session="session('danger')" />
-
-            {{-- <div class="error-container">
-                @error('name')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-                @error('email')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-                @error('password')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div> --}}
-
             <div class="register">
                 <div class="register-bar">
                     <span class="register-box-text">Registration</span>
