@@ -22,13 +22,12 @@
                     <p class="reserve-txt">予約1</p>
                     <div class="reserve-icon-container">
                         <span class="material-icons timer">av_timer</span>
-                        {{-- <form method="post" action="{{ route('restaurants.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}"> --}}
                         <form method="post" action="{{ route('restaurants.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
                             @csrf
 
-                            <input type="submit" name="" id="destroy">
-                            {{-- <input type="submit" name="test" id="destroy" style="display:none;"> --}}
-                            <label for="destroy" class="material-icons cancel">highlight_off</label>
+                            <button type="submit" class="cancel">
+                                <i class="material-icons cancel">highlight_off</i>
+                            </button>
                         </form>
                     </div>
                     <div class="reserve-list-container">
