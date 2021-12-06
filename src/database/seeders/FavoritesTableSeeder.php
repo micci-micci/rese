@@ -23,6 +23,14 @@ class FavoritesTableSeeder extends Seeder
                 'restaurant_id' => 10,
                 'user_id' => 1,
             ],
+            [
+                'restaurant_id' => 4,
+                'user_id' => 1,
+            ],
+            [
+                'restaurant_id' => 18,
+                'user_id' => 1,
+            ],
         ];
 
         foreach ($params as $param) {

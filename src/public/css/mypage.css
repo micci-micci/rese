@@ -52,6 +52,7 @@
 .reserve-icon-container {
     display: flex;
     justify-content: space-between;
+    width: 400px;
 }
 .material-icons.timer {
     display: block;
@@ -62,8 +63,18 @@
     display: block;
     font-size: 36px;
     color: #fff;
+    position: absolute;
+    z-index: 2;
 }
-
+.cancel {
+    background-color: #1E90FF;
+    border: none;
+    position: absolute;
+    z-index: 1;
+}
+.cancel:hover {
+    cursor: pointer;
+}
 .reserve-list-container {
     display: flex;
     gap: 0px 40px;
