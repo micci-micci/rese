@@ -14,7 +14,7 @@ class RegisterController extends Controller
     */
     public function showRegister()
     {
-        return view('register.register_form');
+        return view('register.index');
     }
 
     public function thanks(RegisterRequest $request)
