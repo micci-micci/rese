@@ -14,7 +14,7 @@ class MypageController extends Controller
         $id = Auth::id();
         $reservations = Reservation::where('user_id', $id)->get();
         $favorites = Favorite::where('user_id', $id)->get();
-        return view('mypage.mypage')
+        return view('mypage.index')
             ->with(['reservations' => $reservations])
             ->with(['favorites' => $favorites]);
     }
