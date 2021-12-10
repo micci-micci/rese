@@ -43,12 +43,12 @@ Route::post('reserve', [RestaurantController::class, 'reserve'])
     -> name('restaurants.reserve');
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
-Route::post('destroy', [RestaurantController::class, 'destroy'])
-    -> name('restaurants.destroy');
 
 // MyPage
 Route::get('mypage', [MypageController::class, 'mypage'])
     -> name('mypage');
+Route::post('destroy', [MypageController::class, 'destroy'])
+    -> name('restaurants.destroy');
 
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
