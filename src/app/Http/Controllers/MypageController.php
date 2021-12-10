@@ -12,11 +12,13 @@ class MypageController extends Controller
     public function mypage()
     {
         $id = Auth::id();
+        $auth = Auth::user();
         $reservations = Reservation::where('user_id', $id)->get();
         $favorites = Favorite::where('user_id', $id)->get();
         return view('mypage.index')
             ->with(['reservations' => $reservations])
-            ->with(['favorites' => $favorites]);
+            ->with(['favorites' => $favorites])
+            ->with(['auth' => $auth]);
     }
 
     public function destroy(Request $request)
