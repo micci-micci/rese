@@ -49,4 +49,9 @@ class Restaurant extends Model
     {
         return $query->Where('name','like', '%'.$search.'%');
     }
+    // レストラン一件抽出
+    public static function oneSearch($request)
+    {
+        return Restaurant::where('id', $request->id)->first();
+    }
 }

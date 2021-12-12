@@ -70,7 +70,8 @@ class RestaurantController extends Controller
 
     public function detail(Request $request)
     {
-        $restaurant = Restaurant::where('id', $request->id)->first();
+        $restaurant = Restaurant::oneSearch($request);
+
         return view('restaurants.detail')
             ->with(['restaurant' => $restaurant]);
     }
