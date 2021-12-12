@@ -26,6 +26,7 @@ class RestaurantController extends Controller
         $area = $request->area;
         $category = $request->category;
         $search = $request->search;
+        // dd($area);
 
         if ($category == '' && $search == '')
         {

@@ -13,15 +13,18 @@
                 @csrf
 
                 <div class="search-area">
-                    <select name="area">
+                    <select name="area" onChange="submit(this.form)">
                         <option value="" hidden>All area</option>
-                        <option value="13">東京都</option>
-                        <option value="40">福岡県</option>
-                        <option value="27">大阪府</option>
+                        {{-- <option value="13">東京都</option> --}}
+                        <option value='13' @if(old('area')=='13') selected @endif>東京都</option>
+                        {{-- <option value="27">大阪府</option> --}}
+                        <option value='27' @if(old('area')=='27') selected @endif>大阪府</option>
+                        {{-- <option value="40">福岡県</option> --}}
+                        <option value="40" @if(old('area')=='40') selected @endif>福岡県</option>
                     </select>
                 </div>
                 <div class="search-category">
-                    <select name="category">
+                    <select name="category" onChange="submit(this.form)">
                         <option value="" hidden>All genre</option>
                         <option value="1">寿司</option>
                         <option value="2">焼肉</option>
