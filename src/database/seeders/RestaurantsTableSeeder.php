@@ -38,7 +38,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => 'ルーク',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 4,
                 'description' => '都心にひっそりとたたずむ、古民家を改築した落ち着いた空間です。イタリアで修業を重ねたシェフによるモダンなイタリア料理とソムリエセレクトによる厳選ワインとのペアリングが好評です。ゆっくりと上質な時間をお楽しみください。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg'
@@ -52,7 +52,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => '香',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 2,
                 'description' => '大小さまざまなお部屋をご用意してます。デートや接待、記念日や誕生日など特別な日にご利用ください。皆様のご来店をお待ちしております。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg'
@@ -66,7 +66,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => 'らーめん極み',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 5,
                 'description' => '一杯、一杯心を込めて職人が作っております。味付けは少し濃いめです。 食べやすく最後の一滴まで美味しく飲めると好評です。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg'
@@ -80,7 +80,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => '築地色合',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 1,
                 'description' => '鮨好きの方の為の鮨屋として、迫力ある大きさの握りを1貫ずつ提供致します。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
@@ -101,7 +101,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => '八戒',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 3,
                 'description' => '当店自慢の鍋や焼き鳥などお好きなだけ堪能できる食べ放題プランをご用意しております。飲み放題は2時間と3時間がございます。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg'
@@ -115,7 +115,7 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => 'ラー北',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 5,
                 'description' => 'お昼にはランチを求められるサラリーマン、夕方から夜にかけては、学生や会社帰りのサラリーマン、小上がり席もありファミリー層にも大人気です。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg'
@@ -129,14 +129,14 @@ class RestaurantsTableSeeder extends Seeder
             ],
             [
                 'name' => '経緯',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 1,
                 'description' => '職人が一つ一つ心を込めて丁寧に仕上げた、江戸前鮨ならではの味をお楽しみ頂けます。鮨に合った希少なお酒も数多くご用意しております。他にはない海鮮太巻き、当店自慢の蒸し鮑、是非ご賞味下さい。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
             ],
             [
                 'name' => '漆',
-                'area_id' => 1,
+                'area_id' => 13,
                 'category_id' => 2,
                 'description' => '店内に一歩足を踏み入れると、肉の焼ける音と芳香が猛烈に食欲を掻き立ててくる。そんな漆で味わえるのは至極の焼き肉です。',
                 'image_url' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg'

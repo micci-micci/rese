@@ -33,4 +33,25 @@ class Restaurant extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+
+    // エリア検索
+    public function scopeAreaEqual($query, $area)
+    {
+        return $query->where('area_id', $area);
+    }
+    // カテゴリ検索
+    public function scopeCategoryEqual($query, $category)
+    {
+        return $query->where('category_id', $category);
+    }
+    // 文字列検索
+    public function scopeStringLike($query, $search)
+    {
+        return $query->Where('name','like', '%'.$search.'%');
+    }
+    // レストラン一件抽出
+    public static function oneSearch($request)
+    {
+        return Restaurant::where('id', $request->id)->first();
+    }
 }

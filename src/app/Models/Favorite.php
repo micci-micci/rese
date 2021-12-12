@@ -23,7 +23,32 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function isFavoritedBy($user, $restaurant_id): bool {
+    // お気に入りの追加
+    public static function createFavorited($request)
+    {
+        Favorite::create([
+            'user_id'=>$request['user_id'],
+            'restaurant_id'=>$request['restaurant_id']
+        ]);
+    }
+
+    // お気に入りの削除
+    public static function deleteFavorited($request)
+    {
+        Favorite::where('user_id', "=", $request['user_id'])
+        ->where('restaurant_id', "=", $request->input('restaurant_id'))
+        ->delete();
+    }
+
+    // お気に入り取得
+    public static function getFavorited($id)
+    {
+        return Favorite::where('user_id', $id)->get();
+    }
+
+    public function isFavoritedBy($user, $restaurant_id): bool
+    {
         return Favorite::where('user_id', $user->id)->where('restaurant_id', $restaurant_id)->first() !== null;
     }
+
 }

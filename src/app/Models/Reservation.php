@@ -25,4 +25,18 @@ class Reservation extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    // 予約情報取得
+    public static function getUserid($id)
+    {
+        return Reservation::where('user_id', $id)->get();
+    }
+
+    // 予約削除
+    public static function destroyReserved($id, $request)
+    {
+        Reservation::where('user_id', $id)
+        ->where('restaurant_id', $request->restaurant_id)
+        ->delete();
+    }
 }
