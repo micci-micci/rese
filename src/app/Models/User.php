@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -31,6 +32,16 @@ class User extends Authenticatable
     public function reservation()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    // ユーザ登録
+    public static function createUser($request)
+    {
+        User::create([
+            'name'=> $request['name'],
+            'email'=> $request['email'],
+            'password'=> Hash::make($request['password']),
+        ]);
     }
 
     /**

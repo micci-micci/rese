@@ -23,14 +23,31 @@ class RestaurantController extends Controller
 
     public function search(Request $request)
     {
+        $area = $request->area;
+        $category = $request->category;
         $search = $request->search;
-        if ($search == '')
+
+        // if ($search == '')
+        // {
+        //     $restaurants = Restaurant::areaEqual($area)
+        //     ->categoryEqual($category)
+        //     ->get();
+        // } elseif
+        if ($category == '' && $search == '')
         {
-            $restaurants = Restaurant::where('area_id', $request->area)
-            ->orWhere('category_id', $request->category)
+            $restaurants = Restaurant::areaEqual($area)
+            ->get();
+        } elseif ($area == '' && $search == '')
+        {
+            $restaurants = Restaurant::categoryEqual($category)
+            ->get();
+        } elseif ($search == '')
+        {
+            $restaurants = Restaurant::areaEqual($area)
+            ->categoryEqual($category)
             ->get();
         } else {
-            $restaurants = Restaurant::Where('name','like', '%'.$request->search.'%')
+            $restaurants = Restaurant::stringLike($search)
             ->get();
         }
 
@@ -40,19 +57,14 @@ class RestaurantController extends Controller
 
     public function favorite(Request $request)
     {
+        $id = Auth::id();
         $favorites_count = $request->favorite_count;
 
         if ( $request->favorite_count == 0)
         {
-
-            $favorite = new Favorite();
-            $favorite->user_id = $request->user_id;
-            $favorite->restaurant_id = $request->restaurant_id;
-            $favorite->save();
+            Favorite::createFavorited($request);
         } else {
-            Favorite::where('user_id', "=", auth()->user()->id)
-            ->where('restaurant_id', "=", $request->input('restaurant_id'))
-            ->delete();
+            Favorite::deleteFavorited($request);
         }
 
         $param = [
