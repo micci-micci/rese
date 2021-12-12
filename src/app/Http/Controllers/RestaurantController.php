@@ -27,12 +27,6 @@ class RestaurantController extends Controller
         $category = $request->category;
         $search = $request->search;
 
-        // if ($search == '')
-        // {
-        //     $restaurants = Restaurant::areaEqual($area)
-        //     ->categoryEqual($category)
-        //     ->get();
-        // } elseif
         if ($category == '' && $search == '')
         {
             $restaurants = Restaurant::areaEqual($area)
@@ -79,16 +73,6 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('id', $request->id)->first();
         return view('restaurants.detail')
             ->with(['restaurant' => $restaurant]);
-    }
-
-    public function reserve(ReservationRequest $request)
-    {
-        $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
-        $id = Auth::id();
-        $reserve['user_id'] = $id;
-
-        Reservation::create($reserve);
-        return redirect('/done');
     }
 
     public function done()
