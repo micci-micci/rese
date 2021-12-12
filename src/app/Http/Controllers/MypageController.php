@@ -21,6 +21,16 @@ class MypageController extends Controller
             ->with(['auth' => $auth]);
     }
 
+    public function reserve(ReservationRequest $request)
+    {
+        $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
+        $id = Auth::id();
+        $reserve['user_id'] = $id;
+
+        Reservation::create($reserve);
+        return redirect('/done');
+    }
+    
     public function destroy(Request $request)
     {
         // dd($request);
