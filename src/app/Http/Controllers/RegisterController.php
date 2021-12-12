@@ -19,11 +19,7 @@ class RegisterController extends Controller
 
     public function thanks(RegisterRequest $request)
     {
-        User::create([
-            'name'=> $request['name'],
-            'email'=> $request['email'],
-            'password'=> Hash::make($request['password']),
-        ]);
+        User::createUser($request);
 
         return view('register.thanks');
     }
