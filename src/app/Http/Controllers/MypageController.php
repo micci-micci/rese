@@ -13,8 +13,9 @@ class MypageController extends Controller
     {
         $id = Auth::id();
         $auth = Auth::user();
-        $reservations = Reservation::where('user_id', $id)->get();
-        $favorites = Favorite::where('user_id', $id)->get();
+        $reservations = Reservation::getUserid($id);
+        $favorites = Favorite::getFavorited($id);
+
         return view('mypage.index')
             ->with(['reservations' => $reservations])
             ->with(['favorites' => $favorites])
@@ -26,9 +27,7 @@ class MypageController extends Controller
         // dd($request);
         $id = Auth::id();
         $restaurants = $request->only('restaurant_id');
-        $reservations = Reservation::where('user_id', $id)
-        ->where('restaurant_id', $request->restaurant_id)
-        ->delete();
+        $reservations = Reservation::destroyReserved($id, $request);
 
         return redirect('mypage');
     }

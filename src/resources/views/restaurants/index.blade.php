@@ -15,7 +15,7 @@
                 <div class="search-area">
                     <select name="area">
                         <option value="" hidden>All area</option>
-                        <option value="1">東京都</option>
+                        <option value="13">東京都</option>
                         <option value="40">福岡県</option>
                         <option value="27">大阪府</option>
                     </select>
