@@ -40,8 +40,15 @@ class Favorite extends Model
         ->delete();
     }
 
+    // お気に入り取得
+    public static function getFavorited($id)
+    {
+        return Favorite::where('user_id', $id)->get();
+    }
+
     public function isFavoritedBy($user, $restaurant_id): bool
     {
         return Favorite::where('user_id', $user->id)->where('restaurant_id', $restaurant_id)->first() !== null;
     }
+
 }
