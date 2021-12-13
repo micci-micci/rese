@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Reservation extends Model
 {
@@ -35,8 +36,19 @@ class Reservation extends Model
     // 予約削除
     public static function destroyReserved($id, $request)
     {
-        Reservation::where('user_id', $id)
-        ->where('restaurant_id', $request->restaurant_id)
-        ->delete();
+        // DB::beginTransaction();
+        // try {
+        //     Reservation::where('user_id', $id)
+        //     ->where('restaurant_id', $request->restaurant_id)
+        //     ->delete();
+        //     DB::commit();
+        // } catch (\Exception $e) {
+        //     DB::rollBack();
+        // }
+        DB::transaction(function() use($id, $request) {
+            Reservation::where('user_id', $id)
+            ->where('restaurant_id', $request->restaurant_id)
+            ->delete();
+        });
     }
 }
