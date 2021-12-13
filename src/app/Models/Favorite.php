@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Favorite extends Model
 {
@@ -26,18 +27,22 @@ class Favorite extends Model
     // お気に入りの追加
     public static function createFavorited($request)
     {
-        Favorite::create([
-            'user_id'=>$request['user_id'],
-            'restaurant_id'=>$request['restaurant_id']
-        ]);
+        DB::transaction(function() use($request) {
+            Favorite::create([
+                'user_id'=>$request['user_id'],
+                'restaurant_id'=>$request['restaurant_id']
+            ]);
+        });
     }
 
     // お気に入りの削除
     public static function deleteFavorited($request)
     {
-        Favorite::where('user_id', "=", $request['user_id'])
-        ->where('restaurant_id', "=", $request->input('restaurant_id'))
-        ->delete();
+        DB::transaction(function() use($request) {
+            Favorite::where('user_id', "=", $request['user_id'])
+            ->where('restaurant_id', "=", $request->input('restaurant_id'))
+            ->delete();
+        });
     }
 
     // お気に入り取得
