@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -37,11 +38,13 @@ class User extends Authenticatable
     // ユーザ登録
     public static function createUser($request)
     {
-        User::create([
-            'name'=> $request['name'],
-            'email'=> $request['email'],
-            'password'=> Hash::make($request['password']),
-        ]);
+        DB::transaction(function() use($request) {
+            User::create([
+                'name'=> $request['name'],
+                'email'=> $request['email'],
+                'password'=> Hash::make($request['password']),
+            ]);
+        });
     }
 
     /**
