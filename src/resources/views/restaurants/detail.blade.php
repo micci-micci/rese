@@ -1,4 +1,4 @@
-<x-restaurant>
+<x-layout>
     <x-slot name="title">
         Restaurants page
     </x-slot>
@@ -7,8 +7,10 @@
         <div class="parent-container">
 
             <div class="child-container">
-                <x-humberger>
-                </x-humberger>
+                <header>
+                    <x-humberger>
+                    </x-humberger>
+                </header>
                 <div class="back-container">
                     <span class="back-box">
                         <button type="button" onClick="history.back()" class="material-icons arrow-back-icon">chevron_left</button>
@@ -77,4 +79,4 @@
             </div>
         </div>
     </main>
-</x-restaurant>
+</x-layout>
