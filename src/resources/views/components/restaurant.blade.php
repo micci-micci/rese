@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost:8080/css/reset.css">
     <link rel="stylesheet" href="http://localhost:8080/css/common.css">
     <link rel="stylesheet" href="http://localhost:8080/css/restaurant.css">
+    <link rel="stylesheet" href="http://localhost:8080/css/mypage.css">
     <script src="{{ mix("js/favorite.js") }}"></script>
     <script src="{{ mix("js/reserve.js") }}"></script>
     <script src="{{ mix("js/humberger.js") }}"></script>
