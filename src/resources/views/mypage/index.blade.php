@@ -76,8 +76,18 @@
                                     <p class="card-tag-text">#{{ $favorite->restaurant->category->name  }}</p>
                                 </div>
                                 <div class="card-footer">
-                                    <input type="submit" class="card-detail-btn" value="詳しく見る">
-                                    <i class="material-icons favorited">favorite</i>
+                                    <a href="{{ route('restaurants.datail', [$favorite->restaurant->id]) }}" class="card-detail-btn">詳しく見る</a>
+                                    @inject('favoriteModel', 'App\Models\Favorite')
+
+                                    @if ($favoriteModel->isFavoritedBy(Auth::user(), $favorite->restaurant->id))
+                                        <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $favorite->restaurant->id }} favorite_count=1>
+                                            <i class="material-icons favorited">favorite</i>
+                                        </span>
+                                    @else
+                                        <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $favorite->restaurant->id }} favorite_count=0>
+                                            <i class="material-icons favorite">favorite</i>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                         </form>

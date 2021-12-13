@@ -135,13 +135,14 @@
     font-size: 12px;
 }
 .card-detail-btn {
-    border: 1px solid #1E90FF;
+    color: #fff;
+    background: #1E90FF;
+    padding: 10px 20px;
+    display: inline-block;
     border-radius: 5px;
-    background-color: #1E90FF;
-    color: white;
-    font-size: 14px;
-    width: 100px;
+    text-decoration: none;
 }
+
 .card-footer {
     margin-bottom: 30px;
     display: flex;
@@ -153,9 +154,17 @@
 .card:nth-child(n+5) {
     margin-top: 30px;
 }
-.favorite {
-    color: #808080;
-}
-.favorited {
+.material-icons.favorited {
     color: red;
+    display: block;
+    font-size: 36px;
+}
+.material-icons.favorite {
+    color: #808080;
+    display: block;
+    font-size: 36px;
+}
+.favorited:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
 }
