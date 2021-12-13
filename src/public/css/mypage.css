@@ -29,7 +29,7 @@
     color: #000;
     font-size: 24px;
 }
-.reserve-box {
+.mypage-reserve-box {
     position: relative;
     margin-left: 20px;
     margin-bottom: 40px;
@@ -43,13 +43,13 @@
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.reserve-txt {
+.mypage-reserve-txt {
     position: relative;
     top: 27px;
     left: 50px;
     color: #fff;
 }
-.reserve-icon-container {
+.mypage-reserve-icon-container {
     display: flex;
     justify-content: space-between;
     width: 400px;
@@ -75,25 +75,25 @@
 .cancel:hover {
     cursor: pointer;
 }
-.reserve-list-container {
+.mypage-reserve-list-container {
     display: flex;
     gap: 0px 40px;
 }
-.reserve-info-list {
+.mypage-reserve-info-list {
     list-style: none outside;
 }
-.reserve-info-item {
+.mypage-reserve-info-item {
     margin-top: 20px;
     color: #fff;
     font-size: 20px;
 }
 /* Favorite card */
-.wrap {
+.favorite-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.card {
+.favorite-card {
     width: 48%;
     background-color: #fff;
     display: flex;
@@ -103,38 +103,38 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px
 }
-.card-radius {
+.favorite-card-radius {
     overflow: hidden;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px
 }
-.card-header {
+.favorite-card-header {
     display: flex;
     flex-wrap: wrap;
 }
-.card-thumbnail {
+.favorite-card-thumbnail {
     margin: 0;
     order: 0;
 }
-.card-body {
+.favorite-card-body {
     margin: 10px 20px;
 }
-.card-title {
+.favorite-card-title {
     margin-bottom: 10px;
     font-size: 20px;
     order: 1;
     font-weight: bold;
     text-decoration: none;
 }
-.card-tag-wrapper {
+.favorite-card-tag-wrapper {
     display: flex;
     gap: 10px 10px;
     margin-bottom: 20px;
 }
-.card-tag-text {
+.favorite-card-tag-text {
     font-size: 12px;
 }
-.card-detail-btn {
+.favorite-card-detail-btn {
     color: #fff;
     background: #1E90FF;
     padding: 10px 20px;
@@ -143,15 +143,15 @@
     text-decoration: none;
 }
 
-.card-footer {
+.favorite-card-footer {
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
 }
-.card:not(:nth-child(4n+4)) {
+.favorite-card:not(:nth-child(4n+4)) {
     margin-right: 1.2%;
 }
-.card:nth-child(n+5) {
+.favorite-card:nth-child(n+5) {
     margin-top: 30px;
 }
 .material-icons.favorited {
