@@ -24,7 +24,7 @@
 
                     <div class="login-input-box">
                         <span class="material-icons login-icon">email</span>
-                        <input type="text" name="email" placeholder="Email">
+                        <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
                     </div>
                     @error('password')
                         <div class="error">{{ $message }}</div>
@@ -32,7 +32,7 @@
 
                     <div class="login-input-box">
                         <span class="material-icons login-icon">lock</span>
-                        <input type="text" name="password" placeholder="Password">
+                        <input type="text" name="password" placeholder="Password" value="{{ old('password') }}">
                     </div>
                     <div class="login-input-box-right">
                         <input type="submit" class="login-btn" value="ログイン">
