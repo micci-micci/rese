@@ -32,7 +32,7 @@
 
                     <div class="login-input-box">
                         <span class="material-icons login-icon">lock</span>
-                        <input type="text" name="password" placeholder="Password" value="{{ old('password') }}">
+                        <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" class="password">
                     </div>
                     <div class="login-input-box-right">
                         <input type="submit" class="login-btn" value="ログイン">
