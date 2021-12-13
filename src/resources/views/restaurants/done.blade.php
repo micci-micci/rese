@@ -1,4 +1,4 @@
-<x-restaurant>
+<x-layout>
     <x-slot name="title">
         Done page
     </x-slot>
@@ -15,5 +15,5 @@
             </div>
         </div>
     </main>
-</x-restaurant>
+</x-layout>
 
