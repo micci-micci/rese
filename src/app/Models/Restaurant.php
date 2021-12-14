@@ -34,6 +34,23 @@ class Restaurant extends Model
         return $this->hasMany(Reservation::class);
     }
 
+    // レストラン検索
+    public static function multiSearch($area, $category, $search)
+    {
+        $query = Restaurant::query();
+
+        if ($area != ''){
+        $query = $query->areaEqual($area);
+        }
+        if ($category != ''){
+        $query = $query->categoryEqual($category);
+        }
+        if ($search != ''){
+        $query = $query->stringLike($search);
+        }
+        return $query->get();
+    }
+
     // エリア検索
     public function scopeAreaEqual($query, $area)
     {
@@ -49,6 +66,7 @@ class Restaurant extends Model
     {
         return $query->Where('name','like', '%'.$search.'%');
     }
+
     // レストラン一件抽出
     public static function oneSearch($request)
     {
