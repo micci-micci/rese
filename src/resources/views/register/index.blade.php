@@ -38,7 +38,7 @@
 
                     <div class="register-input-box">
                         <span class="material-icons register-icon">lock</span>
-                        <input type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
                     <div class="register-input-box-right">
                         <input type="submit" class="register-btn" value="登録">

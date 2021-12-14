@@ -30,10 +30,9 @@ class AuthController extends Controller
                 ->with('success', 'ログイン成功しました。');
         }
 
-        return back();
-        // return back()->withErrors([
-        //     'danger' => 'ログイン失敗しました',
-        // ]);
+        return back()->withErrors([
+            'danger' => 'ログイン失敗しました',
+        ]);
     }
 
     /**
