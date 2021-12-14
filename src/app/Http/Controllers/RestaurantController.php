@@ -23,15 +23,15 @@ class RestaurantController extends Controller
 
     public function search(Request $request)
     {
-        $area = $request->area;
-        $category = $request->category;
-        $search = $request->search;
-        // dd($area);
+        $area = $request->input('area');
+        $category = $request->input('category');
 
-        $restaurants = Restaurant::multiSearch($area, $category, $search);
+        $restaurants = Restaurant::multiSearch($request);
 
         return view('restaurants.index')
-            ->with(['restaurants' => $restaurants]);
+            ->with(['restaurants' => $restaurants])
+            ->with(['area' => $area])
+            ->with(['category' => $category]);
     }
 
     public function favorite(Request $request)

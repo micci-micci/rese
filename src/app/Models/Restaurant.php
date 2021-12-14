@@ -35,8 +35,12 @@ class Restaurant extends Model
     }
 
     // レストラン検索
-    public static function multiSearch($area, $category, $search)
+    public static function multiSearch($request)
     {
+        $area = $request->area;
+        $category = $request->category;
+        $search = $request->search;
+
         $query = Restaurant::query();
 
         if ($area != ''){
