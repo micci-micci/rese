@@ -27,23 +27,7 @@ class RestaurantController extends Controller
         $category = $request->category;
         $search = $request->search;
 
-        if ($category == '' && $search == '')
-        {
-            $restaurants = Restaurant::areaEqual($area)
-            ->get();
-        } elseif ($area == '' && $search == '')
-        {
-            $restaurants = Restaurant::categoryEqual($category)
-            ->get();
-        } elseif ($search == '')
-        {
-            $restaurants = Restaurant::areaEqual($area)
-            ->categoryEqual($category)
-            ->get();
-        } else {
-            $restaurants = Restaurant::stringLike($search)
-            ->get();
-        }
+        $restaurants = Restaurant::multiSearch($area, $category, $search);
 
         return view('restaurants.index')
             ->with(['restaurants' => $restaurants]);
