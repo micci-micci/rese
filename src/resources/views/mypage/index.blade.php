@@ -1,4 +1,4 @@
-<x-mypage>
+<x-layout>
     <x-slot name="title">
         Restaurants page
     </x-slot>
@@ -18,10 +18,10 @@
                 </div>
                 @isset ($reservations)
                     @foreach ($reservations as $reservation)
-                        <div class="reserve-box">
+                        <div class="mypage-reserve-box">
                             {{-- 予約カウント取得か --}}
-                            <p class="reserve-txt">予約1</p>
-                            <div class="reserve-icon-container">
+                            <p class="mypage-reserve-txt">予約1</p>
+                            <div class="mypage-reserve-icon-container">
                                 <span class="material-icons timer">av_timer</span>
                                 <form method="post" action="{{ route('mypage.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
                                     @csrf
@@ -31,19 +31,19 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="reserve-list-container">
-                                <ul class="reserve-info-list">
-                                    <li class="reserve-info-item">Shop</li>
-                                    <li class="reserve-info-item">Date</li>
-                                    <li class="reserve-info-item">Time</li>
-                                    <li class="reserve-info-item">Number</li>
+                            <div class="mypage-reserve-list-container">
+                                <ul class="mypage-reserve-info-list">
+                                    <li class="mypage-reserve-info-item">Shop</li>
+                                    <li class="mypage-reserve-info-item">Date</li>
+                                    <li class="mypage-reserve-info-item">Time</li>
+                                    <li class="mypage-reserve-info-item">Number</li>
                                 </ul>
                                 {{-- 予約情報を取得 --}}
-                                <ul class="reserve-info-list">
-                                    <li class="reserve-info-item">{{ $reservation->restaurant->name }}</li>
-                                    <li class="reserve-info-item">{{ $reservation->date }}</li>
-                                    <li class="reserve-info-item">{{ $reservation->time }}</li>
-                                    <li class="reserve-info-item">{{ $reservation->number }}人</li>
+                                <ul class="mypage-reserve-info-list">
+                                    <li class="mypage-reserve-info-item">{{ $reservation->restaurant->name }}</li>
+                                    <li class="mypage-reserve-info-item">{{ $reservation->date }}</li>
+                                    <li class="mypage-reserve-info-item">{{ $reservation->time }}</li>
+                                    <li class="mypage-reserve-info-item">{{ $reservation->number }}人</li>
                                 </ul>
                             </div>
                         </div>
@@ -58,26 +58,36 @@
                 <div class="maypege-subtitle-container">
                     <h1 class="mypage-subtitle-right">お気に入り店舗</h1>
                 </div>
-                <div class="wrap">
+                <div class="favorite-wrap">
                     @foreach ($favorites as $favorite)
-                    <div class="card card-radius">
+                    <div class="favorite-card favorite-card-radius">
                         <form method="get" action="">
                         @csrf
 
-                            <div class="card-header">
-                                <figure class="card-thumbnail">
+                            <div class="favorite-favorite-card-header">
+                                <figure class="favorite-card-thumbnail">
                                 <img src="{{ $favorite->restaurant->image_url }}">
                                 </figure>
                             </div>
-                            <div class="card-body">
-                                <p class="card-title">{{ $favorite->restaurant->name }}</p>
-                                <div class="card-tag-wrapper">
-                                    <p class="card-tag-text">#{{ $favorite->restaurant->area->name  }}</p>
-                                    <p class="card-tag-text">#{{ $favorite->restaurant->category->name  }}</p>
+                            <div class="favorite-card-body">
+                                <p class="favorite-card-title">{{ $favorite->restaurant->name }}</p>
+                                <div class="favorite-card-tag-wrapper">
+                                    <p class="favorite-card-tag-text">#{{ $favorite->restaurant->area->name  }}</p>
+                                    <p class="favorite-card-tag-text">#{{ $favorite->restaurant->category->name  }}</p>
                                 </div>
-                                <div class="card-footer">
-                                    <input type="submit" class="card-detail-btn" value="詳しく見る">
-                                    <i class="material-icons favorited">favorite</i>
+                                <div class="favorite-card-footer">
+                                    <a href="{{ route('restaurants.datail', [$favorite->restaurant->id]) }}" class="favorite-card-detail-btn">詳しく見る</a>
+                                    @inject('favoriteModel', 'App\Models\Favorite')
+
+                                    @if ($favoriteModel->isFavoritedBy(Auth::user(), $favorite->restaurant->id))
+                                        <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $favorite->restaurant->id }} favorite_count=1>
+                                            <i class="material-icons favorited">favorite</i>
+                                        </span>
+                                    @else
+                                        <span class="favorite-toggle" user_id={{ auth()->user()->id }} restaurant_id={{ $favorite->restaurant->id }} favorite_count=0>
+                                            <i class="material-icons favorite">favorite</i>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                         </form>
@@ -87,4 +97,4 @@
             </div>
         </div>
     </main>
-</x-mypage>
+</x-layout>

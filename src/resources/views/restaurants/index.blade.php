@@ -1,4 +1,4 @@
-<x-restaurant>
+<x-layout>
     <x-slot name="title">
         Restaurants page
     </x-slot>
@@ -35,7 +35,7 @@
                 </div>
                 <span class="material-icons search-icon">search</span>
                 <div class="search-box">
-                    <input type="search" name="search" placeholder="Search...">
+                    <input type="search" name="search" placeholder="Search..." class="search-input">
                 </div>
             </form>
         </div>
@@ -82,4 +82,4 @@
             @endforeach
         </div>
     </main>
-</x-restaurant>
+</x-layout>

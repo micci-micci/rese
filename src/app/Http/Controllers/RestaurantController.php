@@ -28,23 +28,7 @@ class RestaurantController extends Controller
         $search = $request->search;
         // dd($area);
 
-        if ($category == '' && $search == '')
-        {
-            $restaurants = Restaurant::areaEqual($area)
-            ->get();
-        } elseif ($area == '' && $search == '')
-        {
-            $restaurants = Restaurant::categoryEqual($category)
-            ->get();
-        } elseif ($search == '')
-        {
-            $restaurants = Restaurant::areaEqual($area)
-            ->categoryEqual($category)
-            ->get();
-        } else {
-            $restaurants = Restaurant::stringLike($search)
-            ->get();
-        }
+        $restaurants = Restaurant::multiSearch($area, $category, $search);
 
         return view('restaurants.index')
             ->with(['restaurants' => $restaurants]);
@@ -83,7 +67,7 @@ class RestaurantController extends Controller
         $id = Auth::id();
         $reserve['user_id'] = $id;
 
-        Reservation::create($reserve);
+        Reservation::createReserved($reserve);
         return redirect('/done');
     }
 
