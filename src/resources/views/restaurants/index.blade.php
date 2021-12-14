@@ -12,22 +12,40 @@
             <form method="get" action="{{ route('search') }}">
                 <div class="search-area">
                     <select name="area" onChange="submit(this.form)">
-                        @if (empty($area))
+
+                        @if (empty($area_id))
                             <option value="">All area</option>
-                            <option value="13">東京都</option>
-                            <option value="40">福岡県</option>
-                            <option value="27">大阪府</option>
+                            @foreach ($areas as $area)
+                                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                            @endforeach
                         @else
-                            <option value="">All area</option>
-                            <option value='13' @if( $area=='13') selected @endif>東京都</option>
-                            <option value='27' @if( $area=='27') selected @endif>大阪府</option>
-                            <option value="40" @if( $area=='40') selected @endif>福岡県</option>
+                            <option value="99">All area</option>
+                            <option value="1" @if( $area_id=="1") selected @endif>東京都</option>
+                            <option value="2" @if( $area_id=="2") selected @endif>大阪府</option>
+                            <option value="3" @if( $area_id=="3") selected @endif>福岡県</option>
+                            {{-- @foreach ($areas as $area)
+                                <option value="{{ $area->id }}" @if( $area_id=="{{ $area->id }}") selected @endif>{{ $area->name }}</option>
+                            @endforeach --}}
                         @endif
                     </select>
                 </div>
                 <div class="search-category">
                     <select name="category" onChange="submit(this.form)">
-                        @if (empty($area))
+                        @if (empty($category_id))
+                            <option value="">All area</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        @else
+                            <option value="99">All area</option>
+                            <option value='1' @if( $category_id=='1') selected @endif>寿司</option>
+                            <option value='2' @if( $category_id=='2') selected @endif>焼肉</option>
+                            <option value='3' @if( $category_id=='3') selected @endif>居酒屋</option>
+                            <option value='4' @if( $category_id=='4') selected @endif>イタリアン</option>
+                            <option value='5' @if( $category_id=='5') selected @endif>ラーメン</option>
+                        @endif
+
+                        {{-- @if (empty($category))
                             <option value="">All genre</option>
                             <option value="1">寿司</option>
                             <option value="2">焼肉</option>
@@ -41,7 +59,7 @@
                             <option value='3' @if( $category=='3') selected @endif>居酒屋</option>
                             <option value='4' @if( $category=='4') selected @endif>イタリアン</option>
                             <option value='5' @if( $category=='5') selected @endif>ラーメン</option>
-                        @endif
+                        @endif --}}
                     </select>
                 </div>
                 <span class="material-icons search-icon">search</span>

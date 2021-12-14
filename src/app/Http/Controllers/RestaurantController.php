@@ -16,22 +16,33 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
+        $areas = Area::all();
+        $categories = Category::all();
 
         return view('restaurants.index')
-            ->with(['restaurants' => $restaurants]);
+            ->with(['restaurants' => $restaurants])
+            ->with(['areas' => $areas])
+            ->with(['categories' => $categories]);
     }
 
     public function search(Request $request)
     {
-        $area = $request->input('area');
-        $category = $request->input('category');
+        $areas = Area::all();
+        $categories = Category::all();
+
+        // クエリパラメータの埋め込み
+        $area_id = $request->input('area');
+        $category_id = $request->input('category');
 
         $restaurants = Restaurant::multiSearch($request);
 
+
         return view('restaurants.index')
             ->with(['restaurants' => $restaurants])
-            ->with(['area' => $area])
-            ->with(['category' => $category]);
+            ->with(['area_id' => $area_id])
+            ->with(['category_id' => $category_id])
+            ->with(['areas' => $areas])
+            ->with(['categories' => $categories]);
     }
 
     public function favorite(Request $request)
