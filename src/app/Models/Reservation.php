@@ -33,6 +33,12 @@ class Reservation extends Model
         return Reservation::where('user_id', $id)->get();
     }
 
+    // 予約登録
+    public static function createReserved($reserve)
+    {
+        return Reservation::create($reserve);
+    }
+
     // 予約削除
     public static function destroyReserved($id, $request)
     {
