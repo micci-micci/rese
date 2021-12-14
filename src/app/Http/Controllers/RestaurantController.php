@@ -82,7 +82,7 @@ class RestaurantController extends Controller
         $id = Auth::id();
         $reserve['user_id'] = $id;
 
-        Reservation::create($reserve);
+        Reservation::createReserved($reserve);
         return redirect('/done');
     }
 
