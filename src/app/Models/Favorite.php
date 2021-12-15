@@ -55,5 +55,4 @@ class Favorite extends Model
     {
         return Favorite::where('user_id', $user->id)->where('restaurant_id', $restaurant_id)->first() !== null;
     }
-
 }
