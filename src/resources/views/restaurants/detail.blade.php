@@ -57,18 +57,24 @@
                             @enderror
                             <input type="number" class="reserve-input-space reserve-input-width number-toggle" name="number" value="1" min="1"></input>
                             <div class="reserve-info">
-                                <ul class="reserve-info-list">
-                                    <li class="reserve-info-item">Shop</li>
-                                    <li class="reserve-info-item">Date</li>
-                                    <li class="reserve-info-item">Time</li>
-                                    <li class="reserve-info-item">Number</li>
-                                </ul>
-                                <ul class="reserve-info-list">
-                                    <li class="reserve-info-item">{{ $restaurant->name }}</li>
-                                    <li class="reserve-info-item" id="date"></li>
-                                    <li class="reserve-info-item" id="time"></li>
-                                    <li class="reserve-info-item" id="number"></li>
-                                </ul>
+                                <table class="reserve-info-table">
+                                    <tr>
+                                        <td>Shop</td>
+                                        <td>{{ $restaurant->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td id="date"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time</td>
+                                        <td id="time"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number</td>
+                                        <td id="number"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                         <div class="reserve-btn">

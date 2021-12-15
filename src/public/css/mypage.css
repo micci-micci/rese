@@ -34,7 +34,7 @@
     margin-left: 20px;
     margin-bottom: 40px;
     padding: 30px;
-    height: 38%;
+    height: 25%;
     width: 80%;
     display: inline-block;
     box-sizing: border-box;
@@ -52,7 +52,7 @@
 .mypage-reserve-icon-container {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 90%;
 }
 .material-icons.timer {
     display: block;
@@ -75,9 +75,16 @@
 .cancel:hover {
     cursor: pointer;
 }
-.mypage-reserve-list-container {
-    display: flex;
-    gap: 0px 40px;
+.mypage-reserve-table-container {
+    margin-top: 20px;
+    height: 70%;
+
+}
+.mypage-info-table {
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
 }
 .mypage-reserve-info-list {
     list-style: none outside;

@@ -31,20 +31,38 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="mypage-reserve-list-container">
-                                <ul class="mypage-reserve-info-list">
+                            <div class="mypage-reserve-table-container">
+                                <table class="mypage-info-table">
+                                    <tr>
+                                        <td>Shop</td>
+                                        <td>{{ $reservation->restaurant->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td id="date">{{ $reservation->date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time</td>
+                                        <td id="time">{{ $reservation->time }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number</td>
+                                        <td id="number">{{ $reservation->number }}</td>
+                                    </tr>
+                                </table>
+                                {{-- <ul class="mypage-reserve-info-list">
                                     <li class="mypage-reserve-info-item">Shop</li>
                                     <li class="mypage-reserve-info-item">Date</li>
                                     <li class="mypage-reserve-info-item">Time</li>
                                     <li class="mypage-reserve-info-item">Number</li>
-                                </ul>
+                                </ul> --}}
                                 {{-- 予約情報を取得 --}}
-                                <ul class="mypage-reserve-info-list">
+                                {{-- <ul class="mypage-reserve-info-list">
                                     <li class="mypage-reserve-info-item">{{ $reservation->restaurant->name }}</li>
                                     <li class="mypage-reserve-info-item">{{ $reservation->date }}</li>
                                     <li class="mypage-reserve-info-item">{{ $reservation->time }}</li>
                                     <li class="mypage-reserve-info-item">{{ $reservation->number }}人</li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     @endforeach
