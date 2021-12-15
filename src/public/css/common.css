@@ -149,7 +149,6 @@ ul li {
     /* border-radius: 0.25rem; */
 }
 .alert-success {
-    /* margin-top: 20px; */
     color: #1d643b;
     background-color: #d7f3e3;
     border-color: #c7eed8;
@@ -161,7 +160,6 @@ ul li {
     color: #123c24;
 }
 .alert-danger {
-    /* margin-top: 20px; */
     color: #761b18;
     background-color: #f9d6d5;
     border-color: #f7c6c5;
