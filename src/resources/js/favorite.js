@@ -22,14 +22,11 @@ $(function ()
 
         .done(function(data)
         {
-            console.log(data)
-            if (data === 0)
+            if (data.favorites_count == "0")
             {
                 click_btn.attr("favorite_count", 1);
                 click_btn.children().attr("class", "material-icons favorited");
-            }
-            else (data === 1)
-            {
+            } else {
                 click_btn.attr("favorite_count", 0);
                 click_btn.children().attr("class", "material-icons favorite");
             }
