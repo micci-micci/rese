@@ -20,7 +20,7 @@
                     @foreach ($reservations as $reservation)
                         <div class="mypage-reserve-box">
                             {{-- 予約カウント取得か --}}
-                            <p class="mypage-reserve-txt">予約1</p>
+                            <p class="mypage-reserve-txt">予約{{ $loop->iteration}}</p>
                             <div class="mypage-reserve-icon-container">
                                 <span class="material-icons timer">av_timer</span>
                                 <form method="post" action="{{ route('mypage.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
