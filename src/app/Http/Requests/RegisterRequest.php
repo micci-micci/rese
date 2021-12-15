@@ -21,6 +21,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'email' => 'required|unique:users,email',
             'password' => 'required'
         ];
     }
@@ -30,6 +31,7 @@ class RegisterRequest extends FormRequest
         return [
             'name.required' => '名前は必須です',
             'email.required' => 'メールアドレスは必須です',
+            'email.unique' => 'そのメールアドレスは既に登録されています。',
             'password.required' => 'パスワードは必須です',
         ];
     }
