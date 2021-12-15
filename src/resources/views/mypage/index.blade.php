@@ -50,19 +50,6 @@
                                         <td id="number">{{ $reservation->number }}</td>
                                     </tr>
                                 </table>
-                                {{-- <ul class="mypage-reserve-info-list">
-                                    <li class="mypage-reserve-info-item">Shop</li>
-                                    <li class="mypage-reserve-info-item">Date</li>
-                                    <li class="mypage-reserve-info-item">Time</li>
-                                    <li class="mypage-reserve-info-item">Number</li>
-                                </ul> --}}
-                                {{-- 予約情報を取得 --}}
-                                {{-- <ul class="mypage-reserve-info-list">
-                                    <li class="mypage-reserve-info-item">{{ $reservation->restaurant->name }}</li>
-                                    <li class="mypage-reserve-info-item">{{ $reservation->date }}</li>
-                                    <li class="mypage-reserve-info-item">{{ $reservation->time }}</li>
-                                    <li class="mypage-reserve-info-item">{{ $reservation->number }}人</li>
-                                </ul> --}}
                             </div>
                         </div>
                     @endforeach
