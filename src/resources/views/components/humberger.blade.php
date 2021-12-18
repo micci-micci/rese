@@ -1,8 +1,11 @@
-<a class="menu">
-    <span class="menu-line menu-line-top"></span>
-    <span class="menu-line menu-line-center"></span>
-    <span class="menu-line menu-line-bottom"></span>
-</a>
+<div class="container">
+    <a class="menu">
+        <span class="menu-line menu-line-top"></span>
+        <span class="menu-line menu-line-center"></span>
+        <span class="menu-line menu-line-bottom"></span>
+    </a>
+    <h1 class="menu_title">Rese</h1>
+</div>
 @auth
     <nav class="gnav">
         <div class="gnav-wrap">
