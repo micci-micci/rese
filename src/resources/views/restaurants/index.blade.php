@@ -70,7 +70,7 @@
                                 @endif
                             @endauth
                             @guest
-                                <i class="material-icons favorite">favorite</i>
+                                <a href="{{ route('restaurants.favorite') }}" class="material-icons favorite">favorite</a>
                             @endguest
                         </div>
                     </div>
