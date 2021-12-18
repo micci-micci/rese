@@ -2,14 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MypageController;
 
 // Register
-Route::get('register', [RegisterController::class, 'showRegister'])
+Route::get('register', [AuthController::class, 'showRegister'])
     -> name('register');
-Route::post('thanks', [RegisterController::class, 'thanks'])
+Route::post('thanks', [AuthController::class, 'thanks'])
     -> name('thanks');
 
 // Before login
