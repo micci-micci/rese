@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
@@ -47,5 +48,17 @@ class AuthController extends Controller
 
         return redirect()->route('login.show')
             ->with('danger', 'ログアウトしました。');
+    }
+
+    public function showRegister()
+    {
+        return view('register.index');
+    }
+
+    public function thanks(RegisterRequest $request)
+    {
+        User::createUser($request);
+
+        return view('register.thanks');
     }
 }
