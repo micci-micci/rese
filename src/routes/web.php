@@ -15,15 +15,15 @@ Route::post('thanks', [RegisterController::class, 'thanks'])
 // Before login
 Route::group(['middleware' => ['guest']], function() {
     Route::get('login', [AuthController::class, 'showLogin'])
-        ->name('login.show');
+        -> name('login.show');
     Route::post('login', [AuthController::class, 'login'])
-        ->name('login');
+        -> name('login');
 });
 
 // After login
 Route::group(['middleware' => ['auth']], function() {
     Route::post('logout', [AuthController::class, 'logout'])
-        ->name('logout');
+        -> name('logout');
 });
 
 Route::get('/', [RestaurantController::class, 'index'])
@@ -32,13 +32,16 @@ Route::get('/', [RestaurantController::class, 'index'])
 // Favorite
 Route::post('favorite', [RestaurantController::class, 'favorite'])
     -> name('restaurants.favorite');
+Route::get('favorite', [RestaurantController::class, 'favorite'])
+    -> name('restaurants.favorite')
+    -> middleware('auth');
 
 // Restaurant
 Route::get('detail/{id}', [RestaurantController::class, 'detail'])
     -> name('restaurants.datail');
 Route::post('reserve', [RestaurantController::class, 'reserve'])
     -> name('restaurants.reserve')
-    ->middleware('auth');
+    -> middleware('auth');
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
 
