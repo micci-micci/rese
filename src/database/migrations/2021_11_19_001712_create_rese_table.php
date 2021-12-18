@@ -15,9 +15,9 @@ class CreateReseTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('password', 255);
-            $table->string('email', 255)->unique();
+            $table->string('name');
+            $table->string('password');
+            $table->string('email')->unique();
             $table->tinyInteger('locked_flg')->default(0);
             $table->integer('error_count')->unsigned()->default(0);
             $table->timestamps();
@@ -25,19 +25,19 @@ class CreateReseTable extends Migration
 
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('name');
             $table->timestamps();
         });
 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('name');
             $table->timestamps();
         });
 
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('name');
             $table->text('description')->nullable();
             $table->string('image_url')->nullable();
             $table->foreignId('area_id');
