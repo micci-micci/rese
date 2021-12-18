@@ -52,8 +52,8 @@
                     <div class="card-body">
                         <p class="card-title">{{ $restaurant->name }}</p>
                         <div class="card-tag-wrapper">
-                            <p class="card-tag-text">#{{ $restaurant->area->name }}</p>
-                            <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
+                            {{-- <p class="card-tag-text">#{{ $restaurant->area->name }}</p>
+                            <p class="card-tag-text">#{{ $restaurant->category->name }}</p> --}}
                         </div>
                         <div class="card-footer">
                             <a href="{{ route('restaurants.datail', [$restaurant->id]) }}" class="card-detail-btn">詳しく見る</a>
