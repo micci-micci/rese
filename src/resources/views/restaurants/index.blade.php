@@ -39,7 +39,7 @@
     </header>
     <main>
         <div class="wrap">
-            {{-- @foreach ($restaurants as $restaurant)
+            @foreach ($restaurants as $restaurant)
             <div class="card card-radius">
                 <form method="get" action="">
                 @csrf
@@ -76,7 +76,7 @@
                     </div>
                 </form>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </main>
 </x-layout>
