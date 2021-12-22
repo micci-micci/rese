@@ -36,7 +36,9 @@ class Reservation extends Model
     // 予約登録
     public static function createReserved($reserve)
     {
-        return Reservation::create($reserve);
+        DB::transaction(function() use($reserve) {
+            Reservation::create($reserve);
+        });
     }
 
     // 予約削除
