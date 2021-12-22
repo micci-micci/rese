@@ -31,9 +31,9 @@ Route::get('/', [RestaurantController::class, 'index'])
 // Favorite
 Route::post('favorite', [RestaurantController::class, 'favorite'])
     -> name('restaurants.favorite');
-Route::get('favorite', [RestaurantController::class, 'favorite'])
-    -> name('restaurants.favorite')
-    -> middleware('auth');
+// Route::get('favorite', [RestaurantController::class, 'favorite'])
+//     -> name('restaurants.favorite')
+//     -> middleware('auth');
 
 // Restaurant
 Route::get('detail/{id}', [RestaurantController::class, 'detail'])
