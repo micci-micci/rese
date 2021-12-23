@@ -32,24 +32,37 @@
                                 </form>
                             </div>
                             <div class="mypage-reserve-table-container">
-                                <table class="mypage-info-table">
-                                    <tr>
-                                        <td>Shop</td>
-                                        <td>{{ $reservation->restaurant->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date</td>
-                                        <td id="date">{{ $reservation->date }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Time</td>
-                                        <td id="time">{{ $reservation->time }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Number</td>
-                                        <td id="number">{{ $reservation->number }}</td>
-                                    </tr>
-                                </table>
+                                <form action="{{ route('mypage.update', ['restaurant_id'=>$reservation->restaurant->id]) }}" method="post">
+                                    @csrf
+                                    
+                                    <table class="mypage-info-table">
+                                        <tr>
+                                            <td>Shop</td>
+                                            <td>{{ $reservation->restaurant->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            {{-- <td id="date">{{ $reservation->date }}</td> --}}
+                                            <td id="date">
+                                                <input type="date" class="icon-del update" name="date" value="{{ $reservation->date }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Time</td>
+                                            {{-- <td id="time">{{ $reservation->time }}</td> --}}
+                                            <td id="time">
+                                                <input type="time" class="icon-del update" name="time" value="{{ $reservation->time }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number</td>
+                                            <td id="number">
+                                                <input type="number" class="update" name="number" value="{{ $reservation->number }}">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input type="submit" class="mypage-reserve-btn" value="変更">
+                                </form>
                             </div>
                         </div>
                     @endforeach
