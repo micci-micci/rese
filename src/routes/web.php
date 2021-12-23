@@ -31,9 +31,6 @@ Route::get('/', [RestaurantController::class, 'index'])
 // Favorite
 Route::post('favorite', [RestaurantController::class, 'favorite'])
     -> name('restaurants.favorite');
-// Route::get('favorite', [RestaurantController::class, 'favorite'])
-//     -> name('restaurants.favorite')
-//     -> middleware('auth');
 
 // Restaurant
 Route::get('detail/{id}', [RestaurantController::class, 'detail'])
@@ -48,6 +45,8 @@ Route::get('done', [RestaurantController::class, 'done'])
 Route::group(['middleware' => ['auth']], function() {
     Route::get('mypage', [MypageController::class, 'mypage'])
     -> name('mypage');
+    Route::post('update', [MypageController::class, 'update'])
+    -> name('mypage.update');
     Route::post('destroy', [MypageController::class, 'destroy'])
     -> name('mypage.destroy');
 });

@@ -34,7 +34,7 @@
     margin-left: 20px;
     margin-bottom: 40px;
     padding: 30px;
-    height: 25%;
+    height: 23%;
     width: 80%;
     display: inline-block;
     box-sizing: border-box;
@@ -94,6 +94,38 @@
     color: #fff;
     font-size: 20px;
 }
+
+
+.update:not(:focus){
+    all: inherit;
+    display: inline;
+    background-color: #1E90FF;
+    border: 1px solid #1E90FF;
+}
+.update:not(:focus)+#regist{
+    display: none;
+
+}
+.icon-del::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.mypage-reserve-btn {
+    margin-top: 20px;
+    margin-left: 80%;
+    width: 60px;
+    color: #1E90FF;
+    font-weight: bold;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.mypage-reserve-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
 /* Favorite card */
 .favorite-wrap {
     display: flex;
