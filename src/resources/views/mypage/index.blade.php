@@ -18,6 +18,7 @@
                 </div>
                 @isset ($reservations)
                     @foreach ($reservations as $reservation)
+                        @if ($dt < $reservation->date )
                         <div class="mypage-reserve-box">
                             {{-- 予約カウント取得か --}}
                             <p class="mypage-reserve-txt">予約{{ $loop->iteration}}</p>
@@ -34,7 +35,7 @@
                             <div class="mypage-reserve-table-container">
                                 <form action="{{ route('mypage.update', ['restaurant_id'=>$reservation->restaurant->id]) }}" method="post">
                                     @csrf
-                                    
+
                                     <table class="mypage-info-table">
                                         <tr>
                                             <td>Shop</td>
@@ -42,14 +43,12 @@
                                         </tr>
                                         <tr>
                                             <td>Date</td>
-                                            {{-- <td id="date">{{ $reservation->date }}</td> --}}
                                             <td id="date">
                                                 <input type="date" class="icon-del update" name="date" value="{{ $reservation->date }}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Time</td>
-                                            {{-- <td id="time">{{ $reservation->time }}</td> --}}
                                             <td id="time">
                                                 <input type="time" class="icon-del update" name="time" value="{{ $reservation->time }}">
                                             </td>
@@ -65,6 +64,46 @@
                                 </form>
                             </div>
                         </div>
+                        @else
+                        <div class="mypage-reserve-done-box">
+                            <p class="mypage-done-txt">予約{{ $loop->iteration}}</p>
+                            <div class="mypage-reserve-icon-container">
+                                <span class="material-icons timer-done">av_timer</span>
+                                <form method="post" action="{{ route('mypage.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
+                                    @csrf
+
+                                    <button type="submit" class="cancel-done">
+                                        <i class="material-icons cancel-done">highlight_off</i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="mypage-reserve-table-container">
+                                <form action="{{ route('mypage.update', ['restaurant_id'=>$reservation->restaurant->id]) }}" method="post">
+                                    @csrf
+
+                                    <table class="mypage-done-table">
+                                        <tr>
+                                            <td>Shop</td>
+                                            <td>{{ $reservation->restaurant->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td id="date">{{ $reservation->date }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Time</td>
+                                            <td id="time">{{ $reservation->time }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number</td>
+                                            <td id="number">{{ $reservation->number }}</td>
+                                        </tr>
+                                    </table>
+                                    <input type="submit" class="mypage-rating-btn" value="評価する">
+                                </form>
+                            </div>
+                        </div>
+                        @endif
                     @endforeach
                 @else
                 @endisset

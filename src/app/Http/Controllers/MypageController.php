@@ -7,21 +7,24 @@ use App\Models\Reservation;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
+use Carbon\Carbon;
 
 class MypageController extends Controller
 {
     public function mypage()
     {
+        $dt = Carbon::today();
+
         $id = Auth::id();
         $auth = Auth::user();
         $reservations = Reservation::getUserid($id);
         $favorites = Favorite::getFavorited($id);
-        // dd($favorites);
 
         return view('mypage.index')
             ->with(['reservations' => $reservations])
             ->with(['favorites' => $favorites])
-            ->with(['auth' => $auth]);
+            ->with(['auth' => $auth])
+            ->with(['dt' => $dt]);
     }
 
     public function update(Request $request)

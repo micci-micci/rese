@@ -94,8 +94,6 @@
     color: #fff;
     font-size: 20px;
 }
-
-
 .update:not(:focus){
     all: inherit;
     display: inline;
@@ -122,6 +120,67 @@
     text-decoration: none;
 }
 .mypage-reserve-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+/* Rating */
+.mypage-reserve-done-box {
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 23%;
+    width: 80%;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #DCDCDC;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.mypage-done-txt {
+    position: relative;
+    top: 27px;
+    left: 50px;
+    color: #0f0e17;
+}
+.cancel-done {
+    background-color: #DCDCDC;
+    border: none;
+    position: absolute;
+    z-index: 1;
+}
+.material-icons.timer-done {
+    display: block;
+    font-size: 36px;
+    color: #0f0e17;
+}
+.mypage-done-table {
+    color: #0f0e17;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+}
+.material-icons.cancel-done {
+    display: block;
+    font-size: 36px;
+    color: #0f0e17;
+    position: absolute;
+    z-index: 2;
+}
+.mypage-rating-btn {
+    margin-top: 20px;
+    margin-left: 75%;
+    width: 100px;
+    color: #fff;
+    font-weight: bold;
+    background: #272343;
+    display: inline-block;
+    border: 1px solid #272343;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.mypage-rating-btn:hover{
     transform: translateY(-3px);
     cursor: pointer;
 }
