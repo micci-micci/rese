@@ -41,18 +41,23 @@ class Reservation extends Model
         });
     }
 
+    // 予約更新
+    public static function updateReserved($reserve)
+    {
+        DB::transaction(function() use($reserve) {
+            Reservation::where('user_id', $reserve['user_id'])
+                ->where("restaurant_id", $reserve['restaurant_id'])
+                ->update([
+                    'date'=> $reserve['date'],
+                    'time'=> $reserve['time'],
+                    'number'=> ($reserve['number']),
+                ]);
+        });
+    }
+
     // 予約削除
     public static function destroyReserved($id, $request)
     {
-        // DB::beginTransaction();
-        // try {
-        //     Reservation::where('user_id', $id)
-        //     ->where('restaurant_id', $request->restaurant_id)
-        //     ->delete();
-        //     DB::commit();
-        // } catch (\Exception $e) {
-        //     DB::rollBack();
-        // }
         DB::transaction(function() use($id, $request) {
             Reservation::where('user_id', $id)
             ->where('restaurant_id', $request->restaurant_id)
