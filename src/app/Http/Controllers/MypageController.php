@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
 
 class MypageController extends Controller
 {
@@ -23,9 +24,18 @@ class MypageController extends Controller
             ->with(['auth' => $auth]);
     }
 
+    public function update(Request $request)
+    {
+        $reserve = $request->only(['date', 'time', 'number', 'restaurant_id']);
+        $id = Auth::id();
+        $reserve['user_id'] = $id;
+
+        Reservation::updateReserved($reserve);
+        return redirect('mypage');
+    }
+
     public function destroy(Request $request)
     {
-        // dd($request);
         $id = Auth::id();
         $restaurants = $request->only('restaurant_id');
         $reservations = Reservation::destroyReserved($id, $request);
