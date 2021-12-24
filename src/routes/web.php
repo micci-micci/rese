@@ -58,5 +58,5 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 // Search
-Route::post('/', [RestaurantController::class, 'search'])
+Route::get('/search', [RestaurantController::class, 'search'])
     -> name('search');
