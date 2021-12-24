@@ -101,9 +101,9 @@
                                 <div class="modal js-modal">
                                     <div class="modal-bg js-modal-close"></div>
                                     <div class="modal-content">
-                                        <form method="post" action="{{ route('mypage.review') }}">
+                                        <form method="post" action="{{ route('mypage.review', ['restaurant_id'=>$reservation->restaurant->id]) }}">
                                             @csrf
-                                            
+
                                             <div class="review">
                                                 <div class="review-bar">
                                                     <span class="review-box-text">{{ $reservation->restaurant->name }}</span>
