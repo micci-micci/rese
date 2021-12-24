@@ -78,29 +78,66 @@
                                 </form>
                             </div>
                             <div class="mypage-reserve-table-container">
-                                <form action="{{ route('mypage.update', ['restaurant_id'=>$reservation->restaurant->id]) }}" method="post">
-                                    @csrf
-
-                                    <table class="mypage-done-table">
-                                        <tr>
-                                            <td>Shop</td>
-                                            <td>{{ $reservation->restaurant->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Date</td>
-                                            <td id="date">{{ $reservation->date }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Time</td>
-                                            <td id="time">{{ $reservation->time }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Number</td>
-                                            <td id="number">{{ $reservation->number }}</td>
-                                        </tr>
-                                    </table>
-                                    <input type="submit" class="mypage-rating-btn" value="評価する">
-                                </form>
+                                <table class="mypage-done-table">
+                                    <tr>
+                                        <td>Shop</td>
+                                        <td>{{ $reservation->restaurant->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td id="date">{{ $reservation->date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time</td>
+                                        <td id="time">{{ $reservation->time }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number</td>
+                                        <td id="number">{{ $reservation->number }}</td>
+                                    </tr>
+                                </table>
+                                {{-- Modal --}}
+                                <button type="button" class="mypage-review-btn js-modal-open">評価する</button>
+                                <div class="modal js-modal">
+                                    <div class="modal-bg js-modal-close"></div>
+                                    <div class="modal-content">
+                                        <form method="post" action="{{ route('mypage.review') }}">
+                                            @csrf
+                                            
+                                            <div class="review">
+                                                <div class="review-bar">
+                                                    <span class="review-box-text">{{ $reservation->restaurant->name }}</span>
+                                                </div>
+                                                <div class="review-container">
+                                                    @error('password')
+                                                        <div class="error">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class="review-input-box">
+                                                        <div class="rate-form">
+                                                            <input id="star5" type="radio" name="rate" value="5">
+                                                            <label for="star5">★</label>
+                                                            <input id="star4" type="radio" name="rate" value="4">
+                                                            <label for="star4">★</label>
+                                                            <input id="star3" type="radio" name="rate" value="3">
+                                                            <label for="star3">★</label>
+                                                            <input id="star2" type="radio" name="rate" value="2">
+                                                            <label for="star2">★</label>
+                                                            <input id="star1" type="radio" name="rate" value="1">
+                                                            <label for="star1">★</label>
+                                                        </div>
+                                                        {{-- <input type="text" name="star" placeholder="star" value="{{ old('star') }}" class="password"> --}}
+                                                    </div>
+                                                    <div class="review-input-box">
+                                                        <textarea name="comment" class="review-textarea" placeholder="Review" value="{{ old('comment') }}"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="review-input-box">
+                                                    <input type="submit" class="review-btn" value="送信">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         @endif
