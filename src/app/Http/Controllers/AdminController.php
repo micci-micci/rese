@@ -15,6 +15,15 @@ class AdminController extends Controller
             ->with(['users' => $users]);
     }
 
+    public function update(Request $request)
+    {
+        $user = $request->only(['id', 'role']);
+
+        User::updateUser($user);
+
+        return redirect('admin');
+    }
+
     public function destroy(Request $request)
     {
         $user = $request->only(['id']);

@@ -66,6 +66,8 @@ Route::post('/', [RestaurantController::class, 'search'])
 Route::group(['middleware' => ['auth', 'can:isAdmin']], function() {
     Route::get('admin', [AdminController::class, 'show'])
         -> name('management.admin');
+    Route::post('admin/update', [AdminController::class, 'update'])
+        -> name('management.update');
     Route::post('admin/destroy', [AdminController::class, 'destroy'])
         -> name('management.destroy');
 });

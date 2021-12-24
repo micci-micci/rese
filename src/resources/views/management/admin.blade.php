@@ -25,29 +25,32 @@
                     <td>{{ $user->id}}</td>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
-                    <td>
-                        <label>
-                            <select name="role" class="admin-role">
-                                <option value="0" @if( $user->role =="0") selected @endif>User</option>
-                                <option value="1" @if( $user->role =="1") selected @endif>Owner</option>
-                                <option value="2" @if( $user->role =="2") selected @endif>Admin</option>
-                            </select>
-                        </label>
-                    </td>
-                    <td>
-                        <span class="material-icons">
-                            update
-                        </span>
-                    </td>
-                    <td>
-                        <form method="post" action="{{ route('management.destroy', ['id'=>$user->id]) }}">
-                            @csrf
+                    <form method="post" action="{{ route('management.update', ['id'=>$user->id]) }}">
+                        @csrf
 
+                        <td>
+                            <label>
+                                <select name="role" class="admin-role">
+                                    <option value="0" @if( $user->role =="0") selected @endif>User</option>
+                                    <option value="1" @if( $user->role =="1") selected @endif>Owner</option>
+                                    <option value="2" @if( $user->role =="2") selected @endif>Admin</option>
+                                </select>
+                            </label>
+                        </td>
+                        <td>
                             <button type="submit" class="admin-delete">
-                                <i class="material-icons delete">delete</i>
+                                <i class="material-icons admin-material">update</i>
                             </button>
-                        </form>
-                    </td>
+                        </td>
+                    </form>
+                    <form method="post" action="{{ route('management.destroy', ['id'=>$user->id]) }}">
+                        @csrf
+                        <td>
+                            <button type="submit" class="admin-delete">
+                                <i class="material-icons admin-material">delete</i>
+                            </button>
+                        </td>
+                    </form>
                 </tr>
             </tbody>
             @endforeach
