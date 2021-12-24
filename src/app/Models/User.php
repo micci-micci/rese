@@ -51,6 +51,14 @@ class User extends Authenticatable
         });
     }
 
+    public static function destroyUser($user)
+    {
+        DB::transaction(function() use($user) {
+            User::where('id', $user)
+            ->delete();
+        });
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
