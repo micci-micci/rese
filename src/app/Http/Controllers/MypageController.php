@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use App\Models\Favorite;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\ReviewRequest;
 use Carbon\Carbon;
 
 class MypageController extends Controller
@@ -50,7 +50,7 @@ class MypageController extends Controller
     }
 
     // レビュー登録
-    public function review(Request $request)
+    public function review(ReviewRequest $request)
     {
         $review = $request->only(['rate', 'comment', 'restaurant_id']);
         $id = Auth::id();

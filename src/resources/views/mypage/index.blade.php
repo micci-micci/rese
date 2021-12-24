@@ -68,6 +68,9 @@
                         @inject('review', 'App\Models\Review')
                             @if (!$review->isReviewBy(Auth::user(), $reservation->restaurant->id))
                             <div class="mypage-reserve-done-box">
+                                @error('rate')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
                                 <p class="mypage-done-txt">予約{{ $loop->iteration}}</p>
                                 <div class="mypage-reserve-icon-container">
                                     <span class="material-icons timer-done">av_timer</span>
@@ -111,9 +114,6 @@
                                                         <span class="review-box-text">{{ $reservation->restaurant->name }}</span>
                                                     </div>
                                                     <div class="review-container">
-                                                        @error('password')
-                                                            <div class="error">{{ $message }}</div>
-                                                        @enderror
                                                         <div class="review-input-box">
                                                             <div class="rate-form">
                                                                 <input id="star5" type="radio" name="rate" value="5">
@@ -127,7 +127,6 @@
                                                                 <input id="star1" type="radio" name="rate" value="1">
                                                                 <label for="star1">★</label>
                                                             </div>
-                                                            {{-- <input type="text" name="star" placeholder="star" value="{{ old('star') }}" class="password"> --}}
                                                         </div>
                                                         <div class="review-input-box">
                                                             <textarea name="comment" class="review-textarea" placeholder="Review" value="{{ old('comment') }}"></textarea>
