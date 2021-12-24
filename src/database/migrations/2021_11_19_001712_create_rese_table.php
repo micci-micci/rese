@@ -64,7 +64,7 @@ class CreateReseTable extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('star');
+            $table->integer('rate');
             $table->text('comment')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('restaurant_id');
