@@ -60,3 +60,8 @@ Route::group(['middleware' => ['auth']], function() {
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
     -> name('search');
+
+// Admin
+Route::get('/admin', function () {
+    return view('manegement.admin');
+});

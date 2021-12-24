@@ -18,8 +18,7 @@ class CreateReseTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
-            $table->tinyInteger('locked_flg')->default(0);
-            $table->integer('error_count')->unsigned()->default(0);
+            $table->string('role');
             $table->timestamps();
         });
 

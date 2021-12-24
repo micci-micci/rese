@@ -18,11 +18,13 @@ class UsersTableSeeder extends Seeder
             'name' => "mike",
             'email' => 'mike@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => 'admin'
         ]);
         DB::table('users')->insert([
             'name' => "test",
             'email' => 'test@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => 'owner'
         ]);
     }
 }
