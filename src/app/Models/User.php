@@ -51,6 +51,17 @@ class User extends Authenticatable
         });
     }
 
+    public static function updateUser($user)
+    {
+        // dd($user);
+        DB::transaction(function() use($user) {
+            User::where('id', $user['id'])
+                ->update([
+                    'role'=> $user['role'],
+                ]);
+        });
+    }
+
     public static function destroyUser($user)
     {
         DB::transaction(function() use($user) {
