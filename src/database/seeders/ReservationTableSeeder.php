@@ -23,7 +23,7 @@ class ReservationTableSeeder extends Seeder
                 'user_id' => 1,
             ],
             [
-                'date' => '2021-12-04',
+                'date' => '2021-12-25',
                 'time' => '01:28',
                 'number' => 4,
                 'restaurant_id' => 12,

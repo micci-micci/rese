@@ -51,6 +51,7 @@ class Favorite extends Model
         return Favorite::where('user_id', $id)->get();
     }
 
+    // お気に入り飲食店が既にあるか判定
     public function isFavoritedBy($user, $restaurant_id): bool
     {
         return Favorite::where('user_id', $user->id)->where('restaurant_id', $restaurant_id)->first() !== null;

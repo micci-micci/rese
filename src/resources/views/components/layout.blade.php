@@ -13,6 +13,7 @@
     <script src="{{ mix("js/humberger.js") }}"></script>
     <script src="{{ mix("js/favorite.js") }}"></script>
     <script src="{{ mix("js/reserve.js") }}"></script>
+    <script src="{{ mix("js/modal.js") }}"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>

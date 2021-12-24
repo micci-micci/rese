@@ -20,6 +20,7 @@ mix.js('resources/js/app.js', 'public/js')
     .version()
     .js('resources/js/favorite.js', 'public/js')
     .js('resources/js/reserve.js', 'public/js')
-    .js('resources/js/humberger.js', 'public/js');
+    .js('resources/js/humberger.js', 'public/js')
+    .js('resources/js/modal.js', 'public/js');
 
 
