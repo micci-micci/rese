@@ -57,6 +57,6 @@ class MypageController extends Controller
         $review['user_id'] = $id;
 
         Review::createReview($review);
-        return redirect('mypage');
+        return view('mypage.done');
     }
 }

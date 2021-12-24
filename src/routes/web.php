@@ -44,14 +44,18 @@ Route::get('done', [RestaurantController::class, 'done'])
 // MyPage
 Route::group(['middleware' => ['auth']], function() {
     Route::get('mypage', [MypageController::class, 'mypage'])
-    -> name('mypage');
+        -> name('mypage');
     Route::post('update', [MypageController::class, 'update'])
-    -> name('mypage.update');
+        -> name('mypage.update');
     Route::post('destroy', [MypageController::class, 'destroy'])
-    -> name('mypage.destroy');
+        -> name('mypage.destroy');
+    Route::post('review', [MypageController::class, 'review'])
+        -> name('mypage.review');
+    // Route::get('m', [MypageController::class, 'done'])
+    //     -> name('mypage.done');
 });
-Route::post('review', [MypageController::class, 'review'])
-    -> name('mypage.review');
+
+
 
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
