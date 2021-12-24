@@ -49,7 +49,7 @@ class MypageController extends Controller
         return redirect('mypage');
     }
 
-    // 飲食店評価
+    // レビュー登録
     public function review(Request $request)
     {
         $review = $request->only(['rate', 'comment', 'restaurant_id']);
