@@ -61,6 +61,15 @@ class CreateReseTable extends Migration
             $table->foreignId('restaurant_id');
             $table->timestamps();
         });
+
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id();
+            $table->integer('star');
+            $table->text('comment')->nullable();
+            $table->foreignId('user_id');
+            $table->foreignId('restaurant_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -76,5 +85,6 @@ class CreateReseTable extends Migration
         Schema::dropIfExists('restaurants');
         Schema::dropIfExists('reservations');
         Schema::dropIfExists('favorites');
+        Schema::dropIfExists('reviews');
     }
 }

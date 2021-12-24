@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('destroy', [MypageController::class, 'destroy'])
     -> name('mypage.destroy');
 });
+Route::post('review', [MypageController::class, 'review'])
+    -> name('mypage.review');
 
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
