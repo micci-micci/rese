@@ -11,15 +11,22 @@
         <div class="gnav-wrap">
             <ul class="gnav-menu">
                 <li class="gnav-menu-item"><a href="{{ route('restaurants.index') }}">Home</a></li>
-                    <li class="gnav-menu-item">
-                        <form method="POST" action="{{ route('logout') }}" name="form1">
-                            @csrf
+                <li class="gnav-menu-item">
+                    <form method="POST" action="{{ route('logout') }}" name="form1">
+                        @csrf
 
-                            <input type="hidden" name="" value="">
-                            <a href="javascript:form1.submit()">Logout</a>
-                        </form>
-                    </li>
+                        <input type="hidden" name="" value="">
+                        <a href="javascript:form1.submit()">Logout</a>
+                    </form>
+                </li>
                 <li class="gnav-menu-item"><a href="{{ route('mypage') }}">Mypage</a></li>
+                @can('isAdmin')
+                    <li class="gnav-menu-item"><a href="{{ route('management.admin') }}">Administrator</a></li>
+                @elsecan('isOwner')
+                    <li class="gnav-menu-item"><a href="">Owner</a></li>
+                {{-- <li class="gnav-menu-item"><a href="{{ route('management.owner') }}">Owner</a></li> --}}
+                @else
+                @endcan
             </ul>
         </div>
     </nav>
