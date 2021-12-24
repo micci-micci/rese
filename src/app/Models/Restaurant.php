@@ -33,6 +33,10 @@ class Restaurant extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 
     // レストラン検索
     public static function multiSearch($area, $category, $search)

@@ -18,8 +18,8 @@
                 </div>
                 @isset ($reservations)
                     @foreach ($reservations as $reservation)
+                        @if ($dt < $reservation->date )
                         <div class="mypage-reserve-box">
-                            {{-- 予約カウント取得か --}}
                             <p class="mypage-reserve-txt">予約{{ $loop->iteration}}</p>
                             <div class="mypage-reserve-icon-container">
                                 <span class="material-icons timer">av_timer</span>
@@ -34,7 +34,7 @@
                             <div class="mypage-reserve-table-container">
                                 <form action="{{ route('mypage.update', ['restaurant_id'=>$reservation->restaurant->id]) }}" method="post">
                                     @csrf
-                                    
+
                                     <table class="mypage-info-table">
                                         <tr>
                                             <td>Shop</td>
@@ -42,14 +42,12 @@
                                         </tr>
                                         <tr>
                                             <td>Date</td>
-                                            {{-- <td id="date">{{ $reservation->date }}</td> --}}
                                             <td id="date">
                                                 <input type="date" class="icon-del update" name="date" value="{{ $reservation->date }}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Time</td>
-                                            {{-- <td id="time">{{ $reservation->time }}</td> --}}
                                             <td id="time">
                                                 <input type="time" class="icon-del update" name="time" value="{{ $reservation->time }}">
                                             </td>
@@ -65,6 +63,87 @@
                                 </form>
                             </div>
                         </div>
+                        {{-- 予約日を超えた場合 --}}
+                        @else
+                        @inject('review', 'App\Models\Review')
+                            @if (!$review->isReviewBy(Auth::user(), $reservation->restaurant->id))
+                            <div class="mypage-reserve-done-box">
+                                @error('rate')
+                                    <div class="error">{{ $message }}</div>
+                                @enderror
+                                <p class="mypage-done-txt">予約{{ $loop->iteration}}</p>
+                                <div class="mypage-reserve-icon-container">
+                                    <span class="material-icons timer-done">av_timer</span>
+                                    <form method="post" action="{{ route('mypage.destroy', ['restaurant_id'=>$reservation->restaurant->id]) }}">
+                                        @csrf
+
+                                        <button type="submit" class="cancel-done">
+                                            <i class="material-icons cancel-done">highlight_off</i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="mypage-reserve-table-container">
+                                    <table class="mypage-done-table">
+                                        <tr>
+                                            <td>Shop</td>
+                                            <td>{{ $reservation->restaurant->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td id="date">{{ $reservation->date }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Time</td>
+                                            <td id="time">{{ $reservation->time }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number</td>
+                                            <td id="number">{{ $reservation->number }}</td>
+                                        </tr>
+                                    </table>
+                                    {{-- Modal --}}
+                                    <button type="button" class="mypage-review-btn js-modal-open">評価する</button>
+                                    <div class="modal js-modal">
+                                        <div class="modal-bg js-modal-close"></div>
+                                        <div class="modal-content">
+                                            <form method="post" action="{{ route('mypage.review', ['restaurant_id'=>$reservation->restaurant->id]) }}">
+                                                @csrf
+
+                                                <div class="review">
+                                                    <div class="review-bar">
+                                                        <span class="review-box-text">{{ $reservation->restaurant->name }}</span>
+                                                    </div>
+                                                    <div class="review-container">
+                                                        <div class="review-input-box">
+                                                            <div class="rate-form">
+                                                                <input id="star5" type="radio" name="rate" value="5">
+                                                                <label for="star5">★</label>
+                                                                <input id="star4" type="radio" name="rate" value="4">
+                                                                <label for="star4">★</label>
+                                                                <input id="star3" type="radio" name="rate" value="3">
+                                                                <label for="star3">★</label>
+                                                                <input id="star2" type="radio" name="rate" value="2">
+                                                                <label for="star2">★</label>
+                                                                <input id="star1" type="radio" name="rate" value="1">
+                                                                <label for="star1">★</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="review-input-box">
+                                                            <textarea name="comment" class="review-textarea" placeholder="Review" value="{{ old('comment') }}"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-input-box">
+                                                        <input type="submit" class="review-btn" value="送信">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @else
+                            @endif
+                        @endif
                     @endforeach
                 @else
                 @endisset
