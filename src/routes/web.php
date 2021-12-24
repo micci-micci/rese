@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AuthController;
@@ -62,6 +63,7 @@ Route::post('/', [RestaurantController::class, 'search'])
     -> name('search');
 
 // Admin
-Route::get('/admin', function () {
-    return view('manegement.admin');
+Route::group(['middleware' => ['auth', 'can:isAdmin']], function() {
+    Route::get('admin', [AdminController::class, 'admin'])
+        -> name('management.admin');
 });
