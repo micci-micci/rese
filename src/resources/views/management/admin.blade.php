@@ -25,6 +25,7 @@
                     <td>{{ $user->id}}</td>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
+                    {{-- Update --}}
                     <form method="post" action="{{ route('management.update', ['id'=>$user->id]) }}">
                         @csrf
 
@@ -38,19 +39,31 @@
                             </label>
                         </td>
                         <td>
-                            <button type="submit" class="admin-delete">
-                                <i class="material-icons admin-material">update</i>
-                            </button>
+                            <button type="submit" class="admin-update-btn button">UPDATE</button>
                         </td>
-                    </form>
-                    <form method="post" action="{{ route('management.destroy', ['id'=>$user->id]) }}">
-                        @csrf
                         <td>
-                            <button type="submit" class="admin-delete">
-                                <i class="material-icons admin-material">delete</i>
-                            </button>
+                            <button type="submit" class="admin-delete-btn js-modal-open">DELETE</button>
                         </td>
                     </form>
+                    {{-- Delete --}}
+
+                    {{-- Modal --}}
+                    <div class="modal js-modal">
+                        <div class="modal-bg js-modal-close"></div>
+                        <div class="modal-content">
+                            <form method="post" action="{{ route('management.destroy', ['id'=>$user->id]) }}">
+                                @csrf
+
+                                <div class="admin-modal-container">
+                                    <p class="admin-modal-txt">本当に削除しますか？</p>
+                                    <div class="admin-modal-flex">
+                                        <button class="admin-cancel-btn js-modal-close">CANCEL</button>
+                                        <button type="submit" class="admin-delete-btn">DELETE</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </tr>
             </tbody>
             @endforeach
