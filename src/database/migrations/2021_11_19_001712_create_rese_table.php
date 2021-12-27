@@ -41,6 +41,7 @@ class CreateReseTable extends Migration
             $table->string('image_url')->nullable();
             $table->foreignId('area_id');
             $table->foreignId('category_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
 

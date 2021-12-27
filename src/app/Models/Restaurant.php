@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Restaurant extends Model
 {
@@ -15,6 +16,7 @@ class Restaurant extends Model
         'image_url',
         'area_id',
         'category_id',
+        'user_id'
     ];
 
     public function area()
@@ -36,6 +38,10 @@ class Restaurant extends Model
     public function review()
     {
         return $this->hasMany(Review::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     // レストラン検索
@@ -75,5 +81,28 @@ class Restaurant extends Model
     public static function oneSearch($request)
     {
         return Restaurant::where('id', $request->id)->first();
+    }
+
+    // レストラン登録
+    public static function CreateRestaurant($restaurant)
+    {
+        DB::transaction(function() use($restaurant) {
+            Restaurant::create($restaurant);
+        });
+    }
+
+    // 自分のレストランを取得
+    public static function getMyRestaurant($id)
+    {
+        return Restaurant::where('user_id', $id)->get();
+    }
+
+    // レストラン削除
+    public static function destroyRestaurant($restaurant_id)
+    {
+        DB::transaction(function() use($restaurant_id) {
+            Restaurant::where('id', $restaurant_id)
+            ->delete();
+        });
     }
 }

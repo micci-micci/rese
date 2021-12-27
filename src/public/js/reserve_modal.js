@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/modal.js":
-/*!*******************************!*\
-  !*** ./resources/js/modal.js ***!
-  \*******************************/
+/***/ "./resources/js/reserve_modal.js":
+/*!***************************************!*\
+  !*** ./resources/js/reserve_modal.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("/* provided dependency */ var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(function () {\n  $('.js-modal-open').on('click', function () {\n    // var target = $(this).data('target');\n    // var modal = document.getElementById(target);\n    $('.js-modal').fadeIn();\n    return false;\n  });\n  $('.js-modal-close').on('click', function () {\n    $('.js-modal').fadeOut();\n    return false;\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvbW9kYWwuanMuanMiLCJtYXBwaW5ncyI6IjtBQUFBQSxDQUFDLENBQUMsWUFDRjtBQUNJQSxFQUFBQSxDQUFDLENBQUMsZ0JBQUQsQ0FBRCxDQUFvQkMsRUFBcEIsQ0FBdUIsT0FBdkIsRUFBZ0MsWUFDaEM7QUFDSTtBQUNBO0FBQ0FELElBQUFBLENBQUMsQ0FBQyxXQUFELENBQUQsQ0FBZUUsTUFBZjtBQUNBLFdBQU8sS0FBUDtBQUNILEdBTkQ7QUFPQUYsRUFBQUEsQ0FBQyxDQUFDLGlCQUFELENBQUQsQ0FBcUJDLEVBQXJCLENBQXdCLE9BQXhCLEVBQWlDLFlBQ2pDO0FBQ0lELElBQUFBLENBQUMsQ0FBQyxXQUFELENBQUQsQ0FBZUcsT0FBZjtBQUNBLFdBQU8sS0FBUDtBQUNILEdBSkQ7QUFLSCxDQWRBLENBQUQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvbW9kYWwuanM/YzI3NCJdLCJzb3VyY2VzQ29udGVudCI6WyIkKGZ1bmN0aW9uICgpXG57XG4gICAgJCgnLmpzLW1vZGFsLW9wZW4nKS5vbignY2xpY2snLCBmdW5jdGlvbigpXG4gICAge1xuICAgICAgICAvLyB2YXIgdGFyZ2V0ID0gJCh0aGlzKS5kYXRhKCd0YXJnZXQnKTtcbiAgICAgICAgLy8gdmFyIG1vZGFsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQodGFyZ2V0KTtcbiAgICAgICAgJCgnLmpzLW1vZGFsJykuZmFkZUluKCk7XG4gICAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9KTtcbiAgICAkKCcuanMtbW9kYWwtY2xvc2UnKS5vbignY2xpY2snLCBmdW5jdGlvbigpXG4gICAge1xuICAgICAgICAkKCcuanMtbW9kYWwnKS5mYWRlT3V0KCk7XG4gICAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9KVxufSk7XG4iXSwibmFtZXMiOlsiJCIsIm9uIiwiZmFkZUluIiwiZmFkZU91dCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/modal.js\n");
+eval("/* provided dependency */ var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(function () {\n  $('.js-reserve-modal-open').on('click', function () {\n    $('.js-reserve-modal').fadeIn();\n    return false;\n  });\n  $('.js-reserve-modal-close').on('click', function () {\n    $('.js-reserve-modal').fadeOut();\n    return false;\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvcmVzZXJ2ZV9tb2RhbC5qcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUFBLENBQUMsQ0FBQyxZQUNGO0FBQ0lBLEVBQUFBLENBQUMsQ0FBQyx3QkFBRCxDQUFELENBQTRCQyxFQUE1QixDQUErQixPQUEvQixFQUF3QyxZQUN4QztBQUNJRCxJQUFBQSxDQUFDLENBQUMsbUJBQUQsQ0FBRCxDQUF1QkUsTUFBdkI7QUFDQSxXQUFPLEtBQVA7QUFDSCxHQUpEO0FBS0FGLEVBQUFBLENBQUMsQ0FBQyx5QkFBRCxDQUFELENBQTZCQyxFQUE3QixDQUFnQyxPQUFoQyxFQUF5QyxZQUN6QztBQUNJRCxJQUFBQSxDQUFDLENBQUMsbUJBQUQsQ0FBRCxDQUF1QkcsT0FBdkI7QUFDQSxXQUFPLEtBQVA7QUFDSCxHQUpEO0FBS0gsQ0FaQSxDQUFEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL3Jlc2VydmVfbW9kYWwuanM/YzEwYSJdLCJzb3VyY2VzQ29udGVudCI6WyIkKGZ1bmN0aW9uICgpXG57XG4gICAgJCgnLmpzLXJlc2VydmUtbW9kYWwtb3BlbicpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgICQoJy5qcy1yZXNlcnZlLW1vZGFsJykuZmFkZUluKCk7XG4gICAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9KTtcbiAgICAkKCcuanMtcmVzZXJ2ZS1tb2RhbC1jbG9zZScpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgICQoJy5qcy1yZXNlcnZlLW1vZGFsJykuZmFkZU91dCgpO1xuICAgICAgICByZXR1cm4gZmFsc2U7XG4gICAgfSlcbn0pO1xuIl0sIm5hbWVzIjpbIiQiLCJvbiIsImZhZGVJbiIsImZhZGVPdXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/reserve_modal.js\n");
 
 /***/ }),
 
@@ -60,7 +60,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/modal.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/reserve_modal.js");
 /******/ 	
 /******/ })()
 ;

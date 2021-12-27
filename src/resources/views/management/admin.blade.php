@@ -26,7 +26,7 @@
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
                     {{-- Update --}}
-                    <form method="post" action="{{ route('management.update', ['id'=>$user->id]) }}">
+                    <form method="post" action="{{ route('admin.update', ['id'=>$user->id]) }}">
                         @csrf
 
                         <td>
@@ -39,26 +39,24 @@
                             </label>
                         </td>
                         <td>
-                            <button type="submit" class="admin-update-btn button">UPDATE</button>
+                            <button type="submit" class="update-btn button">UPDATE</button>
                         </td>
                         <td>
-                            <button type="submit" class="admin-delete-btn js-modal-open">DELETE</button>
+                            <button type="submit" class="delete-btn js-modal-open">DELETE</button>
                         </td>
                     </form>
-                    {{-- Delete --}}
-
                     {{-- Modal --}}
                     <div class="modal js-modal">
                         <div class="modal-bg js-modal-close"></div>
                         <div class="modal-content">
-                            <form method="post" action="{{ route('management.destroy', ['id'=>$user->id]) }}">
+                            <form method="post" action="{{ route('admin.destroy', ['id'=>$user->id]) }}">
                                 @csrf
 
-                                <div class="admin-modal-container">
-                                    <p class="admin-modal-txt">本当に削除しますか？</p>
-                                    <div class="admin-modal-flex">
-                                        <button class="admin-cancel-btn js-modal-close">CANCEL</button>
-                                        <button type="submit" class="admin-delete-btn">DELETE</button>
+                                <div class="modal-container">
+                                    <p class="modal-txt">本当に削除しますか？</p>
+                                    <div class="modal-flex">
+                                        <button class="cancel-btn js-modal-close">CANCEL</button>
+                                        <button type="submit" class="delete-btn">DELETE</button>
                                     </div>
                                 </div>
                             </form>
