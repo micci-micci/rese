@@ -21,10 +21,10 @@
                 </li>
                 <li class="gnav-menu-item"><a href="{{ route('mypage') }}">Mypage</a></li>
                 @can('isAdmin')
-                    <li class="gnav-menu-item"><a href="{{ route('management.admin') }}">Administrator</a></li>
+                    <li class="gnav-menu-item"><a href="{{ route('owner') }}">Owner</a></li>
+                    <li class="gnav-menu-item"><a href="{{ route('admin') }}">Administrator</a></li>
                 @elsecan('isOwner')
-                    <li class="gnav-menu-item"><a href="">Owner</a></li>
-                {{-- <li class="gnav-menu-item"><a href="{{ route('management.owner') }}">Owner</a></li> --}}
+                    <li class="gnav-menu-item"><a href="{{ route('owner') }}">Owner</a></li>
                 @else
                 @endcan
             </ul>

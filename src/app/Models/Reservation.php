@@ -32,6 +32,12 @@ class Reservation extends Model
     {
         return Reservation::where('user_id', $id)->get();
     }
+    // 対象レストランの予約情報取得
+    public static function getRestaurantid($id)
+    {
+        // dd(Reservation::where('restaurant_id', $restaurant_id)->get());
+        return Reservation::where('user_id', $id)->get();
+    }
 
     // 予約登録
     public static function createReserved($reserve)

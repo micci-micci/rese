@@ -42,8 +42,6 @@
             @foreach ($restaurants as $restaurant)
             <div class="card card-radius">
                 <form method="get" action="">
-                @csrf
-
                     <div class="card-header">
                         <figure class="card-thumbnail">
                             <img src="{{ $restaurant->image_url }}">

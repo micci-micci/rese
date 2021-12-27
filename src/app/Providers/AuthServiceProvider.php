@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('isOwner', function($user)
         {
-            return $user->role == 1;
+            return $user->role >= 1;
         });
     }
 }

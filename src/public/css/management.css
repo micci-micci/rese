@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/***　おしゃれテーブル3 シアンカラー　***/
 .admin-table {
     width:100%;
     border-collapse: separate;
@@ -26,16 +25,13 @@
 .admin-table tr td {
     background: #f5f5f5;
 }
-
 .admin-table tr {
     color:#666;
     font-weight: bold;
     line-height:2.5em;
     text-align:right;
 }
-
 select.admin-role {
-    /* border: none; */
     border: 2px solid #666;
     border-radius: 20px;
     margin: 0 auto;
@@ -45,10 +41,103 @@ select.admin-role {
     width: 100px;
     font-weight: bold;
 }
-.admin-update-btn {
-    border: 2px solid #87CEFA;
+
+/* Owner */
+.owner-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 280px;
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.owner-bar {
+    position: relative;
+    margin-bottom: 10px;
+    background: #1E90FF;
+    border-radius: 5px 5px 0px 0px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+.owner-box-text {
+    color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.owner-flex-box {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+select.owner-select-box {
+    border: 2px solid #666;
     border-radius: 20px;
     margin: 0 auto;
+	font-size: 14px;
+    color: #666;
+    background-color: #fff;
+    width: 150px;
+    font-weight: bold;
+}
+.owner-input-box {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.owner-textarea {
+    position: absolute;
+    top: 20%;
+    width: 76%;
+    height: 100px;
+    z-index: 2;
+}
+.owner-btn-flex {
+    height: 200px;
+    position: relative;
+}
+.owner-create-btn {
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1E90FF;
+    width: 100px;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 80%;
+}
+.owner-create-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.owner-upload-btn {
+    border: 2px solid #666;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #666;
+    width: 200px;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 12%;
+}
+.owner-upload-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.owner-edit-btn {
+    border: 2px solid #87CEFA;
+    border-radius: 20px;
 	font-size: 16px;
     color: #fff;
     background-color: #87CEFA;
@@ -56,10 +145,19 @@ select.admin-role {
     height: 30px;
     font-weight: bold;
 }
-.admin-delete-btn {
+.owner-info-btn {
+    border: 2px solid #666;
+    border-radius: 20px;
+	font-size: 16px;
+    color: #666;
+    background-color: #DCDCDC;
+    width: 200px;
+    height: 30px;
+    font-weight: bold;
+}
+.owner-delete-btn {
     border: 2px solid #F62;
     border-radius: 20px;
-    margin: 0 auto;
 	font-size: 16px;
     color: #fff;
     background-color: #F62;
@@ -67,48 +165,85 @@ select.admin-role {
     height: 30px;
     font-weight: bold;
 }
-.admin-cancel-btn {
-    border: 2px solid #666;
-    border-radius: 20px;
-    margin: 0 auto;
-	font-size: 16px;
-    color: #fff;
-    background-color: #666;
-    width: 100px;
-    height: 30px;
-    font-weight: bold;
-}
-.admin-update-btn:hover{
+.owner-edit-btn:hover{
     transform: translateY(-3px);
     cursor: pointer;
 }
-.admin-delete-btn:hover{
+.owner-delete-btn:hover{
     transform: translateY(-3px);
     cursor: pointer;
 }
-.admin-cancel-btn:hover{
+.owner-info-btn:hover{
     transform: translateY(-3px);
     cursor: pointer;
 }
-.admin-modal-container {
-    margin: 0 auto;
+.owner-space {
+    margin-top: 40px;
+}
+.owner-card-body {
+    margin: 10px 20px;
+    width: 250px;
+}
+.owner-reserve-modal {
+    display: none;
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.owner-reserve-modal-bg {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+.owner-reserve-modal-content {
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
     width: 50%;
-    height: 20vh;
+}
+.reserve-content {
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+.reserve-table {
+    width:100%;
+}
+.reserve-table tbody td {
+    text-align: center;
+}
+.reserve-table thead th {
+    height: 20px;
+    color: #FFF;
+    font-weight: bold;
+    background:#1E90FF;
+    text-align: center;
+    border: 2px solid #666;
+}
+.reserve-table tr td {
+    background: #f5f5f5;
+    border: 2px solid #666;
+}
+.reserve-table tr {
+    color:#666;
+    font-weight: bold;
+    line-height:2.5em;
+    text-align:right;
+    border: 2px solid #666;
+}
+.modal-reserve-container {
+    margin: 0 auto;
+    width: 100%;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-}
-.admin-modal-txt {
-    color: #666;
-    font-size: 24px;
-    text-align: center;
-    padding-top: 25px;
-}
-.admin-modal-flex {
-    width: 100%;
-    height: 65%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }

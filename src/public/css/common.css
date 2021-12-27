@@ -29,6 +29,9 @@ main {
     margin: 50px 0 200px;
     background: #FFFFFF;
 }
+::placeholder {
+    color: #D3D3D3;
+}
 
 /* Header*/
 header {
@@ -183,4 +186,96 @@ ul li {
 }
 .space {
     margin-top: 20px;
+}
+
+/* Modal cancel and delete */
+.modal-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 20vh;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.modal {
+    display: none;
+    z-index: 101;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.modal-bg {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+.modal-content {
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 25%;
+}
+.modal-txt {
+    color: #666;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 25px;
+}
+.modal-flex {
+    width: 100%;
+    height: 65%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete-btn {
+    border: 2px solid #F62;
+    border-radius: 20px;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #fff;
+    background-color: #F62;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+}
+.cancel-btn {
+    border: 2px solid #666;
+    border-radius: 20px;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #fff;
+    background-color: #666;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+}
+.update-btn {
+    border: 2px solid #87CEFA;
+    border-radius: 20px;
+    margin: 0 auto;
+	font-size: 16px;
+    color: #fff;
+    background-color: #87CEFA;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+}
+.delete-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.cancel-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.update-btn:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
 }

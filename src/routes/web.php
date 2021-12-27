@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\OwnerController;
 
 // Register
 Route::get('register', [AuthController::class, 'showRegister'])
@@ -52,8 +53,6 @@ Route::group(['middleware' => ['auth']], function() {
         -> name('mypage.destroy');
     Route::post('review', [MypageController::class, 'review'])
         -> name('mypage.review');
-    // Route::get('m', [MypageController::class, 'done'])
-    //     -> name('mypage.done');
 });
 
 
@@ -65,9 +64,19 @@ Route::post('/', [RestaurantController::class, 'search'])
 // Admin
 Route::group(['middleware' => ['auth', 'can:isAdmin']], function() {
     Route::get('admin', [AdminController::class, 'show'])
-        -> name('management.admin');
+        -> name('admin');
     Route::post('admin/update', [AdminController::class, 'update'])
-        -> name('management.update');
+        -> name('admin.update');
     Route::post('admin/destroy', [AdminController::class, 'destroy'])
-        -> name('management.destroy');
+        -> name('admin.destroy');
+});
+
+// Owner
+Route::group(['middleware' => ['auth', 'can:isOwner']], function() {
+    Route::get('owner', [OwnerController::class, 'show'])
+        -> name('owner');
+    Route::post('owner/create', [OwnerController::class, 'create'])
+        -> name('owner.create');
+    Route::post('owner/destroy', [OwnerController::class, 'destroy'])
+        -> name('owner.destroy');
 });
