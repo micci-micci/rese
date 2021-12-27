@@ -42,7 +42,7 @@
                             <button type="submit" class="update-btn button">UPDATE</button>
                         </td>
                         <td>
-                            <button type="submit" class="delete-btn js-modal-open" data-whatever="{{ $user->id }}" data-target="delete-modal">DELETE</button>
+                            <button type="submit" class="delete-btn js-modal-open" data-id="{{ $user->id }}" data-target="delete-modal">DELETE</button>
                         </td>
                     </form>
                     {{-- Modal --}}

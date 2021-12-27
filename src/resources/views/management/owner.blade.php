@@ -60,7 +60,7 @@
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="owner-edit-btn js-modal-open" data-target="modal01">EDIT</button>
-                        <button type="submit" class="owner-delete-btn js-modal-open"  data-whatever="{{ $restaurant->id }}" data-target="delete-modal">DELETE</button>
+                        <button type="submit" class="owner-delete-btn js-modal-open"  data-id="{{ $restaurant->id }}" data-target="delete-modal">DELETE</button>
                     </div>
                 </div>
                 {{-- Edit modal --}}
