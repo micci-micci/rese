@@ -42,21 +42,22 @@
                             <button type="submit" class="update-btn button">UPDATE</button>
                         </td>
                         <td>
-                            <button type="submit" class="delete-btn js-modal-open">DELETE</button>
+                            <button type="submit" class="delete-btn js-modal-open" data-whatever="{{ $user->id }}" data-target="delete-modal">DELETE</button>
                         </td>
                     </form>
                     {{-- Modal --}}
-                    <div class="modal js-modal">
+                    <div id="delete-modal" class="modal js-modal">
                         <div class="modal-bg js-modal-close"></div>
                         <div class="modal-content">
-                            <form method="post" action="{{ route('admin.destroy', ['id'=>$user->id]) }}">
+                            <form method="post" action="{{ route('admin.destroy') }}">
                                 @csrf
 
                                 <div class="modal-container">
                                     <p class="modal-txt">本当に削除しますか？</p>
                                     <div class="modal-flex">
+                                        <input class="modal-delete-val" type="hidden" name="id" value="">
                                         <button class="cancel-btn js-modal-close">CANCEL</button>
-                                        <button type="submit" class="delete-btn">DELETE</button>
+                                        <button type="submit" class="delete-btn" id="id">DELETE</button>
                                     </div>
                                 </div>
                             </form>
