@@ -105,7 +105,7 @@
                                     <button type="button" class="mypage-review-btn js-modal-open">評価する</button>
                                     <div class="modal js-modal">
                                         <div class="modal-bg js-modal-close"></div>
-                                        <div class="modal-content">
+                                        <div class="review-modal-content">
                                             <form method="post" action="{{ route('mypage.review', ['restaurant_id'=>$reservation->restaurant->id]) }}">
                                                 @csrf
 
