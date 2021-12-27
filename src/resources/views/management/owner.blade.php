@@ -60,9 +60,7 @@
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="owner-edit-btn js-modal-open" data-target="modal01">EDIT</button>
-                        {{-- <button type="submit" class="owner-info-btn js-modal-open" data-target="modal02">INFO</button> --}}
-                        {{-- <button type="submit" class="owner-delete-btn js-modal-open" data-target="modal02">DELETE</button> --}}
-                        <button type="submit" class="owner-delete-btn js-modal-open">DELETE</button>
+                        <button type="submit" class="owner-delete-btn js-modal-open"  data-whatever="{{ $restaurant->id }}" data-target="delete-modal">DELETE</button>
                     </div>
                 </div>
                 {{-- Edit modal --}}
@@ -78,48 +76,17 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="reserve-content">
-                    <div class="modal-reserve-container">
-                        <table class="reserve-table">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>店名</th>
-                                    <th>お客様名</th>
-                                    <th>予約日</th>
-                                    <th>予約時間</th>
-                                    <th>予約人数</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($reservations as $reservation)
-                                    <tr>
-                                        <td>{{ $loop->iteration}}</td>
-                                        <td>{{ $reservation->restaurant->name }}</td>
-                                        <td>{{ $reservation->user->name }}</td>
-                                        <td>{{ $reservation->date }}</td>
-                                        <td>{{ $reservation->time }}</td>
-                                        <td>{{ $reservation->number }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div> --}}
                 {{-- Confirm modal --}}
-                {{-- <div id="modal02" class="modal js-modal"> --}}
-                <div class="modal js-modal">
+                <div id="delete-modal" class="modal js-modal">
                     <div class="modal-bg js-modal-close"></div>
                     <div class="modal-content">
-                        {{-- @php
-                            dd($restaurant->id);
-                        @endphp --}}
                         <form method="post" action="{{ route('owner.destroy', ['id'=>$restaurant->id]) }}">
                             @csrf
 
                             <div class="modal-container">
                                 <p class="modal-txt">本当に削除しますか？</p>
                                 <div class="modal-flex">
+                                    <input class="modal-delete-val" type="hidden" name="id" value="">
                                     <button class="cancel-btn js-modal-close">CANCEL</button>
                                     <button type="submit" class="delete-btn">OK</button>
                                 </div>
@@ -127,39 +94,6 @@
                         </form>
                     </div>
                 </div>
-                {{-- Reservation table modal--}}
-                {{-- <div id="modal03" class="modal js-modal">
-                    <div class="modal-bg js-modal-close">
-                        <div class="reserve-content">
-                            <div class="modal-reserve-container">
-                                <table class="reserve-table">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>店名</th>
-                                            <th>お客様名</th>
-                                            <th>予約日</th>
-                                            <th>予約時間</th>
-                                            <th>予約人数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($reservations as $reservation)
-                                            <tr>
-                                                <td>{{ $loop->iteration}}</td>
-                                                <td>{{ $reservation->restaurant->name }}</td>
-                                                <td>{{ $reservation->user->name }}</td>
-                                                <td>{{ $reservation->date }}</td>
-                                                <td>{{ $reservation->time }}</td>
-                                                <td>{{ $reservation->number }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
             @endforeach
         </div>
