@@ -42,6 +42,8 @@ Route::post('reserve', [RestaurantController::class, 'reserve'])
     -> middleware('auth');
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
+Route::get('restaurant_search', [RestaurantController::class, 'restaurantSearch'])
+    -> name('restaurants.search');
 
 // MyPage
 Route::group(['middleware' => ['auth']], function() {
@@ -77,6 +79,8 @@ Route::group(['middleware' => ['auth', 'can:isOwner']], function() {
         -> name('owner');
     Route::post('owner/create', [OwnerController::class, 'create'])
         -> name('owner.create');
+    Route::post('owner/update', [OwnerController::class, 'update'])
+        -> name('owner.update');
     Route::post('owner/destroy', [OwnerController::class, 'destroy'])
         -> name('owner.destroy');
 });

@@ -25,11 +25,20 @@ class OwnerController extends Controller
 
     public function create(Request $request)
     {
-        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'image_url']);
+        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'image_url', 'description']);
         $id = Auth::id();
         $restaurant['user_id'] = $id;
 
-        Restaurant::CreateRestaurant($restaurant);
+        Restaurant::createRestaurant($restaurant);
+        return view('management.owner');
+    }
+
+    public function update(Request $request)
+    {
+        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'image_url', 'description']);
+        dd($restaurant);
+
+        Restaurant::updateRestaurant($restaurant);
         return view('management.owner');
     }
 
