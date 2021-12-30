@@ -21,6 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/favorite.js', 'public/js')
     .js('resources/js/reserve.js', 'public/js')
     .js('resources/js/humberger.js', 'public/js')
-    .js('resources/js/modal.js', 'public/js');
+    .js('resources/js/modal.js', 'public/js')
+    .js('resources/js/restaurant_edit_modal.js', 'public/js');
 
 

@@ -84,10 +84,24 @@ class Restaurant extends Model
     }
 
     // レストラン登録
-    public static function CreateRestaurant($restaurant)
+    public static function createRestaurant($restaurant)
     {
         DB::transaction(function() use($restaurant) {
             Restaurant::create($restaurant);
+        });
+    }
+
+    public static function updateRestaurant($restaurant)
+    {
+        DB::transaction(function() use($restaurant) {
+            Restaurant::where('id', $restaurant['id'])
+                ->update([
+                    'name' => $restaurant['name'],
+                    'description' => $restaurant['description'],
+                    // 'image_url' => $restaurant['image_url'],
+                    'area_id' => $restaurant['area_id'],
+                    'category_id' => $restaurant['category_id'],
+                ]);
         });
     }
 

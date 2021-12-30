@@ -59,21 +59,45 @@
                         <p class="card-tag-text">#{{ $restaurant->category->name }}</p>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="owner-edit-btn js-modal-open" data-target="modal01">EDIT</button>
+                        <button type="submit" class="owner-edit-btn js-edit-modal-open" data-id="{{ $restaurant->id }}" data-target="edit-modal">EDIT</button>
                         <button type="submit" class="owner-delete-btn js-modal-open"  data-id="{{ $restaurant->id }}" data-target="delete-modal">DELETE</button>
                     </div>
                 </div>
                 {{-- Edit modal --}}
-                <div id="modal01" class="modal js-modal">
-                    <div class="modal-bg js-modal-close"></div>
+                <div id="edit-modal" class="modal js-edit-modal">
+                    <div class="modal-bg js-edit-modal-close"></div>
                     <div class="modal-content">
-                        <div class="modal-container">
-                            <p class="modal-txt">{{ $restaurant->name }}</p>
-                            <div class="modal-flex">
-                                <button class="cancel-btn js-modal-close">CANCEL</button>
-                                <button type="submit" class="delete-btn">OK</button>
+                        <form method="post" action="{{ route('owner.update') }}">
+                            @csrf
+
+                            <figure class="owner-modal-thumbnail">
+                                <img src="" id="restaurant_image_url">
+                            </figure>
+                            <div class="owner-modal-box">
+                            <input id="restaurant_name" type="text" name="name" class="owner-modal-text" placeholder="" value="">
+                                <div class="owner-modal-container">
+                                    <select name="area_id" class="owner-modal-select-box" id="restaurant_area">
+                                        <option value="" hidden>All area</option>
+                                        <option value="13">東京都</option>
+                                        <option value="40">福岡県</option>
+                                        <option value="27">大阪府</option>
+                                    </select>
+                                    <select name="category_id" class="owner-modal-select-box" id="restaurant_category">
+                                        <option value="" hidden>All genre</option>
+                                        <option value="1">寿司</option>
+                                        <option value="2">焼肉</option>
+                                        <option value="3">居酒屋</option>
+                                        <option value="4">イタリアン</option>
+                                        <option value="5">ラーメン</option>
+                                    </select>
+                                </div>
+                                <div class="owner-modal-input-box">
+                                    <textarea id="restaurant_description" name="description" class="owner-modal-textarea" placeholder="Description" value=""></textarea>
+                                </div>
+                                <input id="restaurant_id" class="js-modal-update-val" type="hidden" name="id" value="">
+                                <button type="submit" class="owner-modal-update-btn">更新</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 {{-- Confirm modal --}}

@@ -57,7 +57,7 @@ class User extends Authenticatable
         DB::transaction(function() use($user) {
             User::where('id', $user['id'])
                 ->update([
-                    'role'=> $user['role'],
+                    'role' => $user['role'],
                 ]);
         });
     }
