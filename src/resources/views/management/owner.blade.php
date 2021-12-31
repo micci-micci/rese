@@ -12,7 +12,7 @@
             <div class="owner-bar">
                 <span class="owner-box-text">飲食店登録</span>
             </div>
-            <form method="post" action="{{ route('owner.create') }}">
+            <form method="post" action="{{ route('owner.create') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="owner-flex-box">
@@ -36,7 +36,8 @@
                     <textarea name="description" class="owner-textarea" placeholder="Description" value="{{ old('description') }}"></textarea>
                 </div>
                 <div class="owner-btn-flex">
-                    <button type="submit" class="owner-upload-btn">画像アップロード</button>
+                    <label for="file" class="owner-upload-btn">店舗画像アップロード</label>
+                    <input type="file" id="file" name="image_url" class="owner-none-btn">
                     <button type="submit" class="owner-create-btn">登録</button>
                 </div>
             </form>
@@ -67,7 +68,7 @@
                 <div id="edit-modal" class="modal js-edit-modal">
                     <div class="modal-bg js-edit-modal-close"></div>
                     <div class="modal-content">
-                        <form method="post" action="{{ route('owner.update') }}">
+                        <form method="post" action="{{ route('owner.update') }}" enctype="multipart/form-data">
                             @csrf
 
                             <figure class="owner-modal-thumbnail">
@@ -94,8 +95,13 @@
                                 <div class="owner-modal-input-box">
                                     <textarea id="restaurant_description" name="description" class="owner-modal-textarea" placeholder="Description" value=""></textarea>
                                 </div>
-                                <input id="restaurant_id" class="js-modal-update-val" type="hidden" name="id" value="">
-                                <button type="submit" class="owner-modal-update-btn">更新</button>
+                                <div class="owner-mmodal-container-btn">
+                                    {{-- <label for="file" class="owner-modal-upload-btn">添付</label>
+                                    <input type="file" id="file" name="image_url" class="owner-none-btn"> --}}
+                                    <input type="file" name="image_url">
+                                    <input id="restaurant_id" class="js-modal-update-val" type="hidden" name="id" value="">
+                                    <button type="submit" class="owner-modal-update-btn">更新</button>
+                                </div>
                             </div>
                         </form>
                     </div>

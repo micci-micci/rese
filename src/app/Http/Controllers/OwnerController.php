@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Reservation;
+use Storage;
 
 class OwnerController extends Controller
 {
@@ -25,21 +26,37 @@ class OwnerController extends Controller
 
     public function create(Request $request)
     {
-        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'image_url', 'description']);
+        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'description']);
         $id = Auth::id();
         $restaurant['user_id'] = $id;
 
+        // S3 アップロード
+        $image = $request->file('image_url');
+        $path = Storage::disk('s3')->put('image', $image);
+
+        // S3 URL 取得
+        $image_url = Storage::disk('s3')->url($path);
+        $restaurant['image_url'] = $image_url;
+
         Restaurant::createRestaurant($restaurant);
-        return view('management.owner');
+        return redirect('owner');
     }
 
     public function update(Request $request)
     {
-        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'image_url', 'description']);
-        dd($restaurant);
+        $restaurant = $request->only(['id', 'name', 'area_id', 'category_id', 'description', 'image_url']);
+        // dd($request);
+
+        // S3 アップロード
+        $image = $request->file('image_url');
+        $path = Storage::disk('s3')->put('image', $image);
+
+        // S3 URL 取得
+        $image_url = Storage::disk('s3')->url($path);
+        $restaurant['image_url'] = $image_url;
 
         Restaurant::updateRestaurant($restaurant);
-        return view('management.owner');
+        return redirect('owner');
     }
 
     public function destroy(Request $request)
