@@ -91,6 +91,7 @@ class Restaurant extends Model
         });
     }
 
+    // レストラン情報更新
     public static function updateRestaurant($restaurant)
     {
         DB::transaction(function() use($restaurant) {
@@ -98,7 +99,7 @@ class Restaurant extends Model
                 ->update([
                     'name' => $restaurant['name'],
                     'description' => $restaurant['description'],
-                    // 'image_url' => $restaurant['image_url'],
+                    'image_url' => $restaurant['image_url'],
                     'area_id' => $restaurant['area_id'],
                     'category_id' => $restaurant['category_id'],
                 ]);
