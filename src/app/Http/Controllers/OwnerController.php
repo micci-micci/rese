@@ -67,4 +67,13 @@ class OwnerController extends Controller
 
         return redirect('owner');
     }
+
+    public function reservation()
+    {
+        $id = Auth::id();
+        $reservations = Reservation::getReservation($id);
+
+        return view('management.reservation')
+            ->with(['reservations' => $reservations]);
+    }
 }

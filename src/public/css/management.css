@@ -317,3 +317,36 @@ select.owner-modal-select-box {
     transition: all 0.5s;
     width: 200px;
 }
+
+/* Reservation table */
+.owner-reservation-table {
+    width:100%;
+    border-collapse: separate;
+    border: none;
+    border-spacing: 0px 5px ;
+}
+.owner-reservation-table tbody td {
+    text-align: center;
+}
+.owner-reservation-table thead th {
+    color: #FFF;
+    font-weight: bold;
+    background:#1E90FF;
+    text-align: center;
+}
+/* 上部ヘッダーの丸み */
+.owner-reservation-table thead th:nth-child(1) {
+    border-radius: 10px 0 0 0;
+}
+.owner-reservation-table thead th:last-child  {
+    border-radius: 0 10px  0 0;
+}
+.owner-reservation-table tr td {
+    background: #f5f5f5;
+}
+.owner-reservation-table tr {
+    color:#666;
+    font-weight: bold;
+    line-height:2.5em;
+    text-align:right;
+}

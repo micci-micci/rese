@@ -32,11 +32,18 @@ class Reservation extends Model
     {
         return Reservation::where('user_id', $id)->get();
     }
+    
     // 対象レストランの予約情報取得
-    public static function getRestaurantid($id)
+    public static function getReservation($id)
     {
-        // dd(Reservation::where('restaurant_id', $restaurant_id)->get());
-        return Reservation::where('user_id', $id)->get();
+        // 所有レストランの抽出
+        $sub_query = Restaurant::select('id AS rs_id', 'user_id AS rs_user_id')
+            ->where("user_id", $id)
+            ->toSql();
+
+        // 所有レストランの予約情報の抽出
+        return $reservations = Reservation::JoinSub($sub_query, 'rs', 'reservations.restaurant_id', 'rs.rs_id')
+        ->setBindings(["user_id"=>$id])->get();
     }
 
     // 予約登録

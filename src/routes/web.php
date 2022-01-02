@@ -83,4 +83,6 @@ Route::group(['middleware' => ['auth', 'can:isOwner']], function() {
         -> name('owner.update');
     Route::post('owner/destroy', [OwnerController::class, 'destroy'])
         -> name('owner.destroy');
+    Route::get('owner/reservation', [OwnerController::class, 'reservation'])
+        -> name('owner.reservation');
 });
