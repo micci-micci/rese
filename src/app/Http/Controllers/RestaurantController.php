@@ -10,6 +10,7 @@ use App\Models\Favorite;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
+use Log;
 
 class RestaurantController extends Controller
 {
@@ -48,6 +49,13 @@ class RestaurantController extends Controller
         $param = [
             'favorites_count' => $favorites_count,
         ];
+
+        return response()->json($param);
+    }
+
+    public function restaurantSearch(Request $request)
+    {
+        $param = Restaurant::oneSearch($request);
 
         return response()->json($param);
     }

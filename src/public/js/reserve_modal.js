@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/modal.js":
-/*!*******************************!*\
-  !*** ./resources/js/modal.js ***!
-  \*******************************/
+/***/ "./resources/js/reserve_modal.js":
+/*!***************************************!*\
+  !*** ./resources/js/reserve_modal.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("/* provided dependency */ var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(function () {\n  $('.js-modal-open').on('click', function () {\n    var target = $(this).data('target');\n    var modal = document.getElementById(target);\n    var id = $(this).data('id');\n    console.log(id);\n    $(modal).fadeIn();\n    $(modal).find('.modal-delete-val').val(id); //user_id をInput に渡す\n\n    return false;\n  });\n  $('.js-modal-close').on('click', function () {\n    $('.js-modal').fadeOut();\n    return false;\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvbW9kYWwuanMuanMiLCJtYXBwaW5ncyI6IjtBQUFBQSxDQUFDLENBQUMsWUFDRjtBQUNJQSxFQUFBQSxDQUFDLENBQUMsZ0JBQUQsQ0FBRCxDQUFvQkMsRUFBcEIsQ0FBdUIsT0FBdkIsRUFBZ0MsWUFDaEM7QUFDSSxRQUFJQyxNQUFNLEdBQUdGLENBQUMsQ0FBQyxJQUFELENBQUQsQ0FBUUcsSUFBUixDQUFhLFFBQWIsQ0FBYjtBQUNBLFFBQUlDLEtBQUssR0FBR0MsUUFBUSxDQUFDQyxjQUFULENBQXdCSixNQUF4QixDQUFaO0FBQ0EsUUFBSUssRUFBRSxHQUFHUCxDQUFDLENBQUMsSUFBRCxDQUFELENBQVFHLElBQVIsQ0FBYSxJQUFiLENBQVQ7QUFDQUssSUFBQUEsT0FBTyxDQUFDQyxHQUFSLENBQVlGLEVBQVo7QUFDQVAsSUFBQUEsQ0FBQyxDQUFDSSxLQUFELENBQUQsQ0FBU00sTUFBVDtBQUNBVixJQUFBQSxDQUFDLENBQUNJLEtBQUQsQ0FBRCxDQUFTTyxJQUFULENBQWMsbUJBQWQsRUFBbUNDLEdBQW5DLENBQXVDTCxFQUF2QyxFQU5KLENBTStDOztBQUMzQyxXQUFPLEtBQVA7QUFDSCxHQVREO0FBVUFQLEVBQUFBLENBQUMsQ0FBQyxpQkFBRCxDQUFELENBQXFCQyxFQUFyQixDQUF3QixPQUF4QixFQUFpQyxZQUNqQztBQUNJRCxJQUFBQSxDQUFDLENBQUMsV0FBRCxDQUFELENBQWVhLE9BQWY7QUFDQSxXQUFPLEtBQVA7QUFDSCxHQUpEO0FBS0gsQ0FqQkEsQ0FBRCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9qcy9tb2RhbC5qcz9jMjc0Il0sInNvdXJjZXNDb250ZW50IjpbIiQoZnVuY3Rpb24gKClcbntcbiAgICAkKCcuanMtbW9kYWwtb3BlbicpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgIGxldCB0YXJnZXQgPSAkKHRoaXMpLmRhdGEoJ3RhcmdldCcpO1xuICAgICAgICBsZXQgbW9kYWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCh0YXJnZXQpO1xuICAgICAgICBsZXQgaWQgPSAkKHRoaXMpLmRhdGEoJ2lkJylcbiAgICAgICAgY29uc29sZS5sb2coaWQpO1xuICAgICAgICAkKG1vZGFsKS5mYWRlSW4oKTtcbiAgICAgICAgJChtb2RhbCkuZmluZCgnLm1vZGFsLWRlbGV0ZS12YWwnKS52YWwoaWQpIC8vdXNlcl9pZCDjgpJJbnB1dCDjgavmuKHjgZlcbiAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgIH0pO1xuICAgICQoJy5qcy1tb2RhbC1jbG9zZScpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgICQoJy5qcy1tb2RhbCcpLmZhZGVPdXQoKTtcbiAgICAgICAgcmV0dXJuIGZhbHNlO1xuICAgIH0pXG59KTtcbiJdLCJuYW1lcyI6WyIkIiwib24iLCJ0YXJnZXQiLCJkYXRhIiwibW9kYWwiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwiaWQiLCJjb25zb2xlIiwibG9nIiwiZmFkZUluIiwiZmluZCIsInZhbCIsImZhZGVPdXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/modal.js\n");
+eval("/* provided dependency */ var $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(function () {\n  $('.js-reserve-modal-open').on('click', function () {\n    $('.js-reserve-modal').fadeIn();\n    return false;\n  });\n  $('.js-reserve-modal-close').on('click', function () {\n    $('.js-reserve-modal').fadeOut();\n    return false;\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvcmVzZXJ2ZV9tb2RhbC5qcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUFBLENBQUMsQ0FBQyxZQUNGO0FBQ0lBLEVBQUFBLENBQUMsQ0FBQyx3QkFBRCxDQUFELENBQTRCQyxFQUE1QixDQUErQixPQUEvQixFQUF3QyxZQUN4QztBQUNJRCxJQUFBQSxDQUFDLENBQUMsbUJBQUQsQ0FBRCxDQUF1QkUsTUFBdkI7QUFDQSxXQUFPLEtBQVA7QUFDSCxHQUpEO0FBS0FGLEVBQUFBLENBQUMsQ0FBQyx5QkFBRCxDQUFELENBQTZCQyxFQUE3QixDQUFnQyxPQUFoQyxFQUF5QyxZQUN6QztBQUNJRCxJQUFBQSxDQUFDLENBQUMsbUJBQUQsQ0FBRCxDQUF1QkcsT0FBdkI7QUFDQSxXQUFPLEtBQVA7QUFDSCxHQUpEO0FBS0gsQ0FaQSxDQUFEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL3Jlc2VydmVfbW9kYWwuanM/YzEwYSJdLCJzb3VyY2VzQ29udGVudCI6WyIkKGZ1bmN0aW9uICgpXG57XG4gICAgJCgnLmpzLXJlc2VydmUtbW9kYWwtb3BlbicpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgICQoJy5qcy1yZXNlcnZlLW1vZGFsJykuZmFkZUluKCk7XG4gICAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9KTtcbiAgICAkKCcuanMtcmVzZXJ2ZS1tb2RhbC1jbG9zZScpLm9uKCdjbGljaycsIGZ1bmN0aW9uKClcbiAgICB7XG4gICAgICAgICQoJy5qcy1yZXNlcnZlLW1vZGFsJykuZmFkZU91dCgpO1xuICAgICAgICByZXR1cm4gZmFsc2U7XG4gICAgfSlcbn0pO1xuIl0sIm5hbWVzIjpbIiQiLCJvbiIsImZhZGVJbiIsImZhZGVPdXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/reserve_modal.js\n");
 
 /***/ }),
 
@@ -60,7 +60,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/modal.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/reserve_modal.js");
 /******/ 	
 /******/ })()
 ;
