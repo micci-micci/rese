@@ -43,9 +43,8 @@
             </form>
         </div>
         <div class="owner-space"></div>
-        {{-- <button type="submit" class="owner-info-btn js-modal-open" data-target="modal03">予約確認</button> --}}
-        <div class="done-input-box">
-            <a href="{{ route('owner.reservation') }}" class="owner-info-btn">予約確認</a>
+        <div class="owner-reserve-container">
+            <a href="{{ route('owner.reservation') }}" class="owner-reserve-btn">予約確認</a>
         </div>
         <div class="owner-space"></div>
         <div class="wrap">

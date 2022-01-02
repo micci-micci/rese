@@ -32,7 +32,7 @@ class Reservation extends Model
     {
         return Reservation::where('user_id', $id)->get();
     }
-    
+
     // 対象レストランの予約情報取得
     public static function getReservation($id)
     {
@@ -43,7 +43,9 @@ class Reservation extends Model
 
         // 所有レストランの予約情報の抽出
         return $reservations = Reservation::JoinSub($sub_query, 'rs', 'reservations.restaurant_id', 'rs.rs_id')
-        ->setBindings(["user_id"=>$id])->get();
+            ->setBindings(["user_id"=>$id])
+            ->where('date', '>=', DB::raw('curdate()'))
+            ->get();
     }
 
     // 予約登録

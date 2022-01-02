@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        Done page
+        Reservation page
     </x-slot>
 
     <header>
@@ -19,6 +19,7 @@
                 </tr>
             </thead>
             @isset ($reservations)
+
             @foreach ($reservations as $reservation)
             <tbody>
                 <tr>
