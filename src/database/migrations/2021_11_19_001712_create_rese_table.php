@@ -18,8 +18,7 @@ class CreateReseTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
-            $table->tinyInteger('locked_flg')->default(0);
-            $table->integer('error_count')->unsigned()->default(0);
+            $table->tinyInteger('role')->default(0)->unsigned()->comment('2: Admin, 1: Owner, 0: User');
             $table->timestamps();
         });
 
@@ -42,6 +41,7 @@ class CreateReseTable extends Migration
             $table->string('image_url')->nullable();
             $table->foreignId('area_id');
             $table->foreignId('category_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
 

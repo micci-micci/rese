@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\OwnerController;
 
 // Register
 Route::get('register', [AuthController::class, 'showRegister'])
@@ -40,6 +42,8 @@ Route::post('reserve', [RestaurantController::class, 'reserve'])
     -> middleware('auth');
 Route::get('done', [RestaurantController::class, 'done'])
     -> name('restaurants.done');
+Route::get('restaurant_search', [RestaurantController::class, 'restaurantSearch'])
+    -> name('restaurants.search');
 
 // MyPage
 Route::group(['middleware' => ['auth']], function() {
@@ -51,8 +55,6 @@ Route::group(['middleware' => ['auth']], function() {
         -> name('mypage.destroy');
     Route::post('review', [MypageController::class, 'review'])
         -> name('mypage.review');
-    // Route::get('m', [MypageController::class, 'done'])
-    //     -> name('mypage.done');
 });
 
 
@@ -60,3 +62,27 @@ Route::group(['middleware' => ['auth']], function() {
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
     -> name('search');
+
+// Admin
+Route::group(['middleware' => ['auth', 'can:isAdmin']], function() {
+    Route::get('admin', [AdminController::class, 'show'])
+        -> name('admin');
+    Route::post('admin/update', [AdminController::class, 'update'])
+        -> name('admin.update');
+    Route::post('admin/destroy', [AdminController::class, 'destroy'])
+        -> name('admin.destroy');
+});
+
+// Owner
+Route::group(['middleware' => ['auth', 'can:isOwner']], function() {
+    Route::get('owner', [OwnerController::class, 'show'])
+        -> name('owner');
+    Route::post('owner/create', [OwnerController::class, 'create'])
+        -> name('owner.create');
+    Route::post('owner/update', [OwnerController::class, 'update'])
+        -> name('owner.update');
+    Route::post('owner/destroy', [OwnerController::class, 'destroy'])
+        -> name('owner.destroy');
+    Route::get('owner/reservation', [OwnerController::class, 'reservation'])
+        -> name('owner.reservation');
+});
