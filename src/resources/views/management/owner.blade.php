@@ -43,9 +43,13 @@
             </form>
         </div>
         <div class="owner-space"></div>
-        <button type="submit" class="owner-info-btn js-modal-open" data-target="modal03">予約確認</button>
+        {{-- <button type="submit" class="owner-info-btn js-modal-open" data-target="modal03">予約確認</button> --}}
+        <div class="done-input-box">
+            <a href="{{ route('owner.reservation') }}" class="owner-info-btn">予約確認</a>
+        </div>
         <div class="owner-space"></div>
         <div class="wrap">
+            @isset ($restaurants)
             @foreach ($restaurants as $restaurant)
             <div class="card card-radius">
                 <div class="card-header">
@@ -98,7 +102,7 @@
                                 <div class="owner-mmodal-container-btn">
                                     {{-- <label for="file" class="owner-modal-upload-btn">添付</label>
                                     <input type="file" id="file" name="image_url" class="owner-none-btn"> --}}
-                                    <input type="file" name="image_url">
+                                    <input type="file" name="image_url" id="restaurant_image_url" value="">
                                     <input id="restaurant_id" class="js-modal-update-val" type="hidden" name="id" value="">
                                     <button type="submit" class="owner-modal-update-btn">更新</button>
                                 </div>
@@ -126,6 +130,7 @@
                 </div>
             </div>
             @endforeach
+            @endisset
         </div>
     </main>
 </x-layout>
