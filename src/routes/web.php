@@ -6,6 +6,16 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\TestMailController;
+
+Auth::routes(['verify' => true]);
+
+Route::get('mail', [TestMailController::class, 'index']);
+
+// Mail authentication
+// Route::get('/email/verify', function () {
+//     return view('auth.verify-email');
+// })->middleware('auth')->name('verification.notice');
 
 // Register
 Route::get('register', [AuthController::class, 'showRegister'])
@@ -56,8 +66,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('review', [MypageController::class, 'review'])
         -> name('mypage.review');
 });
-
-
 
 // Search
 Route::post('/', [RestaurantController::class, 'search'])
