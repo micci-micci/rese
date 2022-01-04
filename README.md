@@ -28,5 +28,7 @@ $ php artisan make:seeder HogeTableSeeder
 
 ```
 $ php artisan migrate:fresh --seed
+### テスト用
+$ php artisan migrate:fresh --seed --env=testing
 ```
 
