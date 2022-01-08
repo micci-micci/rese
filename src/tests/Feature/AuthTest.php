@@ -9,11 +9,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class LoginTest extends TestCase
+class AuthTest extends TestCase
 {
     // use RefreshDatabase;
 
-    // ゲストユーザ
+    // ゲストユーザ認証チェック
     public function testGuest()
     {
         // レストラン一覧画面
@@ -46,7 +46,7 @@ class LoginTest extends TestCase
 
     }
 
-    // 登録ユーザ
+    // 登録ユーザ認証チェック
     public function testLogin()
     {
         // ユーザ作成
@@ -54,7 +54,7 @@ class LoginTest extends TestCase
             'name'=>'hoge',
             'email'=>'hoge@gmail.com',
             'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'role'=>0
+            'role' => 0
         ]);
 
         // 認証チェック
@@ -80,6 +80,65 @@ class LoginTest extends TestCase
 
         // ユーザ削除
         User::where('id', $user->id)
+        ->delete();
+    }
+
+    // ログイン失敗
+    public function testAuthError()
+    {
+        // ユーザ作成
+        $user = User::factory()->create([
+            'name'=>'hoge',
+            'email'=>'hoge@gmail.com',
+            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => 0
+        ]);
+
+        // 認証エラー
+        $response = $this
+        ->from('login')
+        ->post('login', [
+            'email' => 'hog@gmail.com',
+            'password' => 'password'
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('login');
+        // 失敗チェック
+        $this->assertGuest();
+
+        // ユーザ削除
+        User::where('id', $user->id)
+        ->delete();
+    }
+
+    // ユーザ登録
+    public function testRegister()
+    {
+        $this->assertFalse(Auth::check());
+
+        // ユーザ登録
+        $response = $this->post('thanks', [
+            'name' => 'fuga',
+            'email' => 'fuga@gmail.com',
+            'password' => 'password'
+        ]);
+
+        // // ユーザ登録チェック
+        $this->assertDatabaseHas('users', ['name' => 'fuga']);
+
+        // // ログイン
+        $response = $this->post('login', [
+            'email' => 'fuga@gmail.com',
+            'password' => 'password'
+        ]);
+
+        // // 認証チェック
+        $this->assertTrue(Auth::check());
+        $response->assertRedirect('/');
+
+        // // ユーザ削除
+        User::where('name', 'fuga')
         ->delete();
     }
 }
