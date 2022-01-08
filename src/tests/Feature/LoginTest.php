@@ -13,6 +13,40 @@ class LoginTest extends TestCase
 {
     // use RefreshDatabase;
 
+    // ゲストユーザ
+    public function testGuest()
+    {
+        // レストラン一覧画面
+        $response = $this->get(route('restaurants.index'));
+        $response->assertStatus(200);
+
+        // 管理画面
+        $response = $this->get(route('admin'));
+        $response->assertStatus(302);
+
+        // オーナー画面
+        $response = $this->get(route('owner'));
+        $response->assertStatus(302);
+
+        // マイページ画面
+        $response = $this->get(route('mypage'));
+        $response->assertStatus(302);
+
+        // レストラン詳細画面
+        $response = $this->get(route('restaurants.datail', ['id' => 1]));
+        $response->assertStatus(200);
+
+        // レストラン一覧画面
+        $response = $this->get(route('login'));
+        $response->assertStatus(200);
+
+        // レストラン一覧画面
+        $response = $this->get(route('register'));
+        $response->assertStatus(200);
+
+    }
+
+    // 登録ユーザ
     public function testLogin()
     {
         // ユーザ作成
@@ -23,26 +57,29 @@ class LoginTest extends TestCase
             'role'=>0
         ]);
 
+        // 認証チェック
         $this->assertFalse(Auth::check());
 
+        // ログイン
         $response = $this->post('login', [
             'email' => 'hoge@gmail.com',
             'password' => 'password'
         ]);
 
+        // 認証チェック
         $this->assertTrue(Auth::check());
-
         $response->assertRedirect('/');
-    }
 
-    public function testRestaurant()
-    {
-        $response = $this->get('/');
-
+        // マイページ画面
+        $response = $this->get(route('mypage'));
         $response->assertStatus(200);
 
-        $response = $this->get(route('restaurants.datail', ['id' => 1]));
-
+        // ログアウト
+        $this->post('logout');
         $response->assertStatus(200);
+
+        // ユーザ削除
+        User::where('id', $user->id)
+        ->delete();
     }
 }
