@@ -33,8 +33,9 @@ class AdminTest extends TestCase
             'role'=>2
         ]);
 
+        // ログイン
         $response = $this->post('login', [
-            'email' => 'mike@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => 'password'
         ]);
 
@@ -42,6 +43,7 @@ class AdminTest extends TestCase
         $response = $this->get(route('admin'));
         $response->assertStatus(200);
 
+        // ログアウト
         $this->post('logout');
         $response->assertStatus(200);
 
@@ -52,12 +54,18 @@ class AdminTest extends TestCase
 
     public function testOwner()
     {
-        // 権限なしのユーザを作成
         $user = User::factory()->create([
-            'name'=>'test_owner',
-            'email'=>'owner@gmail.com',
+            'name' => 'test_owner',
+            'email' => 'owner@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => 1
+        ]);
+
+        $admin_user = User::factory()->create([
+            'name'=>'test_admin',
+            'email'=>'admin@gmail.com',
             'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'role'=>1
+            'role'=>2
         ]);
 
         $response = $this->post('login', [
@@ -65,16 +73,21 @@ class AdminTest extends TestCase
             'password' => 'password'
         ]);
 
-        // 権限不足でアクセスできないことを確認
         $response = $this->get(route('admin'));
         $response->assertStatus(403);
 
-        // 権限付与
-        User::where('id', $user->id)
-        ->update([
-            'role' => 2
+        $this->post('logout');
+
+        $response = $this->post('login', [
+            'email' => 'admin@gmail.com',
+            'password' => 'password'
         ]);
 
+        // 権限付与
+        $response = $this->post(route('admin.update'), [
+            'id' => $user->id,
+            'role' => '2'
+        ]);
         $this->post('logout');
 
         $response = $this->post('login', [
@@ -82,12 +95,13 @@ class AdminTest extends TestCase
             'password' => 'password'
         ]);
 
-        // 権限付与チェック
         $response = $this->get(route('admin'));
         $response->assertStatus(200);
 
         // ユーザ削除
         User::where('id', $user->id)
+        ->delete();
+        User::where('id', $admin_user->id)
         ->delete();
     }
 }
