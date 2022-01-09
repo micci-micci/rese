@@ -55,5 +55,6 @@ jobs:
         working-directory: ./src
       - name: migrate
         run: php artisan migrate
+        working-directory: ./src
       - name: unit test
         run: ./vendor/bin/phpunit
