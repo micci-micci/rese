@@ -124,20 +124,20 @@ class AuthTest extends TestCase
             'password' => 'password'
         ]);
 
-        // // ユーザ登録チェック
+        // ユーザ登録チェック
         $this->assertDatabaseHas('users', ['name' => 'fuga']);
 
-        // // ログイン
+        //  ログイン
         $response = $this->post('login', [
             'email' => 'fuga@gmail.com',
             'password' => 'password'
         ]);
 
-        // // 認証チェック
+        // 認証チェック
         $this->assertTrue(Auth::check());
         $response->assertRedirect('/');
 
-        // // ユーザ削除
+        // ユーザ削除
         User::where('name', 'fuga')
         ->delete();
     }
