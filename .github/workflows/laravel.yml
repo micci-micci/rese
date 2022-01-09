@@ -52,6 +52,7 @@ jobs:
         working-directory: ./src
       - name: generate key
         run: php artisan key:generate --env=testing
+        working-directory: ./src
       - name: migrate
         run: php artisan migrate
       - name: unit test
