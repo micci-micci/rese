@@ -49,6 +49,7 @@ jobs:
         working-directory: ./src
       - name: composer dump autoload
         run: composer dump-autoload
+        working-directory: ./src
       - name: generate key
         run: php artisan key:generate --env=testing
       - name: migrate
