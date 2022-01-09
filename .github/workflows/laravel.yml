@@ -31,10 +31,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: path check
-        run: pwd
-      - name: path check
-        run: ls -a
       - name: cache vendor
         id: cache
         uses: actions/cache@v1
