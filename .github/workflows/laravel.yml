@@ -59,8 +59,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-        aws_bucket: ${{ secrets.AWS_BUCKET }}
+        aws-region: ap-northeast-1
       # - name: migrate
       #   run: php artisan migrate --no-interaction 
       #   working-directory: ./src
