@@ -48,7 +48,6 @@ jobs:
         working-directory: ./src
       - name: cache clear
         run: php artisan config:clear
-        run: php artisan config:cache
         working-directory: ./src
       - name: generate key
         run: php artisan key:generate --env=testing
