@@ -47,7 +47,7 @@ jobs:
         run: composer dump-autoload
         working-directory: ./src
       - name: Copy .env
-        run: cp .env.testing .env
+        run: cp .env.unittest .env
         working-directory: ./src
       - name: config clear
         run: php artisan config:clear
