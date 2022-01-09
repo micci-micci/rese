@@ -17,6 +17,7 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
+
         $user = $request->only(['id', 'role']);
 
         User::updateUser($user);
