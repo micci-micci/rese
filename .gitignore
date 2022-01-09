@@ -1,3 +1,7 @@
 .DS_Store
 .env
+<<<<<<< HEAD
+=======
+.env.testing
+>>>>>>> 98553f979615995e6583c4d7788b44dde7f828ee
 .phpunit.result.cache

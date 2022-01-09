@@ -3,8 +3,13 @@ name: UnitTest
 on:
   push:
     branches:
+<<<<<<< HEAD
       - main
       - feature*
+=======
+      - master
+      - 'feature*'
+>>>>>>> 98553f979615995e6583c4d7788b44dde7f828ee
 
 jobs:
   laravel_test:
@@ -42,6 +47,7 @@ jobs:
       - name: composer install
         if: steps.cache.outputs.cache-hit != 'true'
         run: composer install -n --prefer-dist
+<<<<<<< HEAD
         working-directory: ./src
       - name: composer dump autoload
         run: composer dump-autoload
@@ -73,3 +79,13 @@ jobs:
       - name: unit test
         run: ./vendor/bin/phpunit
         working-directory: ./src
+=======
+      - name: composer dump autoload
+        run: composer dump-autoload
+      - name: generate key
+        run: php artisan key:generate --env=testing
+      - name: migrate
+        run: php artisan migrate
+      - name: unit test
+        run: ./vendor/bin/phpunit
+>>>>>>> 98553f979615995e6583c4d7788b44dde7f828ee
