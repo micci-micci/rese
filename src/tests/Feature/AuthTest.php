@@ -8,10 +8,18 @@ use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Artisan;
 
 class AuthTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
+    }
 
     // ゲストユーザ認証チェック
     public function testGuest()
@@ -31,10 +39,6 @@ class AuthTest extends TestCase
         // マイページ画面
         $response = $this->get(route('mypage'));
         $response->assertStatus(302);
-
-        // レストラン詳細画面
-        $response = $this->get(route('restaurants.datail', ['id' => 1]));
-        $response->assertStatus(200);
 
         // レストラン一覧画面
         $response = $this->get(route('login'));
@@ -78,9 +82,6 @@ class AuthTest extends TestCase
         $this->post('logout');
         $response->assertStatus(200);
 
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
     }
 
     // ログイン失敗
@@ -106,10 +107,6 @@ class AuthTest extends TestCase
         $response->assertRedirect('login');
         // 失敗チェック
         $this->assertGuest();
-
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
     }
 
     // ユーザ登録
@@ -136,9 +133,5 @@ class AuthTest extends TestCase
         // 認証チェック
         $this->assertTrue(Auth::check());
         $response->assertRedirect('/');
-
-        // ユーザ削除
-        User::where('name', 'fuga')
-        ->delete();
     }
 }

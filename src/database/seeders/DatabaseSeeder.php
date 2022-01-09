@@ -16,10 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AreasTableSeeder::class,
             CategoriesTableSeeder::class,
-            RestaurantsTableSeeder::class,
-            UsersTableSeeder::class,
-            ReservationTableSeeder::class,
-            FavoritesTableSeeder::class,
         ]);
     }
 }
