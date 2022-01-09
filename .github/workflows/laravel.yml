@@ -57,3 +57,4 @@ jobs:
       #   working-directory: ./src
       - name: unit test
         run: ./vendor/bin/phpunit
+        working-directory: ./src
