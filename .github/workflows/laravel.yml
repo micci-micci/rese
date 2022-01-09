@@ -3,8 +3,8 @@ name: UnitTest
 on:
   push:
     branches:
-      - master
-      - 'feature*'
+      - main
+      - feature*
 
 jobs:
   laravel_test:
