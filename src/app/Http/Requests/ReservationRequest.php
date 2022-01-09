@@ -36,7 +36,6 @@ class ReservationRequest extends FormRequest
             'date.required' => '予約日を入力してください',
             'date.after' => '今日より後の日付を指定してください。',
             'time.required' => '予約時間を入力してください',
-            // 'time.after' => '日付を見直してください。',
             'number.required' => '予約人数を入力してください',
         ];
     }
