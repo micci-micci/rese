@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Artisan;
 
 class OwnerTest extends TestCase
 {
@@ -15,7 +16,14 @@ class OwnerTest extends TestCase
      *
      * @return void
      */
-    // use RefreshDatabase;
+    use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
+    }
 
     public function testOwner()
     {
@@ -75,9 +83,5 @@ class OwnerTest extends TestCase
             'id' => $user->id
         ]);
         $response->assertStatus(200);
-
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
     }
 }
