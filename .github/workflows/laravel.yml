@@ -46,6 +46,8 @@ jobs:
       - name: composer dump autoload
         run: composer dump-autoload
         working-directory: ./src
+      - name: cache clear
+        run: php artisan config:clear
       - name: generate key
         run: php artisan key:generate --env=testing
         working-directory: ./src
