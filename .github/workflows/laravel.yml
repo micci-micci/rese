@@ -48,6 +48,7 @@ jobs:
         working-directory: ./src
       - name: Copy .env
         run: cp .env.testing .env
+        working-directory: ./src
       - name: cache clear
         run: php artisan config:clear
         working-directory: ./src
