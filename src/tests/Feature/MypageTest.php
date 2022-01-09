@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Restaurant;
+use Artisan;
 
 class MypageTest extends TestCase
 {
@@ -16,9 +18,16 @@ class MypageTest extends TestCase
      * @return void
      */
 
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
-        public function testMypage()
+    public function setUp(): void
+    {
+        parent::setUp();
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
+    }
+
+    public function testMypage()
     {
         // ユーザ作成
         $user = User::factory()->create([
@@ -41,16 +50,27 @@ class MypageTest extends TestCase
         $this->assertTrue(Auth::check());
         $response->assertRedirect('/');
 
+        // レストラン登録
+        Restaurant::create([
+            'name' => 'test',
+            'user_id' => $user->id,
+            'area_id' => 13,
+            'category_id' => 1,
+            'description' => '美味しい居酒屋だよ。'
+        ]);
+
         // レストラン予約
         $response = $this
         ->from(route('restaurants.done'))
         ->post(route('restaurants.reserve'), [
             'user_id' => $user->id,
             'restaurant_id' => 1,
-            'date' => '2021-2-12',
+            'date' => '2022-2-12',
             'time' => '12:59',
             'number' => 4
         ]);
+
+        $response->assertRedirect(route('restaurants.done'));
 
         // マイページ画面
         $response = $this->get(route('mypage'));
@@ -92,8 +112,9 @@ class MypageTest extends TestCase
 
         $response->assertRedirect('mypage');
 
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
+        // レストラン詳細画面
+        $response = $this->get(route('restaurants.datail', ['id' => 1]));
+        $response->assertStatus(200);
+
     }
 }
