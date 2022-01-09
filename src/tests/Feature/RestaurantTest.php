@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Artisan;
 
 class RestaurantTest extends TestCase
 {
@@ -16,7 +17,14 @@ class RestaurantTest extends TestCase
      * @return void
      */
 
-    // use RefreshDatabase;
+    public function setUp(): void
+    {
+        parent::setUp();
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
+    }
+
+    use RefreshDatabase;
 
     public function testReserve()
     {
@@ -49,15 +57,11 @@ class RestaurantTest extends TestCase
         ]);
 
         $response->assertStatus(302);
-        $response->assertRedirect('login');
+        $response->assertRedirect(route('restaurants.done'));
 
         $response->assertRedirect('done');
 
         // 予約登録チェック
         $this->assertDatabaseHas('reservations', ['user_id' => $user->id]);
-
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
     }
 }

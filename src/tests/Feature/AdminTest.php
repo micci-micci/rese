@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Artisan;
 
 class AdminTest extends TestCase
 {
@@ -16,14 +17,13 @@ class AdminTest extends TestCase
      * @return void
      */
 
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
-    public function testGuest()
+    public function setUp(): void
     {
-        // ゲストユーザでログイン
-        $response = $this->get(route('admin'));
-
-        $response->assertStatus(302);
+        parent::setUp();
+        Artisan::call('migrate:refresh');
+        Artisan::call('db:seed');
     }
 
     public function testAdmin()
@@ -49,10 +49,6 @@ class AdminTest extends TestCase
         // ログアウト
         $this->post('logout');
         $response->assertStatus(200);
-
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
     }
 
     public function testOwner()
@@ -100,11 +96,5 @@ class AdminTest extends TestCase
 
         $response = $this->get(route('admin'));
         $response->assertStatus(200);
-
-        // ユーザ削除
-        User::where('id', $user->id)
-        ->delete();
-        User::where('id', $admin_user->id)
-        ->delete();
     }
 }
