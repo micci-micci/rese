@@ -49,8 +49,11 @@ jobs:
       - name: Copy .env
         run: cp .env.testing .env
         working-directory: ./src
-      - name: cache clear
+      - name: config clear
         run: php artisan config:clear
+        working-directory: ./src
+      - name: cache clear
+        run: php artisan config:cache
         working-directory: ./src
       - name: generate key
         run: php artisan key:generate
