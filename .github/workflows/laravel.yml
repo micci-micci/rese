@@ -3,8 +3,13 @@ name: UnitTest
 on:
   push:
     branches:
+<<<<<<< HEAD
+      - main
+      - feature*
+=======
       - master
       - 'feature*'
+>>>>>>> 98553f979615995e6583c4d7788b44dde7f828ee
 
 jobs:
   laravel_test:
@@ -42,6 +47,39 @@ jobs:
       - name: composer install
         if: steps.cache.outputs.cache-hit != 'true'
         run: composer install -n --prefer-dist
+<<<<<<< HEAD
+        working-directory: ./src
+      - name: composer dump autoload
+        run: composer dump-autoload
+        working-directory: ./src
+      - name: Copy .env
+        run: cp .env.unittest .env
+        working-directory: ./src
+      - name: generate key
+        run: php artisan key:generate
+        working-directory: ./src
+      - name: config clear
+        run: php artisan config:clear
+        working-directory: ./src
+      - name: cache clear
+        run: php artisan config:cache
+        working-directory: ./src
+      - name: check .env
+        run: cat .env
+        working-directory: ./src
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      # - name: migrate
+      #   run: php artisan migrate --no-interaction 
+      #   working-directory: ./src
+      - name: unit test
+        run: ./vendor/bin/phpunit
+        working-directory: ./src
+=======
       - name: composer dump autoload
         run: composer dump-autoload
       - name: generate key
@@ -50,3 +88,4 @@ jobs:
         run: php artisan migrate
       - name: unit test
         run: ./vendor/bin/phpunit
+>>>>>>> 98553f979615995e6583c4d7788b44dde7f828ee
