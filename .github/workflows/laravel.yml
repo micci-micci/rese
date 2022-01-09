@@ -55,6 +55,9 @@ jobs:
       - name: cache clear
         run: php artisan config:cache
         working-directory: ./src
+      - name: check .env
+        run: cat .env
+        working-directory: ./src        
       - name: generate key
         run: php artisan key:generate
         working-directory: ./src
