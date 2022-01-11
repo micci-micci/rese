@@ -1,3 +1,6 @@
+# 環境構築方法
+
+
 # コマンド一覧
 
 ### プロジェクト作成
@@ -29,4 +32,5 @@ $ php artisan make:seeder HogeTableSeeder
 ```
 $ php artisan migrate:fresh --seed
 ```
+
 
