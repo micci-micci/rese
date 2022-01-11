@@ -20,17 +20,5 @@ class UsersTableSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'role' => '2'
         ]);
-        DB::table('users')->insert([
-            'name' => "test",
-            'email' => 'test@gmail.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'role' => '1'
-        ]);
-        DB::table('users')->insert([
-            'name' => "test01",
-            'email' => 'test01@gmail.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'role' => '0'
-        ]);
     }
 }
