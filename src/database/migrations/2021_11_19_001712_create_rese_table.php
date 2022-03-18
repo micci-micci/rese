@@ -19,6 +19,7 @@ class CreateReseTable extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->tinyInteger('role')->default(0)->unsigned()->comment('2: Admin, 1: Owner, 0: User');
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
 
